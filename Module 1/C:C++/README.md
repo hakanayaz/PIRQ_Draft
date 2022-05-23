@@ -43,41 +43,42 @@ First phase of a compiler is Lexical analysis. Lexical anaylsis reads the progra
 ``` c
  % clang -c -Xclang -dump-tokens f.c
 
-long 			'long'	 			[StartOfLine]	Loc=<f.c:1:1>
+long 			'long'	 			[StartOfLine]		Loc=<f.c:1:1>
 identifier 		'f'	 				[LeadingSpace]	Loc=<f.c:1:6>
-l_paren 		'('									Loc=<f.c:1:7>
+l_paren 			'('									Loc=<f.c:1:7>
 long 			'long'								Loc=<f.c:1:8>
 identifier 		'a'	 				[LeadingSpace]	Loc=<f.c:1:13>
 comma 			','									Loc=<f.c:1:14>
 long 			'long'	 			[LeadingSpace]	Loc=<f.c:1:16>
 identifier 		'b'	 				[LeadingSpace]	Loc=<f.c:1:21>
-r_paren 		')'									Loc=<f.c:1:22>
-l_brace 		'{'	 				[LeadingSpace]	Loc=<f.c:1:24>
-long 			'long'[StartOfLine] [LeadingSpace]	Loc=<f.c:2:3>
+r_paren 			')'									Loc=<f.c:1:22>
+l_brace 			'{'	 				[LeadingSpace]	Loc=<f.c:1:24>
+long 			'long'	[StartOfLine] [LeadingSpace]	Loc=<f.c:2:3>
 identifier 		'x'	 				[LeadingSpace]	Loc=<f.c:2:8>
 equal 			'='	 				[LeadingSpace]	Loc=<f.c:2:10>
 identifier 		'a'	 				[LeadingSpace]	Loc=<f.c:2:12>
 semi 			';'									Loc=<f.c:2:13>
-if 				'if'[StartOfLine]	[LeadingSpace]	Loc=<f.c:3:3>
-l_paren 		'('	 				[LeadingSpace]	Loc=<f.c:3:6>
+if 				'if'		[StartOfLine]	[LeadingSpace]	Loc=<f.c:3:3>
+l_paren 			'('	 				[LeadingSpace]	Loc=<f.c:3:6>
 identifier 		'a'									Loc=<f.c:3:7>
-greater 		'>'	 				[LeadingSpace]	Loc=<f.c:3:9>
+greater 			'>'	 				[LeadingSpace]	Loc=<f.c:3:9>
 identifier 		'b'	 				[LeadingSpace]	Loc=<f.c:3:11>
-r_paren 		')'									Loc=<f.c:3:12>
-identifier 		'x'	[StartOfLine]   [LeadingSpace]	Loc=<f.c:4:5>
-plusequal 		'+='	 			[LeadingSpace]	Loc=<f.c:4:7>
-numeric_constant '20'	 			[LeadingSpace]	Loc=<f.c:4:10>
+r_paren 			')'									Loc=<f.c:3:12>
+identifier 		'x'		[StartOfLine] [LeadingSpace]	Loc=<f.c:4:5>
+plusequal 		'+='	 				[LeadingSpace]	Loc=<f.c:4:7>
+numeric_constant 	'20'	 				[LeadingSpace]	Loc=<f.c:4:10>
 semi 			';'									Loc=<f.c:4:12>
-else 			'else'[StartOfLine]	[LeadingSpace]	Loc=<f.c:5:3>
-identifier 		'x'   [StartOfLine]	[LeadingSpace]	Loc=<f.c:6:5>
-plusequal 		'+='	 			[LeadingSpace]	Loc=<f.c:6:7>
+else 			'else'	[StartOfLine]	[LeadingSpace]	Loc=<f.c:5:3>
+identifier 		'x'		[StartOfLine]	[LeadingSpace]	Loc=<f.c:6:5>
+plusequal 		'+='	 				[LeadingSpace]	Loc=<f.c:6:7>
 identifier 		'b'	 				[LeadingSpace]	Loc=<f.c:6:10>
 semi 			';'									Loc=<f.c:6:11>
-return 			'return'[StartOfLine][LeadingSpace]	Loc=<f.c:7:3>
+return 			'return'	[StartOfLine]	[LeadingSpace]	Loc=<f.c:7:3>
 identifier 		'x'	 				[LeadingSpace]	Loc=<f.c:7:10>
 semi 			';'									Loc=<f.c:7:11>
-r_brace 		'}'		[StartOfLine]				Loc=<f.c:8:1>
-eof 			 ''							        Loc=<f.c:8:2>
+r_brace 			'}'		[StartOfLine]					Loc=<f.c:8:1>
+eof 			 ''							Loc=<f.c:8:2>
+
 ```
 
 As seen in the results
