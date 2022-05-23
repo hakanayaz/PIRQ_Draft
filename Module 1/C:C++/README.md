@@ -78,7 +78,6 @@ identifier 		'x'	 				[LeadingSpace]	Loc=<f.c:7:10>
 semi 			';'									Loc=<f.c:7:11>
 r_brace 		'}'		[StartOfLine]				Loc=<f.c:8:1>
 eof 			 ''							        Loc=<f.c:8:2>
-
 ```
 
-As seen
+As seen in the results
