@@ -17,6 +17,6 @@ Phases of compiler has some steps until target machine code which are:
 + Sematic Analyzer (syntax tree)
 + Intermadiate Code Generator (IR representation)
 + Machine-Independent Code Optimizer (IR representation)
-+ Code Generator (target machine code)
++ Code Generator (target-machine code)
 + Machine-Dependent Code Optimizer (target-machine code)
 
