@@ -341,7 +341,7 @@ c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", i8* bitcast (i32 (i64**)*
 define internal void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17h7626e6c260f4ea55E(void ()* %f) 
 unnamed_addr #0 personality i32 (i32, i32, i64, %"unwind::libunwind::_Unwind_Exception"*, 
 %"unwind::libunwind::_Unwind_Context"*)* @rust_eh_personality {
-    
+
 start:
   %0 = alloca { i8*, i32 }, align 8
 ; call core::ops::function::FnOnce::call_once
@@ -381,3 +381,4 @@ bb4:                                              ; preds = %bb3
 }
 ```
 
+As seen in the output of the rust LLVM IR result is similar with the C/C++ and Python IR result and we will get the same results.
