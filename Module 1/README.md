@@ -21,4 +21,3 @@ Phases of compiler has some steps until target machine code which are:
 + Machine-Dependent Code Optimizer (target-machine code)
 
 Our goal in Module 1 is using different languages and creating same IR representation.
-

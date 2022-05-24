@@ -165,7 +165,13 @@ define i64 @f(i64 %0, i64 %1) #0 {      ; %0 -> a & %1 -> b %0 define as an "a" 
   ret i64 %18
 }
 
-attributes #0 = { noinline nounwind optnone ssp uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="apple-m1" "target-features"="+aes,+crc,+crypto,+dotprod,+fp-armv8,+fp16fml,+fullfp16,+lse,+neon,+ras,+rcpc,+rdm,+sha2,+v8.5a,+zcm,+zcz" }
+attributes #0 = { noinline nounwind optnone ssp uwtable 
+"frame-pointer"="non-leaf" "min-legal-vector-width"="0" 
+"no-trapping-math"="true" "stack-protector-buffer-size"="8" 
+"target-cpu"="apple-m1" "target-features"="+aes,+crc,+crypto,+dotprod,
++fp-armv8,+fp16fml,+fullfp16,+lse,+neon,+ras,+rcpc,+rdm,+sha2,+v8.5a,
++zcm,+zcz" }
+
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 !llvm.ident = !{!8}
@@ -193,3 +199,9 @@ Target datalayout starts with the "e" which is "Little Endian" then "m:o" which 
 Target triple information starts with the architecture "arm64", then Vendor "apple", then system "macosx12.0.0".
 
 In the IR representation semicolons ";" are using for the comment and "i64" means long data type and same logic "i32" represents the integer data type. Another important outcome is the numbers at the code for example "10" defined as a if.then boolen operator, "13" defined as a "if.else" operator, and "17" defined as a "if.end" operator.
+
+# Extra Source
+
+To be able to build IR there are some web pages that will do it automatically which could be usefull while learning and trying new things here is one example:
+
+[Compiler Explorer](https://godbolt.org/)
