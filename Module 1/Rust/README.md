@@ -20,7 +20,7 @@ If you want to build and Install Cargo from Source you can use this link. [build
 
 # Compilation Phases at Rust
 
-Rust has several steps while passing through compilation process. 
+Rust has several steps while passing through compilation process. Different then the C/C++ part. Recently (2016), rust change the internal dynamics of their compiler pipeline. Previously there were only high intermadiate step between rust source to LLVM IR now there is two more middle step betweeen rust code and LLVM IR which are Typed High-Leve Intermediate Representation (THIR), and Middle Intermediate Representation (MIR). Now we will look through all these steps one by one.
 
 ## High-Level Intermadiate Representation (HIR)
 
@@ -303,3 +303,71 @@ subgraph cluster_Mir_0_4 {
 }
 }
 ```
+
+As a result of the `mir` step, the compilation process at rust gets more efficient data structures and removes the redundant work in the compiler. These advantages create speed up in the process. Besides compilation time, execution time, and better type checking process, `mir` has substantial engineering benefits for the compiler, like eliminating redundancy and raising ambitions.
+
+## Intermediate Representation (IR)
+
+For the IR step at the rust we will use:
+
+```Rust
+rustc --emit=llvm-ir f.rs 
+```
+
+This will give us a human readable version (.ll).
+
+IR of the rust code is:
+
+```Rust
+; ModuleID = 'f.d34e0ba0-cgu.0'
+source_filename = "f.d34e0ba0-cgu.0"
+target datalayout = "e-m:o-i64:64-i128:128-n32:64-S128"
+target triple = "arm64-apple-macosx11.0.0"
+
+%"unwind::libunwind::_Unwind_Exception" = type { i64, void (i32, %"unwind::libunwind::_Unwind_Exception"*)*, [2 x i64] }
+%"unwind::libunwind::_Unwind_Context" = type { [0 x i8] }
+
+@vtable.0 = private unnamed_addr constant <{ i8*, [16 x i8], i8*, i8*, i8* }> <{ i8* bitcast (void (i64**)* @"_ZN4core3ptr85drop_in_place$LT$std..rt..lang_start$LT$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3e7a220d11daafe6E" to i8*), [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", i8* bitcast (i32 (i64**)* @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h57a1689ea292a1a0E" to i8*), i8* bitcast (i32 (i64**)* @"_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h27323f255732644bE" to i8*), i8* bitcast (i32 (i64**)* @"_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h27323f255732644bE" to i8*) }>, align 8
+
+; std::sys_common::backtrace::__rust_begin_short_backtrace
+; Function Attrs: noinline uwtable
+define internal void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17h7626e6c260f4ea55E(void ()* %f) unnamed_addr #0 personality i32 (i32, i32, i64, %"unwind::libunwind::_Unwind_Exception"*, %"unwind::libunwind::_Unwind_Context"*)* @rust_eh_personality {
+start:
+  %0 = alloca { i8*, i32 }, align 8
+; call core::ops::function::FnOnce::call_once
+  call void @_ZN4core3ops8function6FnOnce9call_once17ha186400c020952cdE(void ()* %f)
+  br label %bb1
+
+bb1:                                              ; preds = %start
+; invoke core::hint::black_box
+  invoke void @_ZN4core4hint9black_box17h31e9a5a347357958E()
+          to label %bb2 unwind label %cleanup
+
+bb3:                                              ; preds = %cleanup
+  br label %bb4
+
+cleanup:                                          ; preds = %bb1
+  %1 = landingpad { i8*, i32 }
+          cleanup
+  %2 = extractvalue { i8*, i32 } %1, 0
+  %3 = extractvalue { i8*, i32 } %1, 1
+  %4 = getelementptr inbounds { i8*, i32 }, { i8*, i32 }* %0, i32 0, i32 0
+  store i8* %2, i8** %4, align 8
+  %5 = getelementptr inbounds { i8*, i32 }, { i8*, i32 }* %0, i32 0, i32 1
+  store i32 %3, i32* %5, align 8
+  br label %bb3
+
+bb2:                                              ; preds = %bb1
+  ret void
+
+bb4:                                              ; preds = %bb3
+  %6 = bitcast { i8*, i32 }* %0 to i8**
+  %7 = load i8*, i8** %6, align 8
+  %8 = getelementptr inbounds { i8*, i32 }, { i8*, i32 }* %0, i32 0, i32 1
+  %9 = load i32, i32* %8, align 8
+  %10 = insertvalue { i8*, i32 } undef, i8* %7, 0
+  %11 = insertvalue { i8*, i32 } %10, i32 %9, 1
+  resume { i8*, i32 } %11
+}
+```
+
