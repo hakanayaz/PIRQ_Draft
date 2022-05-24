@@ -14,4 +14,4 @@ Main objective is create open-source compilation process tutorials. This tutoria
 
 **Module 3** -> Hybrit (Classical & Quantum) computers intermadiate representations tutorials and explanations
 
-**Module 4** -> Creating an example compiler for Quantum Computer
+**Module 4** -> Creating a full stack Quantum computing system example

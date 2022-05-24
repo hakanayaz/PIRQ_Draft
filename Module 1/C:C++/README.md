@@ -125,7 +125,7 @@ Next step is the intermediate representation step. In this step main goal is cre
 
 To be able to do this we will use `clang` again.
 
-``` c
+``` C
  % clang -S -emit-llvm f.c -o f.ll
 
 ; ModuleID = 'f.ll'
@@ -134,22 +134,22 @@ target datalayout = "e-m:o-i64:64-i128:128-n32:64-S128"
 target triple = "arm64-apple-macosx12.0.0"
 
 ; Function Attrs: noinline nounwind optnone ssp uwtable
-define i64 @f(i64 %0, i64 %1) #0 {      ; %0 -> a & %1 -> b
+define i64 @f(i64 %0, i64 %1) #0 {      ; %0 -> a & %1 -> b %0 define as an "a" value
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8              ; i64 -> Long
   %5 = alloca i64, align 8              ; i32 -> Int
-  store i64 %0, i64* %3, align 8
+  store i64 %0, i64* %3, align 8        ; %3 information is stored at %0
   store i64 %1, i64* %4, align 8
-  %6 = load i64, i64* %3, align 8
-  store i64 %6, i64* %5, align 8
+  %6 = load i64, i64* %3, align 8       ; %6 information is stored at %3
+  store i64 %6, i64* %5, align 8        ; %5 information is stored at %6
   %7 = load i64, i64* %3, align 8
   %8 = load i64, i64* %4, align 8
   %9 = icmp sgt i64 %7, %8
   br i1 %9, label %10, label %13
 
 10:	; if.then                           ; preds = %2
-  %11 = load i64, i64* %5, align 8
-  %12 = add nsw i64 %11, 20             ; %11 -> a
+  %11 = load i64, i64* %5, align 8      ; %11 stores the %5 information
+  %12 = add nsw i64 %11, 20             ; %11 -> a 
   store i64 %12, i64* %5, align 8
   br label %17
 
@@ -181,4 +181,15 @@ attributes #0 = { noinline nounwind optnone ssp uwtable "frame-pointer"="non-lea
 !8 = !{!"Homebrew clang version 13.0.1"}
 ```
 
-As seen in the results 
+As seen in the results IR module starts with a pair of strings describing the target which are target data layout and target triple.
+
+```C
+target datalayout = "e-m:o-i64:64-i128:128-n32:64-S128"
+target triple = "arm64-apple-macosx12.0.0"
+```
+
+Target datalayout starts with the "e" which is "Little Endian" then "m:o" which is ELF mangling then ABI alignment of i64 with "i64:64" then final information at the data layout is the native intiger widths "n32:64".
+
+Target triple information starts with the architecture "arm64", then Vendor "apple", then system "macosx12.0.0".
+
+In the IR representation semicolons ";" are using for the comment and "i64" means long data type and same logic "i32" represents the integer data type. Another important outcome is the numbers at the code for example "10" defined as a if.then boolen operator, "13" defined as a "if.else" operator, and "17" defined as a "if.end" operator.
