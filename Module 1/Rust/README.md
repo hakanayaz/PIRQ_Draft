@@ -327,11 +327,21 @@ target triple = "arm64-apple-macosx11.0.0"
 %"unwind::libunwind::_Unwind_Exception" = type { i64, void (i32, %"unwind::libunwind::_Unwind_Exception"*)*, [2 x i64] }
 %"unwind::libunwind::_Unwind_Context" = type { [0 x i8] }
 
-@vtable.0 = private unnamed_addr constant <{ i8*, [16 x i8], i8*, i8*, i8* }> <{ i8* bitcast (void (i64**)* @"_ZN4core3ptr85drop_in_place$LT$std..rt..lang_start$LT$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3e7a220d11daafe6E" to i8*), [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", i8* bitcast (i32 (i64**)* @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h57a1689ea292a1a0E" to i8*), i8* bitcast (i32 (i64**)* @"_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h27323f255732644bE" to i8*), i8* bitcast (i32 (i64**)* @"_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h27323f255732644bE" to i8*) }>, align 8
+@vtable.0 = private unnamed_addr constant <{ i8*, [16 x i8], i8*, i8*, i8* }> <{ i8* bitcast (void (i64**)* 
+@"_ZN4core3ptr85drop_in_place$LT$std..rt..lang_start$LT$$LP$$RP$$GT$..
+$u7b$$u7b$closure$u7d$$u7d$$GT$17h3e7a220d11daafe6E" to i8*), [16 x i8] 
+c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", i8* bitcast (i32 (i64**)* 
+@"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h57a1689ea292a1a0E" to i8*), i8* bitcast (i32
+ (i64**)* @"_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h27323f255732644bE" to i8*), i8* bitcast (i32 (i64**)* 
+ @"_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h27323f255732644bE" to i8*) }>, align 8
+
 
 ; std::sys_common::backtrace::__rust_begin_short_backtrace
 ; Function Attrs: noinline uwtable
-define internal void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17h7626e6c260f4ea55E(void ()* %f) unnamed_addr #0 personality i32 (i32, i32, i64, %"unwind::libunwind::_Unwind_Exception"*, %"unwind::libunwind::_Unwind_Context"*)* @rust_eh_personality {
+define internal void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17h7626e6c260f4ea55E(void ()* %f) 
+unnamed_addr #0 personality i32 (i32, i32, i64, %"unwind::libunwind::_Unwind_Exception"*, 
+%"unwind::libunwind::_Unwind_Context"*)* @rust_eh_personality {
+    
 start:
   %0 = alloca { i8*, i32 }, align 8
 ; call core::ops::function::FnOnce::call_once
