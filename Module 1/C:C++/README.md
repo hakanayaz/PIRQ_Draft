@@ -1,6 +1,6 @@
 # C/C++ IR Tutorials
 
-In this tutorials we will start with an example code and create IR steps with using LLVM. As a final document we will create .ll file.
+These tutorials will start with an example code and create IR steps using LLVM. As a final document, we will create a .ll file.
 
 **Before start please install the LLVM on your computer.**
 
@@ -18,7 +18,7 @@ long f(long a, long b) {
 }
 ```
 
-First, we will show what are the phaseses until compilation. For this step we will use `clang` commend:
+First, we will show what are the phases until compilation. For this step, we will use `clang` commend:
 
 ``` c
  % clang -ccc-print-phases f.c
@@ -38,7 +38,7 @@ As we mentioned in Module 1 phases of the compiler first phase of the compiler i
 
 ## Lexical Analysis
 
-First phase of a compiler is Lexical analysis. Lexical anaylsis reads the program and divide into groups and characters to create lexemes which are called tokens as an output. While using `clang` commend we can create tokens for the example code (f.c).
+The first phase of a compiler is Lexical analysis. Lexical analysis reads the program and divides it into groups and characters to create lexemes called tokens as an output. While using `clang` commend, we can create tokens for the example code (f.c).
 
 ``` c
  % clang -c -Xclang -dump-tokens f.c
@@ -81,11 +81,11 @@ eof             ''                                          Loc=<f.c:8:2>
 
 ```
 
-As seen in the results whole code is represented as a token. Lexical analysis reads line by line and gives information about the start of the line, the leading space in the code, and where it is located in which token. If the lexical analysis finds an invalid token, it generates an error. After lexical analysis, the code removes any white space and comments. After creating the tokens next step of the compiler, which is developing the abstract syntax tree, will be quickly built. 
+As seen in the results whole code is represented as a token. Lexical analysis reads line by line and gives information about the start of the line, the leading space in the code, and where it is located in which token. If the lexical analysis finds an invalid token, it generates an error. After lexical analysis, the code removes any white space and comments. After creating the tokens next step of the compiler, which is developing the abstract syntax tree, will be quickly built.
 
 ## Creating Abstract Syntax Tree
 
-While creating abstract syntax tree (AST) we use our list of tokens. AST does not include inessential punctuations and delimiters like semicolons, braces, parantheses etc. To create AST we will use `clang` again:
+We use our list of tokens while creating an abstract syntax tree (AST). AST does not include inessential punctuations and delimiters like semicolons, braces, parentheses, etc. To create AST, we will use `clang` again:
 
 ``` c
  % clang -c -Xclang -ast-dump f.c
@@ -119,9 +119,9 @@ While creating abstract syntax tree (AST) we use our list of tokens. AST does no
 
 After creating the AST, the results are pretty intuitive to understand. For example, the top-level declaration is the function declaration because we start our code by defining the function. Then parameter and variable declarations come, and every line of code contains information about the location and the token.
 
-# Intermediate Representation
+## Intermediate Representation
 
-Next step is the intermediate representation step. In this step main goal is creating human readable file (.ll) creation. An intermediate representation (IR) is the data structure or code used internally by a compiler or virtual machine to represent source code. IR is a abstract machine language code, gives operation of target machine (not specific to any particular machine) and independent of source language. In module one our goal is using different languages but creating the same IR file.
+The next step is the intermediate representation step. This step's primary goal is to create a human-readable file (.ll). An intermediate representation (IR) is the data structure or code used internally by a compiler or virtual machine to represent source code. IR is an abstract machine language code that gives the operation of the target machine (not specific to any particular machine) and is independent of the source language. In module one, we aim to use different languages but create the same IR file.
 
 To be able to do this we will use `clang` again.
 
@@ -187,7 +187,7 @@ attributes #0 = { noinline nounwind optnone ssp uwtable
 !8 = !{!"Homebrew clang version 13.0.1"}
 ```
 
-As seen in the results IR module starts with a pair of strings describing the target which are target data layout and target triple.
+As seen in the results, the IR module starts with a pair of strings describing the target: the target data layout and target triple.
 
 ```C
 target datalayout = "e-m:o-i64:64-i128:128-n32:64-S128"
@@ -200,8 +200,8 @@ Target triple information starts with the architecture "arm64", then Vendor "app
 
 In the IR representation semicolons ";" are using for the comment and "i64" means long data type and same logic "i32" represents the integer data type. Another important outcome is the numbers at the code for example "10" defined as a if.then boolen operator, "13" defined as a "if.else" operator, and "17" defined as a "if.end" operator.
 
-# Extra Source
+## Extra Source
 
-To be able to build IR there are some web pages that will do it automatically which could be usefull while learning and trying new things here is one example:
+To be able to build IR, some web pages will do it automatically, which could be helpful while learning and trying new things. Here is one example:
 
-[Compiler Explorer](https://godbolt.org/)
++ [Compiler Explorer](https://godbolt.org/)
