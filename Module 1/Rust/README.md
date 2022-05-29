@@ -1,19 +1,23 @@
 # Rust IR Tutorials
 
-In this tutorial we will build an IR using the same function that we used at C/C++ part via rust programming languages. Then we will compare the results.
+In this tutorial we will build an IR using the same function that we used at C/C++ part via rust programming languages.
 
 ## Installation
 
 Easiest way of installing Rust and Cargo is using this command below given:
 
 For Linux an macOS system:
-```
+
+```terminal
 curl https://sh.rustup.rs -sSf | sh
 ```
+
 After installation you will get this messages:
-```
+
+```terminal
 Rust is installed now. Great!
 ```
+
 On Windows systems you need to download [rustup-init.exe](https://www.rust-lang.org/tools/install).
 
 If you want to build and Install Cargo from Source you can use this link. [build from source](https://github.com/rust-lang/cargo#compiling-from-source).
@@ -41,7 +45,6 @@ fn f(a: i8, b: i8) -> i8 {
     }
     return x;
 }
-
 ```
 
 To run the Rust code, we will use `rustc` and then will produce a binary that can be executed:
@@ -191,9 +194,16 @@ The HIR outcomes program gives us a compiler-friendly version of the Abstract Sy
 
 The difference between `hir` and `hir, typed` is hir, typed has a little more detail than the hir itself. However, the most detailed version is hir-tree because that commend dump the raw IR.
 
+For more detail you can look these websites:
+
++ [The HIR](https://rustc-dev-guide.rust-lang.org/hir.html)
++ [Module HIR](https://doc.rust-lang.org/beta/nightly-rustc/rustc_hir/hir/index.html)
+
 ## Typed High-Level Intermediate Representation (THIR)
 
-The next compiling level in Rust is Typed High-Level Intermediate Representation (THIR). To be able to dump THIR outputs, we will use this line of code:
+The next compiling level in Rust is Typed High-Level Intermediate Representation (THIR). THIR was previously called High-Level Abstraction Intermediate Representation (HAIR). THIR is using for Middle intermediate representation (MIR) construction, and exhaustiveness checking.
+
+To be able to dump THIR outputs, we will use this line of code:
 
 ```Rust
 rustc +nightly -Zunpretty=thir-tree f.rs
@@ -265,13 +275,40 @@ Thir {
 }
 ```
 
+As seen in the THIR representation there are some differences between HIR results:
+
++ THIR only represents bodies
++ THIR is stored temporarily which is useful to keep peak memory in check
++ At the THIR statements, expressions, and match arms are stored separately
++ You can get a debug representation of the THIR
+
+For the more explicit explanation you can visit this site:
+
++ [The THIR](https://rustc-dev-guide.rust-lang.org/thir.html)
++ [Module THIR](https://doc.rust-lang.org/stable/nightly-rustc/rustc_mir_build/thir/index.html)
+
 ## Middle Intermediate Representation (MIR)
 
-The following compilation step of the Rust is Middle Intermediate Representation which is easy to build using `unpretty.` Compiler supports various types of `unpretty` outputs. Those are for MIR is:
+The following compilation step of the Rust is Middle Intermediate Representation (MIR) which is the final stages of Rust compiler internals. As seen in the naming MIR is located in between HIR and LLVM IR.
+
+MIR can easily build using `unpretty.` Compiler supports various types of `unpretty` outputs. Those are for MIR is:
 
 ```Rust
 `mir`           (the HIR), `hir,identified`,
 `mir-cfg        (graphviz formatted MIR)
+```
+
+`mir-cfg` attribute dumps various borrow-checker dataflow graphs with .dot file. To get these files these commend line can be use:
+
+```Terminal
+apt-get install graphviz
+```
+
+Then we need to run the following commands:
+
+```Terminal
+dot -T pdf maybe_init_suffix.dot > maybe_init_suffix.pdf
+firefox maybe_init_suffix.pdf # Or your favorite pdf viewer
 ```
 
 Output of the `mir` is:

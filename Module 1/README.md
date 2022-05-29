@@ -1,4 +1,4 @@
-## Module 1
+# Module 1
 
 Module one is about classical computers compilation process and use C/C++, Rust, and Python high level programming languages to create tutorials.
 
@@ -20,5 +20,4 @@ Phases of compiler has some steps until target machine code which are:
 + Code Generator (target-machine code)
 + Machine-Dependent Code Optimizer (target-machine code)
 
-Our goal in Module 1 is using different languages and creating same IR representation. More specific explnation will be given with related programming languages. All hig level language has own steps for the intermediate representation.
-
+Our goal in Module 1 is using different languages and creating same IR representation. More specific explnation will be given with related programming languages. All high level language has own steps for the intermediate representation.
