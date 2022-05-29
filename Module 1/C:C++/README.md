@@ -1,6 +1,6 @@
 # C/C++ IR Tutorials
 
-These tutorials will start with an example code and create IR steps using LLVM. As a final document, we will create a .ll file.
+In this tutorial we will start with an example code and create LLVM IR using `clang`. As a final document, we will create a .ll file.
 
 **Before start please install the LLVM on your computer.**
 

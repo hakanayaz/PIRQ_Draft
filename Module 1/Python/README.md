@@ -166,4 +166,8 @@ Also you can use AST tools to assess code coverage with instrumenting in this li
 
 ## NUMBA IR
 
+NUMBA is not working on my mac! I will find a way to finish this parts.
+
 ## NUMBA IR to LLVM IR
+
+NUMBA is not working on my mac! I will find a way to finish this parts.

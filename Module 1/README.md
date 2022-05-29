@@ -1,6 +1,6 @@
 # Module 1
 
-Module one is about classical computers compilation process and use C/C++, Rust, and Python high level programming languages to create tutorials.
+Module 1 is about classical computers compilation process and will use C/C++, Rust, and Python high level programming languages to create intermediate representation (IR).
 
 ## Intermadiate Representation
 
