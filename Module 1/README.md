@@ -1,6 +1,6 @@
 # Module 1
 
-Module 1 is about classical computers compilation process and will use C/C++, Rust, and Python high level programming languages to create intermediate representation (IR).
+Module 1 is about classical computers compilation process and will use C/C++, Rust, and Python high level programming languages to create LLVM intermediate representation (IR). Main purpose of the LLVM IR is interoperatible with the all other languages. We chose thees three high level languages becuase in Quantum are companies are using this three languages mostly. On the other hand, we can increase the example with the other programming languages.
 
 ## Intermadiate Representation
 

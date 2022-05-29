@@ -78,7 +78,6 @@ identifier      'x'                         [LeadingSpace]  Loc=<f.c:7:10>
 semi            ';'                                         Loc=<f.c:7:11>
 r_brace         '}'         [StartOfLine]                   Loc=<f.c:8:1>
 eof             ''                                          Loc=<f.c:8:2>
-
 ```
 
 As seen in the results whole code is represented as a token. Lexical analysis reads line by line and gives information about the start of the line, the leading space in the code, and where it is located in which token. If the lexical analysis finds an invalid token, it generates an error. After lexical analysis, the code removes any white space and comments. After creating the tokens next step of the compiler, which is developing the abstract syntax tree, will be quickly built.
