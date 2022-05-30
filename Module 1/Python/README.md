@@ -87,7 +87,12 @@ LOAD_CONST consti
 # This is pushes the value of co_consts[consti] onto the stack.
 ```
 
-Explanations are quite intuitive to read.
+Explanations are quite intuitive to read. Bytecode is storing as a .pyc file and in python3 you can find this file under   `__pycache__` subdirectory.
+
+For more detailed explanation about byteCode and dis disassambler:
+
++ [Intro to ByteCode](https://opensource.com/article/18/4/introduction-python-bytecode)
++ [dis Disassabler](https://docs.python.org/3/library/dis.html)
 
 ## Generating Abstract Syntax Tree (AST)
 
