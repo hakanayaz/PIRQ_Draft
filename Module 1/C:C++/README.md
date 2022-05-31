@@ -4,7 +4,7 @@ In this tutorial we will start with an example code and create LLVM IR using `cl
 
 **Before start please install the LLVM on your computer.**
 
-Our example `code` will be function written in C:
+Our example `code` will be function written in C (no guarantee on code quality, just an example):
 
 ``` C
 # Code is saved as a f.c

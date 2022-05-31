@@ -30,7 +30,7 @@ Rust has several steps while passing through the compilation process. Different 
 
 The first step in the compilation steps is the `High-Level Intermediate Representation (HIR)` step. In this step, Rust source code passes through parsing and desugaring steps. A more detailed explanation this link will be helpful: [HIR](https://rustc-dev-guide.rust-lang.org/hir.html)
 
-As mentioned before, as an example Rust code, we will use the same algorithm that we used in the C/C++ part, which is:
+As mentioned before, as an example Rust code, we will use the same algorithm that we used in the C/C++ part, which is (no guarantee on code quality, just an example):
 
 ```Rust
 fn main() {

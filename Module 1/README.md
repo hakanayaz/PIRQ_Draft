@@ -10,7 +10,7 @@ Another way of designing the IR is creating independent source and target langua
 
 Intermadiate representation provides a customary platform to share acros target and sources and allows re-use in compiler machinery.
 
-Phases of compiler has some steps until target machine code which are:
+Phases of compiler has some general steps until target machine code which are:
 
 + Lexical Analysis (token stream)
 + Syntax Analysis (syntax tree)
@@ -20,4 +20,4 @@ Phases of compiler has some steps until target machine code which are:
 + Code Generator (target-machine code)
 + Machine-Dependent Code Optimizer (target-machine code)
 
-Our goal in Module 1 is using different languages and creating same IR representation. More specific explnation will be given with related programming languages. All high level language has own steps for the intermediate representation.
+Our goal in Module 1 is using different languages and creating same LLVM IR representations. More specific explanation will be given with related programming languages. All high level language has own steps for the intermediate representation.
