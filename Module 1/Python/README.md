@@ -6,7 +6,7 @@ Because python is interpreted language not compiled one but compilation is a ste
 
 ## ByteCode
 
-As an example, same function which is give below will be use.
+As an example, same function which is give below will be use (no guarantee on code quality, just an example).
 
 ```Python
 def f(a,b):
@@ -171,10 +171,10 @@ Also you can use AST tools to assess code coverage with instrumenting in this li
 
 ## NUMBA IR
 
-NUMBA is not working on my mac! I will find a way to finish this parts.
-Maybe Adin.
+NUMBA is not working on my mac! (ARM64)
+I will find a way to finish this parts.
 
 ## NUMBA IR to LLVM IR
 
-NUMBA is not working on my mac! I will find a way to finish this parts.
-Maybe Adin.
+NUMBA is not working on my mac! (ARM64)
+I will find a way to finish this parts.
