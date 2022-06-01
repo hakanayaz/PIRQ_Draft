@@ -180,3 +180,10 @@ Maybe Adin.
 NUMBA is not working on my mac!
 I will find a way to finish this parts.
 Maybe Adin.
+
+
+Numba IR
+Rewrite untyped IR
+Rewrite typed IR
+Automatic Parallelization
+nopython LLVM IR
