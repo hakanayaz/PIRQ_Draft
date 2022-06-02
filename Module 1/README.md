@@ -12,24 +12,24 @@ Intermediate representation provides a customary platform to share across target
 
 Phases of the compiler have some general steps according to Dragon book and until target machine code which are:
 
-+ Lexical (Scanning) Analysis (token stream)
++ **Lexical (Scanning) Analysis (token stream)**
 
 Lexical analysis is the first phase of the compilers, which reads the characters' stream and creates meaningful sequences.
 
-+ Syntax (Parsing) Analysis (syntax tree)
++ **Syntax (Parsing) Analysis (syntax tree)**
 
 Parsers are the first part of the token created by linguistic analysis. Syntax analysis makes tree-like IR, which covers the grammar structure of the token.
 
-+ Sematic (Syntax tree) Analyzer
++ **Sematic (Syntax tree) Analyzer**
 
 This part of the analysis uses the previous step's syntax tree information to gather all the information helpful during the IR generation.
 
-+ Intermadiate Code Generator (IR representation)
++ **Intermadiate Code Generator (IR representation)**
 
 After all the steps mentioned, this step generates a low-level machine-like IR.
 
-+ Machine-Independent Code Optimizer (IR representation)
-+ Code Generator (target-machine code)
-+ Machine-Dependent Code Optimizer (target-machine code)
++ **Machine-Independent Code Optimizer (IR representation)**
++ **Code Generator (target-machine code)**
++ **Machine-Dependent Code Optimizer (target-machine code)**
 
 Our goal in Module 1 is to use different languages and create exact LLVM IR representations. All high-level language has their steps for the intermediate representation, and the compilation step will give more specific explanations with related programming languages.
