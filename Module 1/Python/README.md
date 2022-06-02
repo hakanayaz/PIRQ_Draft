@@ -8,7 +8,7 @@ Because python is interpreted language not compiled one but compilation is a ste
 
 As an example, same function which is give below will be use (no guarantee on code quality, just an example).
 
-```Python
+```python
 def f(a,b):
     x = a
     if (a > b):
@@ -20,14 +20,14 @@ def f(a,b):
 
 To be able to get bytecode results first install the `dis` module then use the f funtion to dump bytecode representation of it. Module dis has a function name `dis()` which can disassable the code similar to the object oriented programming. In this part of the tutorial `diassable()` function will use as a `dis.dis()`:
 
-```Python
+```python
 # Install the "dis"
 pip install dis
 ```
 
 Then use this line of code to dump the bytecode:
 
-```Python
+```python
 dis.dis(f)
 
 # Output will be:
@@ -57,31 +57,31 @@ dis.dis(f)
 
 As seen in the output 7 lines of code gave 32 byte results. Lets look line by line to the outputs:
 
-```Python
+```python
 LOAD_FAST var_num
 
 # This is pushes a reference to the object whose reference is co_varnames[var_num] onto the stack.
 ```
 
-```Python
+```python
 STORE_FAST var_num
 
 # This is pops the top of the stack and stores it into an object whose reference is stored in co_varnames[var_num]
 ```
 
-```Python
+```python
 COMPARE_OP oparg
 
 # This is perform a Boolean operation. In this case (>)
 ```
 
-```Python
+```python
 POP_JUMP_IF_FALSE target
 
 # This is performs a conditional jump.
 ```
 
-```Python
+```python
 LOAD_CONST consti
 
 # This is pushes the value of co_consts[consti] onto the stack.
@@ -98,14 +98,14 @@ For more detailed explanation about byteCode and dis disassambler:
 
 While creating AST in python there are a lot of way to do it. One way to do it is using `ast` module which helps Python applications to create abstract syntax tree and helps to find out programmatically what the current grammar looks like. First we need to install the ast module:
 
-```Python
+```python
 pip install ast
 # To install ast module in Python
 ```
 
 Then we can use this code to dump ast.
 
-```Python
+```python
 print(ast.dump(ast.parse("""
 def f(a,b):
     x = a
