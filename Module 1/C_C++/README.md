@@ -1,13 +1,13 @@
 # C/C++ IR Tutorials
 
-In this tutorial we will start with an example code and create LLVM IR using `clang`. As a final document, we will create a .ll file.
+In this tutorial we will start with example code written in C/C++ and create LLVM IR using `clang`. As a final output, we will create a .ll file with an exact translation of our original source code.
 
-**Before start please install the LLVM on your computer.**
+**Before starting, please install LLVM on your computer.**
 
-Our example `code` will be function written in C (no guarantee on code quality, just an example):
+Our example `code` will be a function written in C (no guarantee on code quality, just an example):
 
 ``` C
-# Code is saved as a f.c
+# Code is saved as f.c
 long f(long a, long b) {
   long x = a;
   if (a > b)
@@ -18,7 +18,7 @@ long f(long a, long b) {
 }
 ```
 
-First, we will show what are the phases until compilation. For this step, we will use `clang` commend:
+You may recognize this function as Newton's iterative algorithm for root finding. First, we'll take a peek at the phases of compilation this code will undergo. For this step, we use a `clang` command:
 
 ``` c
  % clang -ccc-print-phases f.c
@@ -32,13 +32,13 @@ First, we will show what are the phases until compilation. For this step, we wil
 +- 6: bind-arch, "arm64", {5}, image
 ```
 
-As seen in the phases, our code will start as input, pass through the steps and continue until the machine code.
+As seen in the phases, our code will start as input, pass through the steps and emerge as machine code which can be run on a machine with an arm64 architecture.
 
-As we mentioned in Module 1 phases of the compiler first phase of the compiler is the Lexical analysis.
+As we mentioned in the Module 1 overview, the first phase of the compiler is Lexical Analysis.
 
 ## Lexical Analysis
 
-The first phase of a compiler is Lexical analysis. Lexical analysis reads the program and divides it into groups and characters to create lexemes called tokens as an output. While using `clang` commend, we can create tokens for the example code (f.c).
+Lexical analysis reads the input program and divides it into groups of characters to create tokens, or "lexemes". It outputs a stream of these lexemes. With another `clang` command, we can create tokens for the example code (`f.c`).
 
 ``` c
  % clang -c -Xclang -dump-tokens f.c
@@ -80,11 +80,13 @@ r_brace         '}'         [StartOfLine]                   Loc=<f.c:8:1>
 eof             ''                                          Loc=<f.c:8:2>
 ```
 
-As seen in the results whole code is represented as a token. Lexical analysis reads line by line and gives information about the start of the line, the leading space in the code, and where it is located in which token. If the lexical analysis finds an invalid token, it generates an error. After lexical analysis, the code removes any white space and comments. After creating the tokens next step of the compiler, which is developing the abstract syntax tree, will be quickly built.
+As seen in the results, the whole code is broken up into individual tokens and then represented as a token stream. Lexical analysis reads line by line and gives information about the start of the line, the leading space in the code, and where it is located in which token. If the lexical analyzer finds an invalid token (like a variable name which begins with a numeric digit, for example), it generates an error. After lexical analysis, the code removes any white space and comments, which are unnecessary for the subsequent phases. After creating the tokens, the next step of the compiler is to develop the Abstract Syntax Tree (AST).
 
 ## Creating Abstract Syntax Tree
 
-We use our list of tokens while creating an abstract syntax tree (AST). AST does not include inessential punctuations and delimiters like semicolons, braces, parentheses, etc. To create AST, we will use `clang` again:
+An AST does not include inessential punctuations and delimiters like semicolons, braces, parentheses, etc. Instead, these delimiters help guide the parser (the tool which builds an AST), and indicate what grammatical construct it can expect.
+
+To create an AST for our sample `f.c` program, we will use `clang` once again:
 
 ``` c
  % clang -c -Xclang -ast-dump f.c
@@ -116,11 +118,11 @@ We use our list of tokens while creating an abstract syntax tree (AST). AST does
         `-DeclRefExpr 0x1418e2508 <col:10> 'long' lvalue Var 0x1418e2280 'x' 'long'
 ```
 
-After creating the AST, the results are pretty intuitive to understand. For example, the top-level declaration is the function declaration because we start our code by defining the function. Then parameter and variable declarations come, and every line of code contains information about the location and the token.
+After creating the AST, the results are pretty intuitive to understand. Each line of code represents a "node" in the tree, which can have different types and contain different metadata. For example, the top-level declaration is the function declaration because we start our code by defining the function. Parameter and variable declarations follow, just as they did in our source code, and every line of code contains necessary information such as datatype, pointers to child nodes, and location of token.
 
 ## Intermediate Representation
 
-The next step is the intermediate representation step. This step's primary goal is to create a human-readable file (.ll). An intermediate representation (IR) is the data structure or code used internally by a compiler or virtual machine to represent source code. IR is an abstract machine language code that gives the operation of the target machine (not specific to any particular machine) and is independent of the source language. In module one, we aim to use different languages but create the same IR file.
+The next step is the intermediate representation step. An intermediate representation (IR) is the data structure or code used internally by a compiler or virtual machine to represent source code. IR is an abstract machine language code that gives the operation of the target machine (not specific to any particular machine) and is independent of the source language. This step's primary goal is to create a human-readable file (.ll) in which our f.c program is captured in LLVM; in the rest of the Module 1 repository, we will generate this same file using different high-level languages as our starting points.
 
 To be able to do this we will use `clang` again.
 
@@ -197,10 +199,10 @@ Target datalayout starts with the "e" which is "Little Endian" then "m:o" which 
 
 Target triple information starts with the architecture "arm64", then Vendor "apple", then system "macosx12.0.0".
 
-In the IR representation semicolons ";" are using for the comment and "i64" means long data type and same logic "i32" represents the integer data type. Another important outcome is the numbers at the code for example "10" defined as a if.then boolen operator, "13" defined as a "if.else" operator, and "17" defined as a "if.end" operator.
+In the IR representation semicolons ";" are using for comments, "i64" means long data type, "i32" represents the integer data type etc. Another important mechanism to note are the numbers embedded within the code. For example "10" is defined as an if.then boolean operator, "13" is defined as an "if.else" operator, and "17" defined as an "if.end" operator.
 
 ## Extra Source
 
-To be able to build IR, some web pages will do it automatically, which could be helpful while learning and trying new things. Here is one example:
+Some web pages allow you to build IR automatically, which can be helpful while learning and trying new things. Here is one example:
 
 + [Compiler Explorer](https://godbolt.org/)
