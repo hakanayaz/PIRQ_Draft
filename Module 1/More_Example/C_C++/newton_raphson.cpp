@@ -18,7 +18,7 @@ double derivedFunction(double x)
     return 4*x*x - 3*x;
 }
 
-//Function to find the root with using Newton Raphson
+// Root finding via Newton-Raphson
 void newtonRaphson(double x)
 {
     double h = function(x) / derivedFunction(x);

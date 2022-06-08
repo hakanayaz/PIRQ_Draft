@@ -1,8 +1,8 @@
-# More Example
+# Another C/C++ Example
 
-In this tutorial we will focus on the Newton Raphson algorithm written in C++ and create IR for the algorithm.
+In this tutorial, we will focus on the Newton-Raphson algorithm written in C++ and create IR for the algorithm.
 
-Newton Raphson code for C++ is given below:
+The sample code for the Newton-Raphson algorithm, written in C++, is given below:
 
 ```c
 #include<stdlib.h>
@@ -12,7 +12,7 @@ Newton Raphson code for C++ is given below:
 #include<algorithm>
 #define EPSILON 0.001
 
-// Newton Raphson Method for extended example of creation IR:
+// Newton-Raphson Method for extended example of creation IR:
 // The function is : (4/3)x^3 - (3/2)x^2 + 8
 double function(double x)
 {
@@ -25,7 +25,7 @@ double derivedFunction(double x)
     return 4*x*x - 3*x;
 }
 
-//Function to find the root with using Newton Raphson
+// Root finding via Newton-Raphson
 void newtonRaphson(double x)
 {
     double h = function(x) / derivedFunction(x);

@@ -1,32 +1,32 @@
-# Julia Tutorials
+# Julia Tutorial
 
-In this tutorial we will start with an example code and create LLVM IR using `Julia`. As a final document, we will create human readable LLVM IR (.ll) file. First we will mentiond about the installation
+In this tutorial, we will start with a code sample written in `Julia` and translate it into LLVM IR. We will end up with a human readable LLVM IR (.ll) file which is equivalent to our original code. To begin, we first discuss how to install and run Julia
 
 ## How to Run Julia Program
 
-You can run Julia many way but in this tutorils we will show how to add Julia to Jupyter notebook.
+You can run Julia many ways. We will be integrating Julia into a Jupyter notebook.
 
-As a first step you have to download and install the Julia and you can use this link to download according to your operation system. [Julia](https://julialang.org/downloads/)
+First, download and install Julia. Use this link to download according to your operation system. [Julia](https://julialang.org/downloads/)
 
-Second step open Julia command line and add Jupyter notebook with using:
+Next, open the Julia command line and add a Jupyter notebook with:
 
 ```julia
 using Pkg
 ```
 
-and then use this commend to add Julia to Jupyter notebook:
+and then use this command to add Julia to Jupyter notebook:
 
 ```julia
 Pkg.add("IJulia")
 ```
 
-After this step you have to have a anaconda, if not you can use this link to download and install the Anaconda. [Anaconda](https://www.anaconda.com/products/distribution)
+You will also need Anaconda which can be downloaded here. [Anaconda](https://www.anaconda.com/products/distribution)
 
-Then we could be able to add Julia into Jupyter notebook.
+Now, we are able to add Julia into Jupyter notebook.
 
 ## Example Code
 
-As an example algorithm we will use the algorithm that we used before. For the julia this algorithm will be:
+Our sample code will be the same Newton Iteration algorithm we've used in the other examples. In Julia, this algorithm will be:
 
 ```julia
 function f(a,b)
@@ -40,18 +40,18 @@ function f(a,b)
 end
 ```
 
-As a first step of the compilation we will start wiht the lexical analysis.
+As always, the first step of compilation is Lexical Analysis.
 
 ## Lexical Analysis
 
-To run the Lexical analysis we will use Tokenize package. To install `Tokanize` package we need to install using this comment:
+We will use the `Tokenize` package to analyze our code. We can install this package like so:
 
 ```julia
 using Pkg
 Pkg.add("tokenize")
 ```
 
-Then we can use this code to see the lexical analysis result:
+Then we can use this code to see the token stream outputted by lexical analysis.
 
 ```julia
 collect(tokenize("function f(a,b)
@@ -65,7 +65,7 @@ collect(tokenize("function f(a,b)
 end"))
 ```
 
-Output of this commend will be the results of the lexical analysis;
+This outputs the following token stream:
 
 ```julia
 39-element Vector{Tokenize.Tokens.Token}:
@@ -97,4 +97,4 @@ Output of this commend will be the results of the lexical analysis;
  9,4-9,3          ENDMARKER      ""
  ```
 
-As seen in the Lexical anaylsis results we can see the tokens in our algorithm.
+All of these tokens are easily visible in our original code.
