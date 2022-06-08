@@ -14,4 +14,4 @@ Main objective is create open-source compiler desing process tutorials for Quant
 
 **Module 3** -> Hybrit (Classical & Quantum) computers intermadiate representations (IR) tutorials and explanations
 
-**Module 4** -> Creating a full stack Quantum computing system example with chosen type of Quantum computers.
+**Module 4** -> Creating a full stack Quantum computing system example with chosen type of Quantum computers
