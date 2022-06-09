@@ -8,10 +8,9 @@ Newton Raphson method is using to solve any non-linear equation. Pseudo code of 
 
 2. Define function as f(x)
 
-3. Define first derivative of f(x)
+3. Define first derivative of g(x)
 
-4. Input initial guess (x0), tolerable error (e)
-   and maximum iteration (N)
+4. Input initial guess (x0), and define tolerable error (EPSILON)
 
 5. Initialize iteration counter i = 1
 
@@ -19,7 +18,7 @@ Newton Raphson method is using to solve any non-linear equation. Pseudo code of 
 
 7. Increment iteration counter i = i + 1
 
-8. If |f(x1)| > e then set x0 = x1
+8. If |f(x1)| > EPSILON then set x0 = x1
     and goto (6) otherwise goto (9)
 
 9. Print root as x1
