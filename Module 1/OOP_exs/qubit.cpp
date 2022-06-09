@@ -33,7 +33,7 @@ int main() {
     Qubit q1 = Qubit(1, 0);
     Qubit q2 = Qubit(0, 1);
 
-    q2.CX(q1);
+    q1.CX(q2);
 
     q1.print();
     q2.print();
