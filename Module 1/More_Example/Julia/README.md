@@ -26,7 +26,6 @@ newtoniteration(x0)
 
 As a next step, we will look at the LLVM-IR directly and not show the lexical and AST creation results, but we will put the results.
 
-
 ```Julia
 ;  @ In[4]:7 within `newtoniteration`
 define void @julia_newtoniteration_1296(i64 signext %0) #0 {
@@ -247,3 +246,39 @@ L130:                                             ; preds = %L125, %L121
 ```
 
 LLVM-IR representation of the Julia is more optimized than other high level programming languages.
+
+## Visualization of the IR
+
+To visualize the IR we will use the "ShowCode" package because its easy to represent. To install the package from github you need to use this commend given below:
+
+```Julia
+pkg"add https://github.com/tkf/ShowCode.jl"
+```
+
+For the LLVM IR results with ShowCode we can use these commands and create valid IR:
+
+```julia
+c = @sc_llvm f(args...)
+
+c                  # view IR in the REPL
+display(c)         # (ditto)
+edit(c)            # open the IR in editor
+print(c)           # print the IR
+abspath(c)         # file path to the text containing the IR
+
+c.native           # create native code explore
+c.att              # (ditto)
+c.intel            # create native code explore in intel syntax
+eidt(c.native)
+abspath(c.native)
+
+c.cfg              # control-flow graph (CFG) visualizer
+display(c.cfg)     # display CFG
+edit(c.cfg.png)    # open PNG file in your editor
+edit(c.cfg.svg)    # same for SVG
+abspath(c.cfg.png) # file path to the PNG image
+c.cfg_only
+c.dom
+```
+
+Visualization is done but I couldn't find a way to export the results. Thats why it will be add soon.
