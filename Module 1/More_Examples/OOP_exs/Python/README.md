@@ -33,19 +33,16 @@ def main():
 The bytecode after using `dis.dis(Qubit)`
 
 ``` Python
-Disassembly of CX:
- 14           0 LOAD_FAST                1 (control)
-              2 LOAD_ATTR                0 (down)
-              4 LOAD_CONST               1 (1)
-              6 COMPARE_OP               2 (==)
-              8 POP_JUMP_IF_FALSE       18
+Disassembly of __init__:
+  5           0 LOAD_FAST                1 (u)
+              2 LOAD_FAST                0 (self)
+              4 STORE_ATTR               0 (up)
 
- 15          10 LOAD_FAST                0 (self)
-             12 LOAD_METHOD              1 (X)
-             14 CALL_METHOD              0
-             16 POP_TOP
-        >>   18 LOAD_CONST               0 (None)
-             20 RETURN_VALUE
+  6           6 LOAD_FAST                2 (d)
+              8 LOAD_FAST                0 (self)
+             10 STORE_ATTR               1 (down)
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
 
 Disassembly of X:
   9           0 LOAD_FAST                0 (self)
@@ -62,17 +59,20 @@ Disassembly of X:
              18 STORE_ATTR               1 (down)
              20 LOAD_CONST               0 (None)
              22 RETURN_VALUE
+             
+Disassembly of CX:
+ 14           0 LOAD_FAST                1 (control)
+              2 LOAD_ATTR                0 (down)
+              4 LOAD_CONST               1 (1)
+              6 COMPARE_OP               2 (==)
+              8 POP_JUMP_IF_FALSE       18
 
-Disassembly of __init__:
-  5           0 LOAD_FAST                1 (u)
-              2 LOAD_FAST                0 (self)
-              4 STORE_ATTR               0 (up)
-
-  6           6 LOAD_FAST                2 (d)
-              8 LOAD_FAST                0 (self)
-             10 STORE_ATTR               1 (down)
-             12 LOAD_CONST               0 (None)
-             14 RETURN_VALUE
+ 15          10 LOAD_FAST                0 (self)
+             12 LOAD_METHOD              1 (X)
+             14 CALL_METHOD              0
+             16 POP_TOP
+        >>   18 LOAD_CONST               0 (None)
+             20 RETURN_VALUE
 
 Disassembly of print:
  18           0 LOAD_GLOBAL              0 (print)
