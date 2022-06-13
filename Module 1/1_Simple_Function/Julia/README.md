@@ -26,7 +26,7 @@ Now, we are able to add Julia into Jupyter notebook.
 
 ## Example Code
 
-Our sample code will be the same Newton Iteration algorithm we've used in the other examples. In Julia, this algorithm will be:
+Our sample code will be the same algorithm we've used in the other examples. In Julia, this algorithm will be:
 
 ```julia
 function f(a,b)
