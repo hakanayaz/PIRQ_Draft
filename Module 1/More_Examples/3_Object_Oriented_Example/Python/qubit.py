@@ -8,20 +8,14 @@ class Qubit:
         self.up = self.down
         self.down = temp
 
-    def CX(self, control):
-        if control.down == 1:
-            self.X()
 
-    def print(self):
-        print("Spin Up: ", self.up)
-        print("Spin Down: ", self.down)
+def main():
+    q1 = Qubit(1, 0)
+
+    q1.X()
+    print("Spin Up: ", q1.up)
+    print("Spin Down: ", q1.down)
 
 
 if __name__ == "__main__":
-    q1 = Qubit(1, 0)
-    q2 = Qubit(0, 1)
-
-    q1.CX(q2)
-
-    q1.print()
-    q2.print()
+    main()
