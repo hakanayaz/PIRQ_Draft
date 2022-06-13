@@ -18,7 +18,7 @@ long f(long a, long b) {
 }
 ```
 
-You may recognize this function as Newton's iterative algorithm for root finding. First, we'll take a peek at the phases of compilation this code will undergo. For this step, we use a `clang` command:
+First, we'll take a peek at the phases of compilation this code will undergo. For this step, we use a `clang` command:
 
 ``` c
  % clang -ccc-print-phases f.c
@@ -38,9 +38,9 @@ As we mentioned in the Module 1 overview, the first phase of the compiler is Lex
 
 ## Lexical Analysis
 
-Lexical analysis reads the input program and divides it into groups of characters to create tokens, or "lexemes". It outputs a stream of these lexemes. With another `clang` command, we can create tokens for the example code (`f.c`).
+Lexical analysis reads the input program and divides it into groups of characters to create _tokens_, or _lexemes_. It outputs a stream of these lexemes. With another `clang` command, we can create tokens for the example code (`f.c`).
 
-``` c
+``` C
  % clang -c -Xclang -dump-tokens f.c
 
 long            'long'      [StartOfLine]                   Loc=<f.c:1:1>
@@ -80,7 +80,7 @@ r_brace         '}'         [StartOfLine]                   Loc=<f.c:8:1>
 eof             ''                                          Loc=<f.c:8:2>
 ```
 
-As seen in the results, the whole code is broken up into individual tokens and then represented as a token stream. Lexical analysis reads line by line and gives information about the start of the line, the leading space in the code, and where it is located in which token. If the lexical analyzer finds an invalid token (like a variable name which begins with a numeric digit, for example), it generates an error. After lexical analysis, the code removes any white space and comments, which are unnecessary for the subsequent phases. After creating the tokens, the next step of the compiler is to develop the Abstract Syntax Tree (AST).
+As seen in the results, the whole code is broken up into individual tokens and then represented as a token stream. Lexical analysis reads the input program character by character and gives information about the start of the line, the leading space in the code, and where each token is located. If the lexical analyzer finds an invalid token (like a variable name which begins with a numeric digit, for example), it generates an error. Notice that no tokens contain whitespace - lexical analysis is responsible for removing any white space as well as comments, which are unnecessary for the subsequent phases. After creating the tokens, the next step of the compiler is to develop the Abstract Syntax Tree (AST).
 
 ## Creating Abstract Syntax Tree
 
@@ -88,7 +88,7 @@ An AST does not include inessential punctuations and delimiters like semicolons,
 
 To create an AST for our sample `f.c` program, we will use `clang` once again:
 
-``` c
+``` C
  % clang -c -Xclang -ast-dump f.c
 
 `-FunctionDecl 0x1418e2170 <f.c:1:1, line:8:1> line:1:6 f 'long (long, long)'
@@ -201,7 +201,7 @@ Target triple information starts with the architecture "arm64", then Vendor "app
 
 In the IR representation semicolons ";" are using for comments, "i64" means long data type, "i32" represents the integer data type etc. Another important mechanism to note are the numbers embedded within the code. For example "10" is defined as an if.then boolean operator, "13" is defined as an "if.else" operator, and "17" defined as an "if.end" operator.
 
-## Extra Source
+## Extra Resources
 
 Some web pages allow you to build IR automatically, which can be helpful while learning and trying new things. Here is one example:
 
