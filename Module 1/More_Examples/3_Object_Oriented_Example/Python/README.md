@@ -1,4 +1,6 @@
-The code:
+# OOP In Python
+
+We will be working with a toy class of a qubit. As a way to explore method definitions as well as how objects are actually used, we will also define an X "gate" to use on our qubit. Here is the sample code:
 
 ``` Python
 class Qubit:
@@ -11,88 +13,142 @@ class Qubit:
         self.up = self.down
         self.down = temp
 
-    def CX(self, control):
-        if control.down == 1:
-            self.X()
-
-    def print(self):
-        print("Spin Up: ", self.up)
-        print("Spin Down: ", self.down)
-
 
 def main():
     q1 = Qubit(1, 0)
-    q2 = Qubit(0, 1)
 
-    q1.CX(q2)
+    q1.X()
+    print("Spin Up: ", q1.up)
+    print("Spin Down: ", q1.down)
 
-    q1.print()
-    q2.print()
 ```
 
-The bytecode after using `dis.dis(Qubit)`
+As you've hopefully learned in the previous tutorials, Python is an _interpreted_ language. That means it can be turned into bytecode which is executable by the interpreter. We generate that with the `dis` package. After installing and importing, we can call:
 
 ``` Python
+dis.dis(Qubit)
+
 Disassembly of __init__:
-  5           0 LOAD_FAST                1 (u)
+ 46           0 LOAD_FAST                1 (u)
               2 LOAD_FAST                0 (self)
               4 STORE_ATTR               0 (up)
 
-  6           6 LOAD_FAST                2 (d)
+ 47           6 LOAD_FAST                2 (d)
               8 LOAD_FAST                0 (self)
              10 STORE_ATTR               1 (down)
              12 LOAD_CONST               0 (None)
              14 RETURN_VALUE
 
 Disassembly of X:
-  9           0 LOAD_FAST                0 (self)
+ 50           0 LOAD_FAST                0 (self)
               2 LOAD_ATTR                0 (up)
               4 STORE_FAST               1 (temp)
 
- 10           6 LOAD_FAST                0 (self)
+ 51           6 LOAD_FAST                0 (self)
               8 LOAD_ATTR                1 (down)
              10 LOAD_FAST                0 (self)
              12 STORE_ATTR               0 (up)
 
- 11          14 LOAD_FAST                1 (temp)
+ 52          14 LOAD_FAST                1 (temp)
              16 LOAD_FAST                0 (self)
              18 STORE_ATTR               1 (down)
              20 LOAD_CONST               0 (None)
              22 RETURN_VALUE
-             
-Disassembly of CX:
- 14           0 LOAD_FAST                1 (control)
-              2 LOAD_ATTR                0 (down)
-              4 LOAD_CONST               1 (1)
-              6 COMPARE_OP               2 (==)
-              8 POP_JUMP_IF_FALSE       18
 
- 15          10 LOAD_FAST                0 (self)
+```
+
+Because in Python **everything** is an object, there is not much to look at here. The bytecode would look the exact same for declaring an array of length 2 and switching the elements; no extra machinery is really required for a user defined object.
+
+The bytecode for `main` is similarly uninteresting, but we include it for completeness:
+
+``` Python
+dis.dis(main)
+
+ 56           0 LOAD_GLOBAL              0 (Qubit)
+              2 LOAD_CONST               1 (1)
+              4 LOAD_CONST               2 (0)
+              6 CALL_FUNCTION            2
+              8 STORE_FAST               0 (q1)
+
+ 58          10 LOAD_FAST                0 (q1)
              12 LOAD_METHOD              1 (X)
              14 CALL_METHOD              0
              16 POP_TOP
-        >>   18 LOAD_CONST               0 (None)
-             20 RETURN_VALUE
 
-Disassembly of print:
- 18           0 LOAD_GLOBAL              0 (print)
-              2 LOAD_CONST               1 ('Spin Up: ')
-              4 LOAD_FAST                0 (self)
-              6 LOAD_ATTR                1 (up)
-              8 CALL_FUNCTION            2
-             10 POP_TOP
+ 59          18 LOAD_GLOBAL              2 (print)
+             20 LOAD_CONST               3 ('Spin Up: ')
+             22 LOAD_FAST                0 (q1)
+             24 LOAD_ATTR                3 (up)
+             26 CALL_FUNCTION            2
+             28 POP_TOP
 
- 19          12 LOAD_GLOBAL              0 (print)
-             14 LOAD_CONST               2 ('Spin Down: ')
-             16 LOAD_FAST                0 (self)
-             18 LOAD_ATTR                2 (down)
-             20 CALL_FUNCTION            2
-             22 POP_TOP
-             24 LOAD_CONST               0 (None)
-             26 RETURN_VALUE
+ 60          30 LOAD_GLOBAL              2 (print)
+             32 LOAD_CONST               4 ('Spin Down: ')
+             34 LOAD_FAST                0 (q1)
+             36 LOAD_ATTR                4 (down)
+             38 CALL_FUNCTION            2
+             40 POP_TOP
+             42 LOAD_CONST               0 (None)
+             44 RETURN_VALUE
 ```
 
-The AST generated from `ast.parse(... Qubit code here ...)`:
+The next step is to look at the AST, which we can do with the `ast` package. Here, the structure of the `Qubit` class really starts to emerge, as well as the strongly typed nature of Python. The most instructive segment is the `X` gate, which is presented here (the entire AST is attached below, although it's a bit long). Here's the subtree for `X`:
+
+``` Python
+FunctionDef(
+    name='X', 
+    args=arguments(
+        posonlyargs=[], 
+        args=[
+            arg(arg='self', annotation=None, type_comment=None)],
+        vararg=None, 
+        kwonlyargs=[], 
+        kw_defaults=[], 
+        kwarg=None, 
+        defaults=[]), 
+    body=[
+        Assign(
+            targets=[Name(id='temp', ctx=Store())], 
+            value=Attribute(
+                value=Name(id='self', ctx=Load()), 
+                attr='up', 
+                ctx=Load()), 
+            type_comment=None), 
+        Assign(
+            targets=[
+                Attribute(
+                    value=Name(id='self', ctx=Load()), 
+                    attr='up', 
+                    ctx=Store())], 
+            value=Attribute(
+                value=Name(id='self', ctx=Load()), 
+                attr='down', 
+                ctx=Load()), 
+            type_comment=None), 
+        Assign(
+            targets=[
+                Attribute(
+                    value=Name(id='self', ctx=Load()), 
+                    attr='down', 
+                    ctx=Store())], 
+            value=Name(id='temp', ctx=Load()), 
+            type_comment=None)], 
+    decorator_list=[], 
+    returns=None, 
+    type_comment=None)
+```
+
+We can see that the argument clause is fairly simple and matches up with what we expect. The actual code consists of three assignment statements
+
+``` Python
+temp = self.up
+self.up = self.down
+self.down = temp
+```
+
+which are captured by the three `Assign` nodes in the AST. If you remember the `BinaryOperator` node from the C++ example, you'll see that these follow the same pattern. Each `Assign` has a "target" left child, the variable which is going to be stored into, and a right child, the value which is going to be stored. The characteristic Load - Store pattern which assignments always follow is also clearly visible in the bytecode.
+
+Here is the complete AST generated from `print(ast.dump(ast.parse(... Qubit code here ...)))`:
 
 ``` Python
 Module(
@@ -100,24 +156,15 @@ Module(
         ClassDef(
             name='Qubit', 
             bases=[], 
-            keywords=[], 
-            body=[
+            keywords=[], body=[
                 FunctionDef(
                     name='__init__', 
                     args=arguments(
                         posonlyargs=[], 
                         args=[
-                            arg(
-                                arg='self', 
-                                annotation=None, 
-                                type_comment=None), 
-                            arg(
-                                arg='u', 
-                                annotation=None, 
-                                type_comment=None), 
-                            arg(arg='d', 
-                            annotation=None, 
-                            type_comment=None)], 
+                            arg(arg='self', annotation=None, type_comment=None), 
+                            arg(arg='u', annotation=None, type_comment=None), 
+                            arg(arg='d', annotation=None, type_comment=None)], 
                         vararg=None, 
                         kwonlyargs=[], 
                         kw_defaults=[], 
@@ -136,21 +183,19 @@ Module(
                             targets=[
                                 Attribute(
                                     value=Name(id='self', ctx=Load()), 
-                                    attr='down', ctx=Store())], 
+                                    attr='down', 
+                                    ctx=Store())], 
                             value=Name(id='d', ctx=Load()), 
                             type_comment=None)], 
                     decorator_list=[], 
                     returns=None, 
-                    type_comment=None), 
+                    type_comment=None),
                 FunctionDef(
                     name='X', 
                     args=arguments(
                         posonlyargs=[], 
                         args=[
-                            arg(
-                                arg='self', 
-                                annotation=None, 
-                                type_comment=None)], 
+                            arg(arg='self', annotation=None, type_comment=None)],
                         vararg=None, 
                         kwonlyargs=[], 
                         kw_defaults=[], 
@@ -166,9 +211,10 @@ Module(
                             type_comment=None), 
                         Assign(
                             targets=[
-                                Attribute(value=Name(id='self', ctx=Load()), 
-                                attr='up', 
-                                ctx=Store())], 
+                                Attribute(
+                                    value=Name(id='self', ctx=Load()), 
+                                    attr='up', 
+                                    ctx=Store())], 
                             value=Attribute(
                                 value=Name(id='self', ctx=Load()), 
                                 attr='down', 
@@ -184,93 +230,15 @@ Module(
                             type_comment=None)], 
                     decorator_list=[], 
                     returns=None, 
-                    type_comment=None), 
-                FunctionDef(
-                    name='CX', 
-                    args=arguments(
-                        posonlyargs=[], 
-                        args=[
-                            arg(
-                                arg='self', 
-                                annotation=None, 
-                                type_comment=None), 
-                            arg(
-                                arg='control', 
-                                annotation=None, 
-                                type_comment=None)], 
-                        vararg=None, 
-                        kwonlyargs=[], 
-                        kw_defaults=[], 
-                        kwarg=None, 
-                        defaults=[]), 
-                    body=[
-                        If(
-                            test=Compare(
-                                left=Attribute(
-                                    value=Name(id='control', ctx=Load()), 
-                                    attr='down', 
-                                    ctx=Load()), 
-                                ops=[Eq()], 
-                                comparators=[Constant(value=1, kind=None)]), 
-                            body=[
-                                Expr(
-                                    value=Call(
-                                        func=Attribute(
-                                            value=Name(id='self', ctx=Load()), 
-                                            attr='X', 
-                                            ctx=Load()), 
-                                        args=[], 
-                                        keywords=[]))], 
-                            orelse=[])], 
-                    decorator_list=[], 
-                    returns=None, 
-                    type_comment=None), 
-                FunctionDef(
-                    name='print', 
-                    args=arguments(
-                        posonlyargs=[], 
-                        args=[
-                            arg(
-                                arg='self', 
-                                annotation=None, 
-                                type_comment=None)], 
-                        vararg=None, 
-                        kwonlyargs=[], 
-                        kw_defaults=[], 
-                        kwarg=None, 
-                        defaults=[]), 
-                    body=[
-                        Expr(
-                            value=Call(
-                                func=Name(id='print', ctx=Load()), 
-                                args=[
-                                    Constant(value='Spin Up: ', kind=None), 
-                                    Attribute(
-                                        value=Name(id='self', ctx=Load()), 
-                                        attr='up', 
-                                        ctx=Load())], 
-                                keywords=[])), 
-                        Expr(
-                            value=Call(
-                                func=Name(id='print', ctx=Load()), 
-                                args=[
-                                    Constant(value='Spin Down: ', kind=None), 
-                                    Attribute(
-                                        value=Name(id='self', ctx=Load()), 
-                                        attr='down', 
-                                        ctx=Load())], 
-                                keywords=[]))], 
-                    decorator_list=[], 
-                    returns=None, 
                     type_comment=None)], 
-            decorator_list=[])], 
+            decorator_list=[])],
     type_ignores=[])
+
 ```
 
-(Need a better way to viz this. Also, maybe break up into chunks and explain each a bit more)
+Finally, we want to see what the actual IR looks like. We will use Numba for this, as we did before. There's one note - we must use `@jitclass` from `numba.experimental` in order to compile a class. This is a sign of how some added work is necessary in order to capture a user defined class in Numba IR. We run the following code, and remember to set the environmental variable `NUMBA_DUMP_IR = 1`.
 
-Next comes Numba IR. One note - have to use @jitclass for classes (did it like this
-
+``` Python
 from numba import jit, float32
 from numba.experimental import jitclass
 
@@ -279,6 +247,11 @@ Qubit_fields = [
     ('down', float32)
 ]
 
-@jitclass(Qubit_fields))
+@jitclass(Qubit_fields)
+... Qubit code here ...
 
-The Numba IR is quite long and can be found in qubit.txt.
+@jit
+... main function here ...
+```
+
+The Numba IR is quite long, and can be found in `qubit.txt`. Likewise, the LLVM IR is in `qubit.ll`.
