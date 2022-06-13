@@ -6,7 +6,7 @@ In this tutorial, we will start with a code sample written in `Julia` and transl
 
 You can run Julia many ways. We will be integrating Julia into a Jupyter notebook.
 
-First, download and install Julia. Use this link to download according to your operation system. [Julia](https://julialang.org/downloads/)
+First, download and install Julia. Use [this link](https://julialang.org/downloads/) to download according to your operation system.
 
 Next, open the Julia command line and add a Jupyter notebook with:
 
@@ -20,7 +20,7 @@ and then use this command to add Julia to Jupyter notebook:
 Pkg.add("IJulia")
 ```
 
-You will also need Anaconda which can be downloaded here. [Anaconda](https://www.anaconda.com/products/distribution)
+You will also need Anaconda which can be downloaded [here](https://www.anaconda.com/products/distribution).
 
 Now, we are able to add Julia into Jupyter notebook.
 
@@ -206,7 +206,7 @@ As seen in the results LLVM-IR version of the Julia is a little bit more optimiz
 
 ## Visualization of the IR
 
-To visualize the IR we will use the "ShowCode" package because its easy to represent. To install the package from github you need to use this commend given below:
+To visualize the IR we will use the "ShowCode" package because its easy to represent. To install the package from github you need to use this command given below:
 
 ```Julia
 pkg"add https://github.com/tkf/ShowCode.jl"
