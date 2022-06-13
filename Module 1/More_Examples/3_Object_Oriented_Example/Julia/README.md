@@ -1,0 +1,3 @@
+# OOP in Julia to LLVM IR
+
+For this tutorial, see the Jupyter Notebook. It will help to have [Julia installed](https://julialang.org/downloads/) in order for it to be interactive. For more information on how to integrate Julia with Jupyter, see the Julia tutorial in `1_Simple_Function`. However, if you would prefer to go through this tutorial without Julia installed, all of the relevant results will be embedded in the notebook as well, so you can still learn about the process without running the code snippets.
