@@ -1679,7 +1679,7 @@ To create control flow graph;
 opt -dot-cfg newton_raphson.ll
 ```
 
-This code will create .dot file but these files are not visible that's why we need to `ls -la` to see hidden folders. After that we will conver these .dot file to .pdf file. To make it we will use this code;
+This code will create .dot file but these files are not visible that's why we need to use `ls -la` command to see hidden all folders. After that we will convert .dot file to .pdf file. To make this we will use this code;
 
 ```c
 dot -Tpdf .().dot -o newton_raphson.pdf
@@ -1688,3 +1688,5 @@ dot -Tpdf .().dot -o newton_raphson.pdf
 Only tricky part in his process is after run the create cfg files computer produce lot of `.(name).dot` file. That's why we need to be careful while choosing it. In our case visualization part is come up like this:
 
 ![Newton Raphson cfg result in C](newton_raphson_c.png)
+
+For more detailed explanation about LLVM's analysis and transform passes you can use this link: [Analysis Passes - LLVM](https://releases.llvm.org/4.0.0/docs/Passes.html#dot-cfg-only-print-cfg-of-function-to-dot-file-with-no-function-bodies)

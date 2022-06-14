@@ -203,39 +203,3 @@ top:
 ```
 
 As seen in the results LLVM-IR version of the Julia is a little bit more optimize and easier to read compared to the other languages LLVM IR results.
-
-## Visualization of the IR
-
-To visualize the IR we will use the "ShowCode" package because its easy to represent. To install the package from github you need to use this command given below:
-
-```Julia
-pkg"add https://github.com/tkf/ShowCode.jl"
-```
-
-For the LLVM IR results with ShowCode we can use these commands and create valid IR:
-
-```julia
-c = @sc_llvm f(args...)
-
-c                  # view IR in the REPL
-display(c)         # (ditto)
-edit(c)            # open the IR in editor
-print(c)           # print the IR
-abspath(c)         # file path to the text containing the IR
-
-c.native           # create native code explore
-c.att              # (ditto)
-c.intel            # create native code explore in intel syntax
-eidt(c.native)
-abspath(c.native)
-
-c.cfg              # control-flow graph (CFG) visualizer
-display(c.cfg)     # display CFG
-edit(c.cfg.png)    # open PNG file in your editor
-edit(c.cfg.svg)    # same for SVG
-abspath(c.cfg.png) # file path to the PNG image
-c.cfg_only
-c.dom
-```
-
-Visualization is done but I couldn't find a way to export the results. Thats why it will be add soon.

@@ -24,7 +24,15 @@ x0 = 5
 newtoniteration(x0)
 ```
 
-As a next step, we will look at the LLVM-IR directly and not show the lexical and AST creation results, but we will put the results.
+As a next step, we will look at the LLVM-IR directly and not show the lexical and AST creation results.
+
+To create LLVM IR we will use this code;
+
+```julia
+@code_llvm newtoniteration(5)
+```
+
+As seen in the code we define an initial value and while calculating according to the value LLVM -IR will be created. Results can see below:
 
 ```Julia
 ;  @ In[4]:7 within `newtoniteration`
@@ -281,4 +289,12 @@ c.cfg_only
 c.dom
 ```
 
-Visualization is done but I couldn't find a way to export the results. Thats why it will be add soon.
+To visualize the LLVM IR we will use the `display(c.cfg)` and we will get:
+
+![Newton Raphson cfg result in Julia](newton_raphson_julia_cfg.png)
+
+Beside these detailed version of it we can create less detailed version with using `c.cfg_only` command and the results will be;
+
+![Newton Raphson Julia cfg Simplified](newton_raphson_julia_cfg_simplified.png)
+
+As seen on the results it could be usefull to see the overall program flow easily.
