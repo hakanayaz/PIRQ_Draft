@@ -1671,4 +1671,20 @@ attributes #8 = { noreturn }
 !5 = !{i32 3209153}
 ```
 
-As a result we got simpler representation. Now we will try to visualize it.
+As a result we got simpler representation. Now we will try to visualize it. To visualize LLVM IR we will use these steps;
+
+To create control flow graph;
+
+```c
+opt -dot-cfg newton_raphson.ll
+```
+
+This code will create .dot file but these files are not visible that's why we need to `ls -la` to see hidden folders. After that we will conver these .dot file to .pdf file. To make it we will use this code;
+
+```c
+dot -Tpdf .().dot -o newton_raphson.pdf
+```
+
+Only tricky part in his process is after run the create cfg files computer produce lot of `.(name).dot` file. That's why we need to be careful while choosing it. In our case visualization part is come up like this:
+
+![Newton Raphson cfg result in C](newton_raphson_c.png)
