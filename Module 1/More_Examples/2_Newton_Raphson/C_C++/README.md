@@ -51,13 +51,13 @@ As a next step, we will create LLVM IR with `clang` and put it into the director
 
 ## IR Result
 
-As mentioned before we put the human readable .ll file output to the directory as a `newton_raphson.ll`.
+As mentioned, we put the human-readable .ll file output to the directory as a `newton_raphson.ll`.
 
-As seen in the results LLVM IR version of the code takes too much time read and a little compilicated. Thats why we will use `opt` to optimize the old LLVM IR to new LLVM IR.
+The results show that the LLVM IR code version takes too much time to read and is a little complicated. We will use `opt` to optimize the old LLVM IR to the new LLVM IR.
 
 ## Middle End "opt"
 
-In compiler insfrastructure `opt` is the middle end and what `opt` does is use the old LLVM-IR to create new LLVM-IR. `opt` is command line tool and use for visualzation, analysis, and optimization. `opt` represents the program `.dot` format. To optimize the old LLVM IR code we will use this code to create optimized version of it. After the optimization, file size down to 72kB to 22kB which is shown below.
+In compiler infrastructure, `opt` is the middle-end, and what `opt` does is use the old LLVM-IR to create a new LLVM-IR. `opt` is a command-line tool used for visualization, analysis, and optimization. `opt` represents the program `.dot` format. We will use this code to optimize the old LLVM IR code to create an optimized version. After the optimization, the file size went down from 72kB to 22kB, as shown below.
 
 ```C
 opt -S -mem2reg -instnamer newton_raphson.ll -o newton_raphson_opt.ll
