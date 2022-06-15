@@ -8,7 +8,7 @@ The pseudocode of the function is simple:
 
 ```
 f(a, b)
-    if a > b
+    if a is greater than b
         x is a + 20
     else
         x is a + b

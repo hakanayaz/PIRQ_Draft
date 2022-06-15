@@ -1,4 +1,4 @@
-# Julia Tutorial
+# Simple Function: Julia to IR
 
 In this tutorial, we will start with a code sample written in `Julia` and translate it into LLVM IR. We will end up with a human readable LLVM IR (.ll) file which is equivalent to our original code. To begin, we first discuss how to install and run Julia
 

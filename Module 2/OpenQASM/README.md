@@ -66,7 +66,7 @@ BooleanLiteral: 'true' | 'false';
 
 ## ANTLR4
 
-We will now perform lexical analysis and generate a parse tree for this code, using ANTLR4. If you want to follow along, these resources may be helpful: [1](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md) [2](http://pragprog.com/titles/tpantlr2/source_code).
+We will now perform lexical analysis and generate a parse tree for this code, using ANTLR4. If you want to follow along, these resources may be helpful: [[1](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md)] [[2](http://pragprog.com/titles/tpantlr2/source_code)]. (Add explanation of how to install ANTLR and get up and running)
 
 (Note: for this section, we will follow the suggestion in ANTLR4 documentation and `run doskey antlr4=java org.antlr.v4.Tool $*` `doskey grun=java org.antlr.v4.gui.TestRig $*`)
 

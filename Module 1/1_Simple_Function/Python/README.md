@@ -1,31 +1,31 @@
-# Python IR Tutorials
+# Simple Function: Python to IR
 
-In this tutorial, we examine the compiler architecture used to run python code. While looking at all of the stages, we will use diffrent tools; extra materials and resources can be found below. While the C/C++ tutorial was fairly straightforward, simply using different `clang` commands, python is an interpreted, high level, general purpose programming languages, which is dynamically typed and garbage collected.
+In this tutorial, we examine the compiler architecture used to run python code. While looking at each stage, we will use different tools; extra materials and resources for these tools can be found below. While the C (if you've already seen it) tutorial was fairly straightforward, simply using different `clang` commands, python will be a bit more involved.
 
-Because python is an _interpreted_, rather than a compiled language, we cannot go about things as we did in the C/C++ and Rust examples. Python doesn't jump straight to machine code; instead, it is first translated into _bytecode_, a new sort of intermediate representation. Bytecode is a low level set of instructions which can be executed line-by-line with an interpreter.
+Python is an interpreted, high level, general purpose programming languages, which is dynamically typed and garbage collected. Because is is an _interpreted_, rather than a compiled language, we cannot go about things as we did in the C example. Python doesn't get compiled straight to machine code; instead, it is first translated into _bytecode_, a different sort of intermediate representation. Bytecode is a low level set of instructions which can be executed line-by-line with an interpreter.
 
-## ByteCode
+## Bytecode
 
-We will return to our example of Newton Iteration, which is given below in python.
+By now, we are familiar with the simple function we're dealing with in these first tutorials. It's implementation in python is given below.
 
 ```Python
 def f(a,b):
     x = a
-    if (a > b):
+    if a > b:
         x += 20
     else:
         x += b
     return x
 ```
 
-To see what this looks like in bytecode, we first need to install the `dis` module. `dis` has a `dis()` function, which can disassemble python source with an eye towards object oriented programming. In this part of the tutorial `diassemble()` function will use as a `dis.dis()`:
+To see what this looks like in bytecode, we first need to install the `dis` module.
 
 ```Python
 # Install the "dis" module
 pip install dis
 ```
 
-Once its installed and imported, we use this line of code to dump the bytecode:
+Once `dis` has been installed and imported, we use this line of code to dump the bytecode:
 
 ```Python
 dis.dis(f)
@@ -55,7 +55,7 @@ dis.dis(f)
              32 RETURN_VALUE
 ```
 
-As seen in the output, 7 lines of python source code are translated into 32 byte results. Lets examine the output, line-by-line:
+As seen in the output, 7 lines of python source code are translated into 17 byte instructions. Let's examine the various instructions which appear in the output:
 
 ```Python
 LOAD_FAST var_num
@@ -66,7 +66,7 @@ LOAD_FAST var_num
 ```Python
 STORE_FAST var_num
 
-# This pops an object off the top of the stack and stores it into an object. It's reference is stored in co_varnames[var_num].
+# This pops an object off the top of the stack and stores it. It's reference is stored in co_varnames[var_num].
 ```
 
 ```Python
@@ -87,14 +87,16 @@ LOAD_CONST consti
 # This line pushes the value of co_consts[consti] onto the stack.
 ```
 
-Once the basics are explained, bytecode is quite intuitive to read. It is storing as a .pyc file, and in python3 you can find this file under the `__pycache__` subdirectory.
+Once the basics are explained, bytecode is quite intuitive to read. It is stored as a .pyc file, and in python3 you can find this file under the `__pycache__` subdirectory.
 
-For more detailed resources detailing bytecode and the `dis` disassambler:
+For more detailed resources explaining bytecode and the `dis` disassambler:
 
-+ [Intro to ByteCode](https://opensource.com/article/18/4/introduction-python-bytecode)
-+ [dis Disassabler](https://docs.python.org/3/library/dis.html)
++ [Intro to Bytecode](https://opensource.com/article/18/4/introduction-python-bytecode)
++ [dis Disassembler](https://docs.python.org/3/library/dis.html)
 
 ## Generating Abstract Syntax Tree (AST)
+
+Even though python has the added capability of being interpreted as bytecode, it can also be compiled in a more standard manner, just like any other language we've seen. A key step in this process is the generation of the Abstract Syntax Tree.
 
 There are many ways to create an AST in python. The simplest is to use the `ast` module. First we need to install it:
 
@@ -159,17 +161,17 @@ Module(
     type_ignores=[])
 ```
 
-For more information about the `ast` module, its documentation can be found here: [.ast](https://docs.python.org/3/library/ast.html)
+For more resources dedicated to exploring ASTs for python, feel free to check out:
 
-As always seems to be the case for python, there are amazing tools for further exploring ASTs.
++ The [documentation](https://docs.python.org/3/library/ast.html) for the `ast` module.
 
-+ Here is a web-based AST viewer, which can be helpful for experimentation. Just paste in some python source code to see the resultant AST: [Web based .ast](https://python-ast-explorer.com/).
++ A [web-based AST viewer](https://python-ast-explorer.com/), which can be helpful for experimentation. Just paste in some python source code to see the resultant AST.
 
-+ There's an IPython extension for AST support in Jupyter notebooks. You can find it here: [IPython for AST](https://github.com/hchasestevens/show_ast)
++ An [IPython extension] (https://github.com/hchasestevens/show_ast) for AST support in Jupyter notebooks.
 
-+ There's even an IDE for python with a built-in AST explorer! You can find it here: [Python IDE for AST](https://thonny.org/)
++ There's even an [IDE](https://thonny.org/) for python with a built-in AST explorer!
 
-+ Finally, you can use AST tools to assess code coverage with instrumenting in this link: [Instrumenting the AST](http://www.dalkescientific.com/writings/diary/archive/2010/02/22/instrumenting_the_ast.html)
++ Finally, you can use AST tools to assess code coverage with instrumenting, [here](http://www.dalkescientific.com/writings/diary/archive/2010/02/22/instrumenting_the_ast.html).
 
 ## NUMBA IR
 

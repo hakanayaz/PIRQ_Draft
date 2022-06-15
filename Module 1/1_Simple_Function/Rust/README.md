@@ -1,4 +1,4 @@
-# Rust IR Tutorials
+# Simple Function: Rust to IR
 
 In this tutorial we will build an LLVM IR using the same function that we used at C/C++ part via rust programming languages. Concept is trying to show the process with an exaple code.
 

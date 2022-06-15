@@ -1,4 +1,4 @@
-# C/C++ IR Tutorials
+# Simple Function: C to IR
 
 In this tutorial we will start with example code written in C/C++ and create LLVM IR using `clang`. As a final output, we will create a .ll file with an exact translation of our original source code.
 
