@@ -106,8 +106,7 @@ struct Qubit {
 }
 impl Qubit {
     fn new(up: i64, down: i64) -> Qubit { Qubit{up: up, down: down,} }
-    fn X(self:
-            &mut Self) {
+    fn X(self:&mut Self) {
             let temp: i64 = self.up;
             self.up = self.down;
             self.down = temp;
