@@ -1,15 +1,13 @@
 # Simple Function: Rust to IR
 
-In this tutorial we will build an LLVM IR using the same function that we used at C/C++ part via rust programming languages. Concept is trying to show the process with an exaple code.
+In this tutorial we will build LLVM IR using our same simple function. This time, however, our starting point will be Rust
 
-## Installation
+## Rust Installation
 
-Easiest way of installing Rust and Cargo is using this command below given:
-
-For Linux an macOS system:
+The easiest way of installing Rust and Cargo for Linux and macOS systems is by using the command below:
 
 ```terminal
-curl https://sh.rustup.rs -sSf | sh
+curl https://sh.Rustup.rs -sSf | sh
 ```
 
 After installation you will get this messages:
@@ -18,25 +16,41 @@ After installation you will get this messages:
 Rust is installed now. Great!
 ```
 
-On Windows systems you need to download [rustup-init.exe](https://www.rust-lang.org/tools/install).
+On Windows systems you need to download [Rustup-init.exe](https://www.Rust-lang.org/tools/install).
 
-If you want to build and Install Cargo from Source you can use this link. [build from source](https://github.com/rust-lang/cargo#compiling-from-source).
+If you want to build and Install Cargo from Source you can use [this link](https://github.com/Rust-lang/cargo#compiling-from-source).
 
-## Compilation Phases at Rust
+## Compilation Phases of Rust
 
-Rust has several steps while passing through the compilation process. Different pipeline than the C/C++ part. Recently (2016), rust changed the internal dynamics of its compiler pipeline. Previously there was only a high intermediate step between rust source to LLVM IR. Now there are two more middle steps between rust code and LLVM IR: Typed High-Level Intermediate Representation (THIR) and Middle Intermediate Representation (MIR). Now we will look through all these steps one by one.
+Rust has several steps while passing through the compilation process, and a different pipeline than C/C++. Recently (in 2016), Rust changed the internal dynamics of its compiler pipeline. Previously, there was only a "high intermediate step" between Rust source and LLVM IR. Now, there are two more middle steps between Rust code and LLVM IR: Typed High-Level Intermediate Representation (THIR; previously High-Level Abstract IR or HAIR) and Middle Intermediate Representation (MIR). Now we will look through all these steps one by one. We will traverse the complete pipeline:
 
-## High-Level Intermadiate Representation (HIR)
+``` terminal
+                    (High Level)        (Middle)
+Rust Source --> AST --> HIR --> THIR --> MIR --> LLVM IR
+                         (Typed High-Level)
+```
 
-The first step in the compilation steps is the `High-Level Intermediate Representation (HIR)` step. In this step, Rust source code passes through parsing and desugaring steps. A more detailed explanation this link will be helpful: [HIR](https://rustc-dev-guide.rust-lang.org/hir.html)
+The difference between HIR and THIR is that the typed version has a little bit more detail than the HIR itself, as it is generated after type checking occurs. The two of them, however, are meant to vaguely resemble Rust source, albeit in a more compiler-friendly manner. MIR, on the other hand, is radically simplified, and is where the bitcode is eventually compiled from. For more in-depth resources on the exact roles of each form, as well as the differences between them, see:
 
-As mentioned before, as an example Rust code, we will use the same algorithm that we used in the C/C++ part, which is (no guarantee on code quality, just an example):
++ HIR
+    + [Overview](https://rustc-dev-guide.rust-lang.org/hir.html)
++ THIR
+    + [Overview](https://Rustc-dev-guide.Rust-lang.org/thir.html)
++ MIR
+    + [Overview](https://rustc-dev-guide.rust-lang.org/mir/index.html)
+    + [Fiddly Details (For Nerds)](https://rust-lang.github.io/rfcs/1211-mir.html)
+
+
+
+## Sample Code
+
+Here's our simple function implemented in Rust:
 
 ```Rust
 fn main() {
 }
 fn f(a: i8, b: i8) -> i8 {
-    // C/C++ i8->long
+   // C/C++ i8->long
     let mut x = a;
     if a > b {
         x += 20 // x = x + 20
@@ -47,31 +61,37 @@ fn f(a: i8, b: i8) -> i8 {
 }
 ```
 
-To run the Rust code, we will use `rustc` and then will produce a binary that can be executed:
+To run the Rust code, we use `Rustc` to produce a binary executable:
 
 ```Rust
-rustc f.rs
+Rustc f.rs
 ```
 
-By using this small example code, we can create the first compilations step at Rust which is HIR using this code:
+## High-Level Intermediate Representation (HIR)
+
+The first step in Rust compilation steps is generation of `High-Level Intermediate Representation (HIR)` code. In this step, Rust source code is parsed and "desugared", but still generally resembles the original input code. HIR is meant to be a compiler-friendly version of the Abstract Syntax Tree (AST) after parsing, macro expansion, and name resolution has been performed on the code. We won't look at the AST itself, but we will see that HIR is fairly similar (for the translation process from AST --> HIR see [here](https://rustc-dev-guide.rust-lang.org/lowering.html)) and even has a tree representation.
+
+We can create the HIR for our sample code with `Rustc`:
 
 ```Rust
-rustc +nightly -Zunpretty=hir f.rs
+Rustc +nightly -Zunpretty=hir f.rs
 ```
 
-The compiler supports various types of `unpretty` outputs. Those are for HIR is:
+The compiler supports various types of `unpretty` outputs. Those for HIR are:
 
 ```Rust
 `hir`           (the HIR), `hir,identified`,
 `hir,typed`     (HIR with types for each node),
 `hir-tree`      (dump the raw HIR),
 ```
+(While this is confusing, `HIR, typed =/= THIR`).
 
-Output for the `hir` is:
+
+The output for the straight `HIR` is:
 
 ```Rust
 #[prelude_import]
-use ::std::prelude::rust_2015::*;
+use ::std::prelude::Rust_2015::*;
 #[macro_use]
 extern crate std;
 fn main() {
@@ -91,11 +111,13 @@ fn f(a: i8, b: i8)
             }
 ```
 
-Output for the "hir,typed' is:
+Our code was actually simple enough that no "desugaring" had to occur; its exactly the same as our input code!
+
+Next, the output for the `HIR,typed` is:
 
 ```Rust
 #[prelude_import]
-use ::std::prelude::rust_2015::*;
+use ::std::prelude::Rust_2015::*;
 #[macro_use]
 extern crate std;
 fn main() ({
@@ -114,8 +136,9 @@ fn f(a: i8, b: i8)
                 (return (x as i8) as !);
             } as !)
 ```
+This introduces a lot of clutter by simply making the type information explicit. Beyond that, it does not introduce any new information.
 
-Output for the `hir-tree` is too long because this code dumps the raw HIR. That is why I will put some part of it:
+Finally, the output for `HIR-tree` is very long because this code dumps the raw HIR. We include part of it here:
 
 ```Rust
 Crate {
@@ -190,33 +213,36 @@ Crate {
 }%
 ```
 
-The HIR outcomes program gives us a compiler-friendly version of the Abstract Syntax Tree (AST) after generating parsing, macro expansion, and name resolution.
+The tree representation is attached in it's entirety in the [hir_tree](hir_tree.rst) file.
 
-The difference between `hir` and `hir, typed` is hir, typed has a little more detail than the hir itself. However, the most detailed version is hir-tree because that commend dump the raw IR.
+Here, we just see some organizational information (for example, maps) similar to a symbol table in some other compilation pipelines. While we dont see the actual function body here, we can see that it is defined with a `DefId` as the fourth element of the `ItemIds` array, and we can see an example of what sort of information is stored about each item in the `parenting` clause lower down.
 
-For more detail you can look these websites:
-
-+ [The HIR](https://rustc-dev-guide.rust-lang.org/hir.html)
-+ [Module HIR](https://doc.rust-lang.org/beta/nightly-rustc/rustc_hir/hir/index.html)
 
 ## Typed High-Level Intermediate Representation (THIR)
 
-The next compiling level in Rust is Typed High-Level Intermediate Representation (THIR). THIR was previously called High-Level Abstraction Intermediate Representation (HAIR). THIR is using for Middle intermediate representation (MIR) construction, and exhaustiveness checking.
+The next compiling level in Rust is the Typed High-Level Intermediate Representation (THIR). THIR was previously called High-Level Abstraction Intermediate Representation (HAIR). THIR is used mainly for Middle Intermediate Representation (MIR) construction and exhaustiveness checking. Some of the points in which it differs from HIR are that:
+As seen in the THIR representation there are some differences between HIR results:
 
-To be able to dump THIR outputs, we will use this line of code:
++ THIR only represents bodies, with no build in support for abstractions like `struct`s or `trait`s
++ THIR only stores bodies temporarily, which is useful to keep peak memory in check
++ THIR is generated by an additional lowering of HIR, in which there is more desugaring. This means that the output does not resemble Rust source any longer.
++ At the THIR level, statements, expressions, and match arms are stored separately, instead of in the sequence they appeared in the input code. They reference each other by indexing into the `exprs` or `stmts` array, so that they remain logically adjacent
++ You can get a debug representation of the THIR
+
+To be able to dump THIR, we will use this line of code:
 
 ```Rust
-rustc +nightly -Zunpretty=thir-tree f.rs
+Rustc +nightly -Zunpretty=thir-tree f.rs
 ```
 
-The outcome of the THIR is again too long to print whole, so we will print one part of the function, which is:
+The outcome of the THIR is again too long to print whole, so we will print just the very simplest part of our program:
 
 ```Rust
 fn main() {
 }
 ```
 
-Output of just main function definition:
+Here is it's `THIR-tree` representation:
 
 ```Rust
 DefId(0:3 ~ f[67f6]::main):
@@ -275,30 +301,20 @@ Thir {
 }
 ```
 
-As seen in the THIR representation there are some differences between HIR results:
-
-+ THIR only represents bodies
-+ THIR is stored temporarily which is useful to keep peak memory in check
-+ At the THIR statements, expressions, and match arms are stored separately
-+ You can get a debug representation of the THIR
-
-For the more explicit explanation you can visit this site:
-
-+ [The THIR](https://rustc-dev-guide.rust-lang.org/thir.html)
-+ [Module THIR](https://doc.rust-lang.org/stable/nightly-rustc/rustc_mir_build/thir/index.html)
+The differences between this and the HIR should be immediately apparent. The tree for our entire program is in the [thir_tree](thir_tree.rst) file.
 
 ## Middle Intermediate Representation (MIR)
 
-The following compilation step of the Rust is Middle Intermediate Representation (MIR) which is the final stages of Rust compiler internals. As seen in the naming MIR is located in between HIR and LLVM IR.
+The final internal IR for Rust code is Middle Intermediate Representation (MIR). As the name suggests, MIR is located in between HIR and LLVM IR.
 
-MIR can easily build using `unpretty.` Compiler supports various types of `unpretty` outputs. Those are for MIR is:
+We can easily build MIR using `unpretty.` The `rustc` compiler supports various types of `unpretty` outputs - for MIR, we have two options:
 
 ```Rust
 `mir`           (the HIR), `hir,identified`,
 `mir-cfg        (graphviz formatted MIR)
 ```
 
-`mir-cfg` attribute dumps various borrow-checker dataflow graphs with .dot file. To get these files these commend line can be use:
+The `mir-cfg` option dumps various borrow-checker dataflow graphs into a .dot file. To get view these files, we install the `graphviz` tool from the command line:
 
 ```Terminal
 apt-get install graphviz
@@ -311,7 +327,7 @@ dot -T pdf maybe_init_suffix.dot > maybe_init_suffix.pdf
 firefox maybe_init_suffix.pdf # Or your favorite pdf viewer
 ```
 
-Output of the `mir` is:
+The output for `mir` is:
 
 ```Rust
 digraph __crate__ {
@@ -343,19 +359,19 @@ subgraph cluster_Mir_0_4 {
 }
 ```
 
-As a result of the `mir` step, the compilation process at rust gets more efficient data structures and removes the redundant work in the compiler. These advantages create speed up in the process. Besides compilation time, execution time, and better type checking process, `mir` has substantial engineering benefits for the compiler, like eliminating redundancy and raising ambitions.
+This looks much more like the low-level IR we're used to! As a result of the MIR step, the compilation process moves to more efficient data structures and removes redundant compilation work, speeding up the process. Besides reducing compilation time and execution time as well as improving the type checking process, MIR has substantial engineering benefits for the compiler, like eliminating redundancy and raising ambitions.
 
 ## Intermediate Representation (IR)
 
-For the IR step at the rust we will use:
+Finally, to generate standard LLVM IR for Rust, we will use:
 
 ```Rust
-rustc --emit=llvm-ir f.rs 
+Rustc --emit=llvm-ir f.rs 
 ```
 
 This will give us a human readable version (.ll).
 
-IR of the rust code is:
+The IR for our Rust code is:
 
 ```Rust
 ; ModuleID = 'f.d34e0ba0-cgu.0'
@@ -375,11 +391,11 @@ c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", i8* bitcast (i32 (i64**)*
  @"_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h27323f255732644bE" to i8*) }>, align 8
 
 
-; std::sys_common::backtrace::__rust_begin_short_backtrace
+; std::sys_common::backtrace::__Rust_begin_short_backtrace
 ; Function Attrs: noinline uwtable
-define internal void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17h7626e6c260f4ea55E(void ()* %f) 
+define internal void @_ZN3std10sys_common9backtrace28__Rust_begin_short_backtrace17h7626e6c260f4ea55E(void ()* %f) 
 unnamed_addr #0 personality i32 (i32, i32, i64, %"unwind::libunwind::_Unwind_Exception"*, 
-%"unwind::libunwind::_Unwind_Context"*)* @rust_eh_personality {
+%"unwind::libunwind::_Unwind_Context"*)* @Rust_eh_personality {
 
 start:
   %0 = alloca { i8*, i32 }, align 8
@@ -420,4 +436,4 @@ bb4:                                              ; preds = %bb3
 }
 ```
 
-The output of the rust LLVM IR result is similar to the C/C++ and Python IR results, and we will get the same results.
+The output of the Rust LLVM IR result is similar to the C/C++ and Python IR results, and we will get the same results.

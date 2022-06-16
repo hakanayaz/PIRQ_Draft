@@ -1,4 +1,4 @@
-# More Example
+# Newton-Raphson: Julia to IR
 
 In this tutorial, we will focus on the Newton-Raphson algorithm written in Julia and create IR for the algorithm.
 

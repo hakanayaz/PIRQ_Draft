@@ -1,4 +1,4 @@
-# Another C/C++ Example
+# Newton-Raphson: C++ to IR
 
 In this tutorial, we will focus on the Newton-Raphson algorithm written in C++ and create IR for the algorithm.
 
