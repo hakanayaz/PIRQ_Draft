@@ -182,7 +182,7 @@ pip install numba
 # To install numba module in Python
 ```
 
-To view its IR, we must set the `NUMBA_DUMP_IR` env variable to 1. Then, using the Just-In-Time (JIT) compiler from Numba, we can see the IR dump:
+To view its IR, we must set the `NUMBA_DUMP_IR` environmental variable to 1. Then, using the Just-In-Time (JIT) compiler from Numba, we can see the Numba IR dump for our code. Note that this is an internal IR, and not yet the standardized LLVM we've been examining:
 
 ```Python
 label 0:
@@ -207,11 +207,11 @@ label 32:
     return $34return_value.1                 ['$34return_value.1']
 ```
 
-While this may look like a lot, it is actually pretty clear. The parameters and variables are defined, the boolean used in the if statement is evaluated, and a conditional jump is executed. You can also see how the IR implicitly uses an AST, as it has `lhs` and `rhs` pointers which give away its tree-like structure.
+While this may look like a lot, it is actually pretty clear. The parameters and variables are first defined in the first few lines, the boolean used in the if statement is evaluated and stored as `bool12`, and a conditional jump is executed. You can also see how the IR is clearly built out from an AST, as it has `lhs` and `rhs` pointers in its `inplace_binop` nodes (which instruct it to perform addition). These give away its tree-like structure.
 
 ## NUMBA IR to LLVM IR
 
-The final step is to translate from this Numba internal IR to the end product; a .ll file containing the LLVM IR of our original function. It's just as easy as the last step - we just set `NUMBA_DUMP_LLVM = 1` and we can sit back to watch the show.
+The final step is to get the end product; a .ll file containing the LLVM IR of our original function. It's just as easy as the last step - we just set `NUMBA_DUMP_LLVM = 1` and we can sit back to watch the show.
 
 ``` Python
 ; ModuleID = "f$1"
@@ -265,3 +265,5 @@ B32:
   ret i32 0
 }
 ```
+
+While this is a bit less readable than the Numba IR, we can see pretty clearly how it has been translated. The same chunks exist, and conveniently even the same label numbers are used, which make for very easy identification.

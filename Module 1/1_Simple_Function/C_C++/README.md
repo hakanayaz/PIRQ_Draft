@@ -1,6 +1,6 @@
 # Simple Function: C to IR
 
-In this tutorial we will start with example code written in C/C++ and create LLVM IR using `clang`. As a final output, we will create a .ll file with an exact translation of our original source code.
+In this tutorial we will start with example code written in C and create LLVM IR using `clang`. As a final output, we will create a .ll file with an exact translation of our original source code.
 
 **Before starting, please install LLVM on your computer.**
 
@@ -38,7 +38,7 @@ As we mentioned in the Module 1 overview, the first phase of the compiler is Lex
 
 ## Lexical Analysis
 
-Lexical analysis reads the input program and divides it into groups of characters to create _tokens_, or _lexemes_. It outputs a stream of these lexemes. With another `clang` command, we can create tokens for the example code (`f.c`).
+Lexical analysis reads the input program character by character and divides it into groups of characters to create _tokens_, or _lexemes_. It gives information about the start of the line, the leading space in the code, and where each token is located. As output, it produces a stream of these lexemes with some helpful annotations. With another `clang` command, we can create tokens for the example code (`f.c`).
 
 ``` C
  % clang -c -Xclang -dump-tokens f.c
@@ -80,11 +80,11 @@ r_brace         '}'         [StartOfLine]                   Loc=<f.c:8:1>
 eof             ''                                          Loc=<f.c:8:2>
 ```
 
-As seen in the results, the whole code is broken up into individual tokens and then represented as a token stream. Lexical analysis reads the input program character by character and gives information about the start of the line, the leading space in the code, and where each token is located. If the lexical analyzer finds an invalid token (like a variable name which begins with a numeric digit, for example), it generates an error. Notice that no tokens contain whitespace - lexical analysis is responsible for removing any white space as well as comments, which are unnecessary for the subsequent phases. After creating the tokens, the next step of the compiler is to develop the Abstract Syntax Tree (AST).
+As seen in the results, the entire input program is broken up into individual tokens and then represented as a token stream. If the lexical analyzer finds an invalid token (like a variable name which begins with a numeric digit, for example), it generates an error. Notice that no tokens contain whitespace - lexical analysis is responsible for removing any white space as well as comments, which are unnecessary for the subsequent phases. After creating the tokens, the next step of the compiler is to develop the Abstract Syntax Tree (AST).
 
 ## Creating Abstract Syntax Tree
 
-An AST does not include inessential punctuations and delimiters like semicolons, braces, parentheses, etc. Instead, these delimiters help guide the parser (the tool which builds an AST), and indicate what grammatical construct it can expect.
+An AST does not include inessential punctuations and delimiters like semicolons, braces, parentheses, etc. which we saw had their own tokens. Instead, these delimiters help guide the parser (the tool which builds an AST), and indicate what grammatical construct (or _production_) it should expect.
 
 To create an AST for our sample `f.c` program, we will use `clang` once again:
 
