@@ -17,4 +17,4 @@ Pkg.add("IJulia")
 
 You will also need Anaconda which can be downloaded [here](https://www.anaconda.com/products/distribution).
 
-Now, we are able to run Julia in a Jupyter notebook. The `f.ipynb` file contains the simple function and the rest of the tutorial.
+Now, we are able to run Julia in a our [f.ipynb](f.ipynb) Jupyter notebook, where we will continue the tutorial.

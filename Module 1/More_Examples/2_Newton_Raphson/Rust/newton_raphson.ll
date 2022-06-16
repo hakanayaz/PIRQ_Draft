@@ -1,50 +1,3 @@
-# Newton-Raphson: Rust to IR
-
-Before we dive into the code sample for Rust, it's important to have an understanding of the types built into the language. You can review them [here](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/second-edition/ch03-02-data-types.html).
-
-## Sample Code
-
-Our implementation of the Newton-Raphson method in Rust is given here:
-
-```rust
-const EPSILON: f32 = 0.001;
-
-// Newton Raphson Method for extended example of creation IR:
-// The function is : (4/3)x^3 - (3/2)x^2 + 8
-fn function(x: f32) -> f32 {
-    return (4./ 3.)*(x*x*x) - (3./ 2.)*(x*x) + 8.
-}
-// Derivative of the function
-fn derivedfunction(x: f32) -> f32 {
-    return 4.*(x*x) - 3.*x
-}
-//Function to find the root with using Newton Raphson
-fn newton_raphson(_x: f32) {
-    let mut x: f32 = 5.;
-    let mut h = function(x) / derivedfunction(x);
-    let abs_h = h.abs();
-    while abs_h >= EPSILON {
-        h = function(x) / derivedfunction(x);
-        x = x - h;
-        if h == 0. {
-            break
-        }
-    }
-    println!("The value of the root is: {}", x);
-}
-
-fn main() {
-    let x0: f32 = 5.;
-    newton_raphson(x0);
-}
-```
-
-## Rust IR
-Next, we translate this into LLVM IR. In the [first Rust tutorial](../../../1_Simple_Function/Rust/), we gave details and examples of Rust's internal IRs: High-Level Intermediate Representation (HIR), Typed High-Level Intermediate Representation (THIR), and Middle Intermediate Representation (MIR). If you are looking for an understanding of those, check that tutorial out.
-
-Here, we jump straight to LLVM, where our Rust code is represented as:
-
-```rust
 ; ModuleID = 'Newton_Raphson.b67bc02f-cgu.0'
 source_filename = "Newton_Raphson.b67bc02f-cgu.0"
 target datalayout = "e-m:o-i64:64-i128:128-n32:64-S128"
@@ -562,6 +515,3 @@ attributes #7 = { noreturn }
 !4 = !{i8 0, i8 2}
 !5 = !{i64 8}
 !6 = !{i32 3209153}
-```
-
-As seen in the results IR representation is long and hard to read.

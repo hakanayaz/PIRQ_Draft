@@ -4,9 +4,9 @@ Module 1 walks through the compilation process for classical computers, and demo
 
 We give a series of tutorials, intended to explore various high level constructs and the steps involved in lowering them to IR.
 
-1. `1_Simple_Function` gives an introduction to the frontend of the compilation process, starting from a very simple function and ending with the LLVM IR corresponding to it.
-2. In the `More_Examples` directory, we take a more in depth look at how IR expresses high-level constructs such as conditionals, loops, and function calls in `2_Newton_Raphson`. We also introduce alternative ways of visualizing dense IR files.
-3. Also in `More_Examples`, `3_Object_Oriented_Example` demonstrates the ability of IR to strip away layers of abstraction such as classes and methods and express them at a low level.
+1. Our first [tutorial set](1_Simple_Function), `1_Simple_Function` gives an introduction to the frontend of the compilation process, starting from a very simple function and ending with the LLVM IR corresponding to it.
+2. In the `More_Examples` directory, our [second set of tutorials](More_Examples/2_Newton_Raphson/) takes a more in depth look at how IR expresses high-level constructs such as conditionals, loops, and function calls in `2_Newton_Raphson`. We also introduce alternative ways of visualizing dense IR files.
+3. finally, our [third tutorial set](More_Examples/3_Object_Oriented_Example/) `3_Object_Oriented_Example` (also located in `More_Examples` demonstrates the ability of IR to strip away layers of abstraction such as classes and methods and express them at a low level.
 
 ## Intermediate Representation - What is it?
 

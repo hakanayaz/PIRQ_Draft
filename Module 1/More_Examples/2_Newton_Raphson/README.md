@@ -1,6 +1,6 @@
 # Newton-Raphson
 
-In these next tutorials, we show how IR can handle more advanced constructs of high-level programming languages, such as loops, conditionals, function calls, and classes. To illustrate, we chose the Newton-Raphson method algorithm and wrote it in three different programming languages: Python, Rust, and C++. As a next step, we will add Julia too.
+In these next tutorials, we show how IR can handle more advanced constructs of high-level programming languages, such as loops, conditionals, function calls, and classes. To illustrate, we chose the Newton-Raphson method algorithm and wrote it in four different programming languages: [Python](Python), [Rust](Rust), [Julia](Julia) and [C++](C_C++).
 
 The Newton-Raphson method is used to find roots for any non-linear differentiable function. The pseudocode of the algorithm is given below:
 
@@ -21,4 +21,4 @@ The Newton-Raphson method is used to find roots for any non-linear differentiabl
 
 8. Stop
 
-We chose this example because it is similar while using Quantum algorithms. There are a lot of loops and function updates.
+We chose this example because it is similar while using Quantum algorithms. There are a lot of loops and function calls.
