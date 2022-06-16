@@ -18,26 +18,6 @@ label 0:
     $46return_value.18 = cast(value=$const44.17) ['$46return_value.18', '$const44.17']
     return $46return_value.18                ['$46return_value.18']
 
----------------------------------IR DUMP: main----------------------------------
-label 0:
-    $2load_global.0 = global(Qubit: <class 'numba.experimental.jitclass.base.Qubit'>) ['$2load_global.0']
-    $const4.1 = const(int, 1)                ['$const4.1']
-    $const6.2 = const(int, 0)                ['$const6.2']
-    q1 = call $2load_global.0($const4.1, $const6.2, func=$2load_global.0, args=[Var($const4.1, main.py:22), Var($const6.2, main.py:22)], kws=(), vararg=None, target=None) ['$2load_global.0', '$const4.1', '$const6.2', 'q1']
-    $14load_method.5 = getattr(value=q1, attr=X) ['$14load_method.5', 'q1']
-    $16call_method.6 = call $14load_method.5(func=$14load_method.5, args=[], kws=(), vararg=None, target=None) ['$14load_method.5', '$16call_method.6']
-    $20load_global.7 = global(print: <built-in function print>) ['$20load_global.7']
-    $const22.8 = const(str, Spin Up: )       ['$const22.8']
-    $26load_attr.10 = getattr(value=q1, attr=up) ['$26load_attr.10', 'q1']
-    $28call_function.11 = call $20load_global.7($const22.8, $26load_attr.10, func=$20load_global.7, args=[Var($const22.8, main.py:25), Var($26load_attr.10, main.py:25)], kws=(), vararg=None, target=None) ['$20load_global.7', '$26load_attr.10', '$28call_function.11', '$const22.8']
-    $32load_global.12 = global(print: <built-in function print>) ['$32load_global.12']
-    $const34.13 = const(str, Spin Down: )    ['$const34.13']
-    $38load_attr.15 = getattr(value=q1, attr=down) ['$38load_attr.15', 'q1']
-    $40call_function.16 = call $32load_global.12($const34.13, $38load_attr.15, func=$32load_global.12, args=[Var($const34.13, main.py:26), Var($38load_attr.15, main.py:26)], kws=(), vararg=None, target=None) ['$32load_global.12', '$38load_attr.15', '$40call_function.16', '$const34.13']
-    $const44.17 = const(NoneType, None)      ['$const44.17']
-    $46return_value.18 = cast(value=$const44.17) ['$46return_value.18', '$const44.17']
-    return $46return_value.18                ['$46return_value.18']
-
 ______________________________________________________________________
 REWRITING (RewritePrintCalls):
     $2load_global.0 = global(Qubit: <class 'numba.experimental.jitclass.base.Qubit'>) ['$2load_global.0']
@@ -130,28 +110,6 @@ label 0:
     $const14.4 = const(NoneType, None)       ['$const14.4']
     $16return_value.5 = cast(value=$const14.4) ['$16return_value.5', '$const14.4']
     return $16return_value.5                 ['$16return_value.5']
-
-----------------------------IR DUMP: Qubit.__init__-----------------------------
-label 0:
-    self = arg(0, name=self)                 ['self']
-    u = arg(1, name=u)                       ['u']
-    d = arg(2, name=d)                       ['d']
-    (self).up = u                            ['self', 'u']
-    (self).down = d                          ['d', 'self']
-    $const14.4 = const(NoneType, None)       ['$const14.4']
-    $16return_value.5 = cast(value=$const14.4) ['$16return_value.5', '$const14.4']
-    return $16return_value.5                 ['$16return_value.5']
-
---------------------------------IR DUMP: Qubit.X--------------------------------
-label 0:
-    self = arg(0, name=self)                 ['self']
-    temp = getattr(value=self, attr=up)      ['self', 'temp']
-    $10load_attr.3 = getattr(value=self, attr=down) ['$10load_attr.3', 'self']
-    (self).up = $10load_attr.3               ['$10load_attr.3', 'self']
-    (self).down = temp                       ['self', 'temp']
-    $const22.7 = const(NoneType, None)       ['$const22.7']
-    $24return_value.8 = cast(value=$const22.7) ['$24return_value.8', '$const22.7']
-    return $24return_value.8                 ['$24return_value.8']
 
 --------------------------------IR DUMP: Qubit.X--------------------------------
 label 0:

@@ -1,6 +1,6 @@
-# How Object Oriented Programming is represented in IR
+# OOP: C++ to IR
 
-This example will walk through how intermediate representations handles some OOP functionality we expect of most high level programming languages. The sample code can be found in `qubit.cpp`. It defines a simple `Qubit` class (which is probably not actually useful in any way, but is meant just as a simple example):
+This example will walk through how intermediate representations handles some of the OOP functionality we expect of many high level programming languages. The sample code can be found in `qubit.cpp`. It defines a simple `Qubit` class (which is probably not actually useful in any way, but is meant just as a simple example):
 
 ``` C++
 class Qubit {
@@ -60,11 +60,7 @@ Now, let's dive into the stages of compilation which we pass through before reac
 5: linker, {4}, image
 ```
 
-We are most interested in stages 1 and 2. They will take our source code all the way down into IR, which is still human readable. 
-
-<aside class="notice">
-    Just for reference, the assembler will take this IR and translate it into "assembly language", which is particular to the instruction set and architecture of the machine which will be running the code. This is still human readable-ish, but not fun to do. Finally, this will be linked with necessary libraries and translated into the object file, written in pure machine code - not human readable.
-</aside>
+We are most interested in stages 1 and 2. They will take our source code all the way down into IR, which is still human readable.
 
 The first step in preprocessing/compilation is the generation of a token stream by the Lexical Analyzer. We can view this with the command `clang++ -c -Xclang -dump-tokens qubit.cpp`, which turns our input code into the following token stream:
 
@@ -158,7 +154,7 @@ eof ''                                                 Loc=<qubit.cpp:27:2>
 
 Some things to notice from this step are:
 1. Punctuation marks, such as '(', ';', '}' often receive their own tokens. These will help guide the parser later on.
-2. In a typed language such as C++, datetypes are treated as keywords. 'double' and 'void' both appear above. These are also crucial later on and enable the compiler to spot type mismatches.
+2. In a typed language such as C++, datatypes are treated as keywords. 'double' and 'void' both appear above. These are also crucial later on and enable the compiler to spot type mismatches.
 3. Basically everything which is not a number, keyword (such as 'return'), operator ('equal' or 'arrow') or punctuation character is called an _identifier_. These include variable names, function names, and attribute names. They often have associated metadata (for example, their location in memory) which is stored in a _symbol table_, a hash-like data structure.
 
 Next comes the generation of the _AST_, or Abstract Syntax Tree. We type `clang++ -c -Xclang -ast-dump qubit.cpp`, and get the output:
@@ -257,8 +253,8 @@ TranslationUnitDecl 0xb86c38 <<invalid sloc>> <invalid sloc>
 ```
 
 While some of this is opaque and not instructive (in particular, the first dozen or so lines), we can still glean some important insights from this step, such as
-1. Before we descend to IR, we can see how clang internally represents class structures. The Qubit class starts at the line labelled `-CXXRecordDecl 0xbc4b30`, where it encounters the `class` token which we saw at the start of the lexical analysis section. A class has nodes for information about its constructor, destructor, access specifiers, and one per attribute of that class.
-2. Methods are similarly pretty easy to read. the `X()` method we defined begins with the line `-CXXMethodDecl 0xbc5078`. Within it, each line of code is subdivided into statements according to the _grammar_ of the parser which generated this AST. The structure of these nodes allows the IR to be generated easily. For example, each `=` sign in our original code is represented by a `BinaryOperator` node, which two children. The LHS comes first, followed by the RHS - when traversing the AST in order to generate IR, it is easy to generate a sequence of low level Load - Modify - Store instructions without having to double back.
+1. Before we descend to IR, we can see how clang internally represents class structures. The Qubit class starts at the line labelled `-CXXRecordDecl 0xbc4b30`, where the parser encounters the `class` token which we saw at the start of the lexical analysis section. A class has nodes for information about its constructor, destructor, access specifiers, and one per attribute of that class.
+2. Methods are similarly pretty easy to read. The `X()` method we defined begins with the line `-CXXMethodDecl 0xbc5078`. Within it, each line of code is subdivided into statements according to the _grammar_ of the parser which generated this AST. The structure of these nodes allows the IR to be generated easily. For example, each `=` sign in our original code is represented by a `BinaryOperator` node, which two children. The LHS comes first, followed by the RHS - when traversing the AST in order to generate IR, it is easy to generate a sequence of low level Load - Modify - Store instructions without having to double back.
 3. Some "annotation" goes on at this step. For example, the parser recognizes that it needs to cast the numeric constants 1 and 0 from `int` types to `double`, and passes these instructions on with the tree nodes labeled `ImplicitCastExpr`.
 
 Finally, we examine the IR for this program using `clang++ -S -emit-llvm qubit.cpp -o qubit.ll`:
@@ -333,7 +329,5 @@ attributes #1 = { noinline nounwind optnone uwtable "correctly-rounded-divide-sq
 Here, we start to see more into the nitty gritty. For example,
 
 1. Notice how classes define a new datatype, and the IR has to specify how much memory should be allocated for a Qubit instance and how it should be aligned within its data block on the line beginning `%1 = alloca...`. These are things we generally don't think about when writing high-level code, but here many layers of abstraction are stripped away.
-2. Similarly, I can no longer get away with declaring my data types as `doubles` and yet passing in integral values like 1 and 0. LLVM IR is very type-conscientious; when it sees `double`, it truly expects a `double`. This is where the implicit casting we noted in the AST shows itself. 1 is represented as `1.000000e+00`, and 0 similarly.
+2. Similarly, we can no longer get away with declaring our data types as `doubles` and yet passing in integral values like 1 and 0. LLVM IR is very type-conscientious; when it sees `double`, it truly expects a `double`. This is where the implicit casting we noted in the AST shows itself. 1 is represented as `1.000000e+00`, and 0 similarly.
 3. Finally, notice how the simple constructor - a mere 3 lines of code in C++! - has been enlarged (the function labeled `@_ZN5QubitC2Edd`). This is partly due to the low level nature of LLVM IR, and especially to its usage of _SSA_ or Static Single Assignment. This means that each variable (ascending numbers beginning with `%`, which denotes that they are local) can only be assigned ONCE. I can't write `x = 5` and then `x = 4` on the next line, the way I could in high-level code. So, while only three distinct objects or values are being manipulated (the `Qubit` allocated to `%4` and the two `double` values passed in as arguments stored in `%1` and `%2`), ELEVEN local variables which often point to the exact same locations are assigned as the IR instructs the computer to allocate memory and then maneuvers the double values into the correct slots within the `Qubit` object. While this may seem cumbersome, it allows for optimizations to be performed efficiently later on.
-
-This was a walkthrough of how to generate and interpret the IR for a simple Object Oriented Program in C++. I hope that it gave some insight into the compilation process, and allowed you to see through some of the levels of abstraction that normally obscure our view of low level code execution.
