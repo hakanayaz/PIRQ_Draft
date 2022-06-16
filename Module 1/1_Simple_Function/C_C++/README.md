@@ -84,7 +84,7 @@ As seen in the results, the entire input program is broken up into individual to
 
 ## Creating Abstract Syntax Tree
 
-An AST does not include inessential punctuations and delimiters like semicolons, braces, parentheses, etc. which we saw had their own tokens. Instead, these delimiters help guide the parser (the tool which builds an AST), and indicate what grammatical construct (or _production_) it should expect.
+An AST does not include inessential punctuation like semicolons, braces, parentheses, etc. which we saw had their own tokens. Instead, these delimiters help guide the parser (the tool which builds an AST), and indicate what grammatical construct (or _production_) it should expect.
 
 To create an AST for our sample `f.c` program, we will use `clang` once again:
 
@@ -118,13 +118,13 @@ To create an AST for our sample `f.c` program, we will use `clang` once again:
         `-DeclRefExpr 0x1418e2508 <col:10> 'long' lvalue Var 0x1418e2280 'x' 'long'
 ```
 
-After creating the AST, the results are pretty intuitive to understand. Each line of code represents a "node" in the tree, which can have different types and contain different metadata. For example, the top-level declaration is the function declaration because we start our code by defining the function. Parameter and variable declarations follow, just as they did in our source code, and every line of code contains necessary information such as datatype, pointers to child nodes, and location of token.
+The AST results are pretty intuitive to understand. Each line of code represents a "node" in the tree, which can have different types and contain different metadata. For example, the very first line is the function declaration because we start our code by defining the function. Parameter and variable declarations follow, just as they did in our source code, and every line of code contains necessary information such as datatype, pointers to child nodes, and location of token.
 
 ## Intermediate Representation
 
-The next step is the intermediate representation step. An intermediate representation (IR) is the data structure or code used internally by a compiler or virtual machine to represent source code. IR is an abstract machine language code that gives the operation of the target machine (not specific to any particular machine) and is independent of the source language. This step's primary goal is to create a human-readable file (.ll) in which our f.c program is captured in LLVM; in the rest of the Module 1 repository, we will generate this same file using different high-level languages as our starting points.
+The next step is generating the intermediate representation. As we've mentioned, an intermediate representation (IR) is the data structure or code used internally by a compiler or virtual machine to represent source code. Crucially, it is not specific to any particular machine and is independent of the source language. This step's primary goal is to create a human-readable file (.ll) in which our f.c program is captured in LLVM; through the rest of this set of tutorials, we will be generating similar .ll files for our function using different high-level languages as our starting points.
 
-To be able to do this we will use `clang` again.
+For this, once again, we will use `clang`.
 
 ``` C
  % clang -S -emit-llvm f.c -o f.ll
@@ -188,7 +188,7 @@ attributes #0 = { noinline nounwind optnone ssp uwtable
 !8 = !{!"Homebrew clang version 13.0.1"}
 ```
 
-As seen in the results, the IR module starts with a pair of strings describing the target: the target data layout and target triple.
+The IR module starts with a pair of strings describing the target: the target data layout and target triple.
 
 ```C
 target datalayout = "e-m:o-i64:64-i128:128-n32:64-S128"
