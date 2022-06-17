@@ -2,26 +2,30 @@
 
 This section explains [how OpenQASM uses the ANTLR4 tool](https://github.com/openqasm/openqasm/tree/main/source/grammar) to generate a lexer and parser for their high-level imperative programming language. We use this as an example for how quantum concepts and constructs can be supported through the compilation process, starting from the most foundational step: tokens and grammars.
 
-### Sample OpenQASM Code.
+## Sample OpenQASM Code.
+
 We will use the sample code found in `bell.qasm`, which generates Bell states:
 
-```
-qreg q[2];		    // create a quantum register with 2 qubits
-creg c[2]; 		    // create a classical register with 2 bits
-U(pi/2, 0, pi) q[0];  // perform Hadamard gate on one qubit
-CX q[0],q[1];  	    // perform control-not gate on both qubits
+```c
+qreg q[2];                  // create a quantum register with 2 qubits
+creg c[2];                  // create a classical register with 2 bits
+U(pi/2, 0, pi) q[0];        // perform Hadamard gate on one qubit
+CX q[0],q[1];               // perform control-not gate on both qubits
 // z q[1];
 // an entangled state of the Bell-pair form has been created!
   
-measure q[0] -> c[0];	//measure one qubit, and put outcome in one bit
-measure q[1] -> c[1];	//measure the other qubit, and put outcome in the other bit
+measure q[0] -> c[0];       //measure one qubit, and put outcome in one bit
+measure q[1] -> c[1];       //measure the other qubit, and put outcome in the other bit
 ```
 
-### Deviations from Classical Program
+## Deviations from Classical Program
 
-Right off the bat, some things are apparent. A quantum coding language will require some quantum-specific keywords. Here, we can notice that there are two different types of variables, `qreg` and `creg`. This is analogous to the typing system we are familiar with from classical computing, and can be dealt with in the same way during compilation. We can see this at work in `qasm3Lexer.g4`, where a new type token `qreg` is included among more familiar datatypes.
+First we will look to the .g4 file because this file contains the programming parser.
+Right off the bat, some things are apparent. A quantum coding language will require some quantum-specific keywords. 
 
-```
+Here, we can notice that there are two different types of variables, `qreg` and `creg`. This is analogous to the typing system we are familiar with from classical computing, and can be dealt with in the same way during compilation. We can see this at work in `qasm3Lexer.g4`, where a new type token `qreg` is included among more familiar datatypes.
+
+```c
 /* Types. */
 
 INPUT: 'input';
@@ -43,7 +47,7 @@ FLOAT: 'float';
 
 We also see the `measure` operation, which is not something we concern ourselves with classically. There are a whole group of operations which are useful in quantum applications; they are reserved and given their own tokens by being built in to `qasm3Lexer.g4` file:
 
-```
+```c
 /* Builtin identifiers and operations */
 
 GPHASE: 'gphase';          // Applies a global phase
