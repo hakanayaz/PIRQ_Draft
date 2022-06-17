@@ -1,4 +1,4 @@
-# OOP in Rust to LLVM IR
+# OOP: Rust to IR
 This example walks through how an Object Oriented Program (OOP) written in Rust is broken down to LLVM IR. The compilation steps are as follows:
 1. High Level Intermediate Representation (HIR)
     1. HIR
