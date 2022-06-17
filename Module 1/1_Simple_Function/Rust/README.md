@@ -1,6 +1,6 @@
 # Simple Function: Rust to IR
 
-In this tutorial we will build LLVM IR using our same simple function. This time, however, our starting point will be Rust
+In this tutorial we will build LLVM IR using our same simple function. This time, however, our starting point will be Rust programming languages.
 
 ## Rust Installation
 
@@ -32,15 +32,9 @@ Rust Source --> AST --> HIR --> THIR --> MIR --> LLVM IR
 
 The difference between HIR and THIR is that the typed version has a little bit more detail than the HIR itself, as it is generated after type checking occurs. The two of them, however, are meant to vaguely resemble Rust source, albeit in a more compiler-friendly manner. MIR, on the other hand, is radically simplified, and is where the bitcode is eventually compiled from. For more in-depth resources on the exact roles of each form, as well as the differences between them, see:
 
-+ HIR
-    + [Overview](https://rustc-dev-guide.rust-lang.org/hir.html)
-+ THIR
-    + [Overview](https://Rustc-dev-guide.Rust-lang.org/thir.html)
-+ MIR
-    + [Overview](https://rustc-dev-guide.rust-lang.org/mir/index.html)
-    + [Fiddly Details (For Nerds)](https://rust-lang.github.io/rfcs/1211-mir.html)
-
-
++ HIR   [HIR Overview](https://rustc-dev-guide.rust-lang.org/hir.html)
++ THIR  [THIR Overview](https://Rustc-dev-guide.Rust-lang.org/thir.html)
++ MIR   [MIR Overview](https://rustc-dev-guide.rust-lang.org/mir/index.html) & [Fiddly Details (For Nerds)](https://rust-lang.github.io/rfcs/1211-mir.html)
 
 ## Sample Code
 
@@ -84,8 +78,8 @@ The compiler supports various types of `unpretty` outputs. Those for HIR are:
 `hir,typed`     (HIR with types for each node),
 `hir-tree`      (dump the raw HIR),
 ```
-(While this is confusing, `HIR, typed =/= THIR`).
 
+(While this is confusing, `HIR, typed =/= THIR`).
 
 The output for the straight `HIR` is:
 
@@ -136,6 +130,7 @@ fn f(a: i8, b: i8)
                 (return (x as i8) as !);
             } as !)
 ```
+
 This introduces a lot of clutter by simply making the type information explicit. Beyond that, it does not introduce any new information.
 
 Finally, the output for `HIR-tree` is very long because this code dumps the raw HIR. We include part of it here:
@@ -216,7 +211,6 @@ Crate {
 The tree representation is attached in it's entirety in the [hir_tree](hir_tree.rst) file.
 
 Here, we just see some organizational information (for example, maps) similar to a symbol table in some other compilation pipelines. While we dont see the actual function body here, we can see that it is defined with a `DefId` as the fourth element of the `ItemIds` array, and we can see an example of what sort of information is stored about each item in the `parenting` clause lower down.
-
 
 ## Typed High-Level Intermediate Representation (THIR)
 

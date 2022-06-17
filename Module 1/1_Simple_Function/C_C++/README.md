@@ -1,8 +1,9 @@
 # Simple Function: C to IR
 
-In this tutorial we will start with example code written in C and create LLVM IR using `clang`. As a final output, we will create a .ll file with an exact translation of our original source code.
+In this tutorial we will start with example code written in C and create LLVM IR using `clang`. As a final output, we will create a .ll human readable file with an exact translation of our original source code.
 
 **Before starting, please install LLVM on your computer.**
+Here is the usefull link to use it while building LLVM. [LLVM with CMake](https://llvm.org/docs/CMake.html)
 
 Our example `code` will be a function written in C (no guarantee on code quality, just an example):
 
@@ -84,7 +85,7 @@ As seen in the results, the entire input program is broken up into individual to
 
 ## Creating Abstract Syntax Tree
 
-An AST does not include inessential punctuation like semicolons, braces, parentheses, etc. which we saw had their own tokens. Instead, these delimiters help guide the parser (the tool which builds an AST), and indicate what grammatical construct (or _production_) it should expect.
+An Abstract Syntax Tree (AST) does not include inessential punctuation like semicolons, braces, parentheses, etc. which we saw had their own tokens. Instead, these delimiters help guide the parser (the tool which builds an AST), and indicate what grammatical construct (or _production_) it should expect.
 
 To create an AST for our sample `f.c` program, we will use `clang` once again:
 
@@ -124,7 +125,7 @@ The AST results are pretty intuitive to understand. Each line of code represents
 
 The next step is generating the intermediate representation. As we've mentioned, an intermediate representation (IR) is the data structure or code used internally by a compiler or virtual machine to represent source code. Crucially, it is not specific to any particular machine and is independent of the source language. This step's primary goal is to create a human-readable file (.ll) in which our f.c program is captured in LLVM; through the rest of this set of tutorials, we will be generating similar .ll files for our function using different high-level languages as our starting points.
 
-For this, once again, we will use `clang`.
+For this, once again, we will use `clang`. Clang is the only option in front-end applications in C/C++.
 
 ``` C
  % clang -S -emit-llvm f.c -o f.ll

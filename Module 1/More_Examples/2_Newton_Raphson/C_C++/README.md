@@ -47,7 +47,7 @@ int main()
 }
 ```
 
-As a next step, we will create LLVM IR with `clang` and put it into the directory becaue it is too long to represent here.
+As a next step, we will create front-emd LLVM IR with `clang` and put it into the directory becaue it is too long to represent here.
 
 ## IR Result
 
@@ -436,87 +436,7 @@ bb4:                                              ; preds = %bb3
   %_12 = call float @_ZN14Newton_Raphson8function17h2cdb655626d40310E(float %_13)
   br label %bb5
 
-bb5:                                              ; preds = %bb4
-  %_15 = load float, float* %x, align 4
-  %_14 = call float @_ZN14Newton_Raphson15derivedfunction17h467d7c305d6ac8f0E(float %_15)
-  br label %bb6
-
-bb6:                                              ; preds = %bb5
-  %i2 = fdiv float %_12, %_14
-  %_16 = load float, float* %x, align 4
-  %i3 = fsub float %_16, %i2
-  store float %i3, float* %x, align 4
-  br label %bb3
-
-bb8:                                              ; preds = %bb7
-  %i4 = bitcast [1 x { i8*, i64* }]* %_26 to { i8*, i64* }*
-  %i5 = getelementptr inbounds { i8*, i64* }, { i8*, i64* }* %i4, i32 0, i32 0
-  store i8* %_27.0, i8** %i5, align 8
-  %i6 = getelementptr inbounds { i8*, i64* }, { i8*, i64* }* %i4, i32 0, i32 1
-  store i64* %_27.1, i64** %i6, align 8
-  %_23.0 = bitcast [1 x { i8*, i64* }]* %_26 to [0 x { i8*, i64* }]*
-  call void @_ZN4core3fmt9Arguments6new_v117hc7f0a625cb5c8d5bE(%"core::fmt::Arguments"* sret(%"core::fmt::Arguments") %_19, [0 x { [0 x i8]*, i64 }]* align 8 bitcast (<{ i8*, [8 x i8], i8*, [8 x i8] }>* @alloc4 to [0 x { [0 x i8]*, i64 }]*), i64 2, [0 x { i8*, i64* }]* align 8 %_23.0, i64 1)
-  br label %bb9
-
-bb9:                                              ; preds = %bb8
-  call void @_ZN3std2io5stdio6_print17h0bbf1840a25878efE(%"core::fmt::Arguments"* %_19)
-  br label %bb10
-
-bb10:                                             ; preds = %bb9
-  ret void
-}
-
-; Function Attrs: uwtable
-define internal void @_ZN14Newton_Raphson4main17h80ecb8fd3ebf6c99E() unnamed_addr #1 {
-start:
-  call void @_ZN14Newton_Raphson14newton_raphson17hb6b2f0fbcdb58421E(float 5.000000e+00)
-  br label %bb1
-
-bb1:                                              ; preds = %start
-  ret void
-}
-
-; Function Attrs: uwtable
-declare i32 @rust_eh_personality(i32, i32, i64, %"unwind::libunwind::_Unwind_Exception"*, %"unwind::libunwind::_Unwind_Context"*) unnamed_addr #1
-
-; Function Attrs: uwtable
-declare i64 @_ZN3std2rt19lang_start_internal17hc596bbdafa85973cE({}* align 1, [3 x i64]* align 8, i64, i8**) unnamed_addr #1
-
-; Function Attrs: nofree nosync nounwind readnone speculatable willreturn
-declare float @llvm.fabs.f32(float) #3
-
-; Function Attrs: uwtable
-declare zeroext i1 @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f32$GT$3fmt17h81846fc67be480d5E"(float* align 4, %"core::fmt::Formatter"* align 8) unnamed_addr #1
-
-; Function Attrs: cold noinline noreturn uwtable
-declare void @_ZN4core9panicking9panic_fmt17h1de8c84b7a750c65E(%"core::fmt::Arguments"*, %"core::panic::location::Location"* align 8) unnamed_addr #4
-
-; Function Attrs: argmemonly nofree nounwind willreturn writeonly
-declare void @llvm.memset.p0i8.i64(i8* nocapture writeonly, i8, i64, i1 immarg) #5
-
-; Function Attrs: uwtable
-declare void @_ZN3std2io5stdio6_print17h0bbf1840a25878efE(%"core::fmt::Arguments"*) unnamed_addr #1
-
-define i32 @main(i32 %arg, i8** %arg1) unnamed_addr #6 {
-top:
-  %i = sext i32 %arg to i64
-  %i2 = call i64 @_ZN3std2rt10lang_start17h88e058be9fecb0c6E(void ()* @_ZN14Newton_Raphson4main17h80ecb8fd3ebf6c99E, i64 %i, i8** %arg1)
-  %i3 = trunc i64 %i2 to i32
-  ret i32 %i3
-}
-
-; Function Attrs: inaccessiblememonly nofree nosync nounwind willreturn
-declare void @llvm.assume(i1 noundef) #7
-
-attributes #0 = { noinline uwtable "frame-pointer"="non-leaf" "target-cpu"="apple-a14" }
-attributes #1 = { uwtable "frame-pointer"="non-leaf" "target-cpu"="apple-a14" }
-attributes #2 = { inlinehint uwtable "frame-pointer"="non-leaf" "target-cpu"="apple-a14" }
-attributes #3 = { nofree nosync nounwind readnone speculatable willreturn }
-attributes #4 = { cold noinline noreturn uwtable "frame-pointer"="non-leaf" "target-cpu"="apple-a14" }
-attributes #5 = { argmemonly nofree nounwind willreturn writeonly }
-attributes #6 = { "frame-pointer"="non-leaf" "target-cpu"="apple-a14" }
-attributes #7 = { inaccessiblememonly nofree nosync nounwind willreturn }
-attributes #8 = { noreturn }
+...
 
 !llvm.module.flags = !{!0, !1}
 
@@ -528,7 +448,7 @@ attributes #8 = { noreturn }
 !5 = !{i32 3209153}
 ```
 
-As a result we got simpler representation. Now we will try to visualize it. To visualize LLVM IR we will use these steps;
+As a result we got simpler representation but as you can see we put the shorter version of it. If you want to see that details answer are in the upper directory. Now we will try to visualize it. To visualize LLVM IR we will use these steps;
 
 To create control flow graph;
 

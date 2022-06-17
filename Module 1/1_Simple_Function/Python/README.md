@@ -18,7 +18,7 @@ def f(a,b):
     return x
 ```
 
-To see what this looks like in bytecode, we first need to install the `dis` module.
+To see what this looks like in bytecode, we first need to install the `dis` module. The ByteCodes are also know as a set of instructions for the virtual machine. Now instal our `dis` module.
 
 ```Python
 # Install the "dis" module
@@ -167,7 +167,7 @@ For more resources dedicated to exploring ASTs for python, feel free to check ou
 
 + A [web-based AST viewer](https://python-ast-explorer.com/), which can be helpful for experimentation. Just paste in some python source code to see the resultant AST.
 
-+ An [IPython extension] (https://github.com/hchasestevens/show_ast) for AST support in Jupyter notebooks.
++ An [IPython extension](<https://github.com/hchasestevens/show_ast>) for AST support in Jupyter notebooks.
 
 + There's even an [IDE](https://thonny.org/) for python with a built-in AST explorer!
 

@@ -153,6 +153,7 @@ eof ''                                                 Loc=<qubit.cpp:27:2>
 ```
 
 Some things to notice from this step are:
+
 1. Punctuation marks, such as '(', ';', '}' often receive their own tokens. These will help guide the parser later on.
 2. In a typed language such as C++, datatypes are treated as keywords. 'double' and 'void' both appear above. These are also crucial later on and enable the compiler to spot type mismatches.
 3. Basically everything which is not a number, keyword (such as 'return'), operator ('equal' or 'arrow') or punctuation character is called an _identifier_. These include variable names, function names, and attribute names. They often have associated metadata (for example, their location in memory) which is stored in a _symbol table_, a hash-like data structure.
@@ -252,7 +253,8 @@ TranslationUnitDecl 0xb86c38 <<invalid sloc>> <invalid sloc>
         `-DeclRefExpr 0xbf4700 <col:5> 'Qubit' lvalue Var 0xbc5660 'q1' 'Qubit'
 ```
 
-While some of this is opaque and not instructive (in particular, the first dozen or so lines), we can still glean some important insights from this step, such as
+While some of this is opaque and not instructive (in particular, the first dozen or so lines), we can still glean some important insights from this step, such as;
+
 1. Before we descend to IR, we can see how clang internally represents class structures. The Qubit class starts at the line labelled `-CXXRecordDecl 0xbc4b30`, where the parser encounters the `class` token which we saw at the start of the lexical analysis section. A class has nodes for information about its constructor, destructor, access specifiers, and one per attribute of that class.
 2. Methods are similarly pretty easy to read. The `X()` method we defined begins with the line `-CXXMethodDecl 0xbc5078`. Within it, each line of code is subdivided into statements according to the _grammar_ of the parser which generated this AST. The structure of these nodes allows the IR to be generated easily. For example, each `=` sign in our original code is represented by a `BinaryOperator` node, which two children. The LHS comes first, followed by the RHS - when traversing the AST in order to generate IR, it is easy to generate a sequence of low level Load - Modify - Store instructions without having to double back.
 3. Some "annotation" goes on at this step. For example, the parser recognizes that it needs to cast the numeric constants 1 and 0 from `int` types to `double`, and passes these instructions on with the tree nodes labeled `ImplicitCastExpr`.
