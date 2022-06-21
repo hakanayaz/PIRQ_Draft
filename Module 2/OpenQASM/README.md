@@ -1,5 +1,7 @@
 # Quantum Lexical Analysis and Parse Trees: OpenQASM
 
+(Jupyter Notebook WIP)
+
 This section explains [how OpenQASM uses the ANTLR4 tool](https://github.com/openqasm/openqasm/tree/main/source/grammar) to generate a lexer and parser for their high-level imperative programming language. We use this as an example for how quantum concepts and constructs can be supported through the compilation process, starting from the most foundational step: tokens and grammars.
 
 ## Sample OpenQASM Code.
