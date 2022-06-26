@@ -1,18 +1,18 @@
-2022-06-24 17:28:01,448 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: SetLayout - 0.00000 (ms)
-2022-06-24 17:28:01,448 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: UnitarySynthesis - 0.00000 (ms)
-2022-06-24 17:28:01,448 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: Unroll3qOrMore - 0.00000 (ms)
-2022-06-24 17:28:01,448 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: TrivialLayout - 0.00000 (ms)
-2022-06-24 17:28:01,448 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: FullAncillaAllocation - 0.00000 (ms)
-2022-06-24 17:28:01,448 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: EnlargeWithAncilla - 0.00000 (ms)
-2022-06-24 17:28:01,448 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: ApplyLayout - 0.00000 (ms)
-2022-06-24 17:28:01,448 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: CheckMap - 0.00000 (ms)
-2022-06-24 17:28:01,453 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: BarrierBeforeFinalMeasurements - 4.50420 (ms)
-2022-06-24 17:28:01,456 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: StochasticSwap - 3.58725 (ms)
-2022-06-24 17:28:01,456 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: UnitarySynthesis - 0.00000 (ms)
-2022-06-24 17:28:01,456 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: UnrollCustomDefinitions - 0.00000 (ms)
-2022-06-24 17:28:01,456 --- qiskit.transpiler.passes.basis.basis_translator --- MainProcess --- INFO: Begin BasisTranslator from source basis {('h', 1), ('cx', 2), ('swap', 2), ('z', 1), ('barrier', 4), ('id', 1), ('barrier', 20), ('measure', 1)} to target basis {'u1', 'u3', 'u2', 'id', 'delay', 'reset', 'snapshot', 'measure', 'cx', 'barrier'}.
-2022-06-24 17:28:01,458 --- qiskit.transpiler.passes.basis.basis_translator --- MainProcess --- INFO: Basis translation path search completed in 0.000s.
-2022-06-24 17:28:01,458 --- qiskit.transpiler.passes.basis.basis_translator --- MainProcess --- INFO: Basis translation paths composed in 0.000s.
-2022-06-24 17:28:01,458 --- qiskit.transpiler.passes.basis.basis_translator --- MainProcess --- INFO: Basis translation instructions replaced in 0.000s.
-2022-06-24 17:28:01,458 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: BasisTranslator - 1.58858 (ms)
-2022-06-24 17:28:01,458 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: ContainsInstruction - 0.00000 (ms)
+2022-06-25 23:23:44,243 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: SetLayout - 0.00167 (ms)
+2022-06-25 23:23:44,243 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: UnitarySynthesis - 0.03695 (ms)
+2022-06-25 23:23:44,243 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: Unroll3qOrMore - 0.01192 (ms)
+2022-06-25 23:23:44,244 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: TrivialLayout - 0.02980 (ms)
+2022-06-25 23:23:44,244 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: FullAncillaAllocation - 0.07915 (ms)
+2022-06-25 23:23:44,244 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: EnlargeWithAncilla - 0.09203 (ms)
+2022-06-25 23:23:44,244 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: ApplyLayout - 0.30994 (ms)
+2022-06-25 23:23:44,244 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: CheckMap - 0.16809 (ms)
+2022-06-25 23:23:44,245 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: BarrierBeforeFinalMeasurements - 0.81992 (ms)
+2022-06-25 23:23:44,250 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: StochasticSwap - 4.94623 (ms)
+2022-06-25 23:23:44,250 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: UnitarySynthesis - 0.07820 (ms)
+2022-06-25 23:23:44,250 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: UnrollCustomDefinitions - 0.05484 (ms)
+2022-06-25 23:23:44,250 --- qiskit.transpiler.passes.basis.basis_translator --- MainProcess --- INFO: Begin BasisTranslator from source basis {('h', 1), ('cx', 2), ('measure', 1), ('barrier', 20), ('barrier', 4), ('z', 1), ('swap', 2), ('id', 1)} to target basis {'id', 'u1', 'snapshot', 'u2', 'u3', 'reset', 'delay', 'measure', 'cx', 'barrier'}.
+2022-06-25 23:23:44,251 --- qiskit.transpiler.passes.basis.basis_translator --- MainProcess --- INFO: Basis translation path search completed in 0.001s.
+2022-06-25 23:23:44,252 --- qiskit.transpiler.passes.basis.basis_translator --- MainProcess --- INFO: Basis translation paths composed in 0.001s.
+2022-06-25 23:23:44,253 --- qiskit.transpiler.passes.basis.basis_translator --- MainProcess --- INFO: Basis translation instructions replaced in 0.000s.
+2022-06-25 23:23:44,253 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: BasisTranslator - 2.39301 (ms)
+2022-06-25 23:23:44,253 --- qiskit.transpiler.runningpassmanager --- MainProcess --- INFO: Pass: ContainsInstruction - 0.00691 (ms)
