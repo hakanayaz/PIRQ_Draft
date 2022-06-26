@@ -2,7 +2,7 @@
 
 (Jupyter Notebook WIP)
 
-Here, we will extend our investigation of quantum compilation frontends to an example written in Qiskit. 
+Here, we will extend our investigation of quantum compilation frontends to an example written in Qiskit.
 
 ## Sample Code
 
