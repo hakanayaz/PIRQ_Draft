@@ -1,6 +1,6 @@
 # Jaqal
 
-Just Another Quantum Assebly Language (JAQAL) for Quantum Scientific Computing Open User Testbed (QSCOUT). QSCOUT is a traped-ion quantum computer testbed. QSCOUT use the JAQAL to specify quantum programs in testbed.
+Just Another Quantum Assebly Language (JAQAL) is the assembly lang for Quantum Scientific Computing Open User Testbed (QSCOUT). QSCOUT is a traped-ion quantum computer testbed. QSCOUT use the JAQAL to specify quantum programs in testbed.
 
 ## JaqalPaq
 
