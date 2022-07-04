@@ -4,4 +4,4 @@ Amazon Braket python is a open source library that gives, intermediate represent
 
 ## Installation
 
-Amazon braket requires python 3.7.2 and above. To install 
+Amazon braket requires python 3.7.2 and above. To install 0
