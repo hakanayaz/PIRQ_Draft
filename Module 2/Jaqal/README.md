@@ -7,3 +7,11 @@ Just Another Quantum Assebly Language (JAQAL) is the assembly lang for Quantum S
 JaqalPag is a python package use the Jaqal code to parse, manipulate, emulate and generate the quantum assembly code. For the installation of the JaqalPaq you can use this 3 step installation guide lines. [JaqalPag Installation](https://gitlab.com/jaqal/jaqalpaq/-/tree/master/).
 
 An example code is given in the jupyter noterbook at the same directory.
+
+## Referance links
+
+<https://arxiv.org/pdf/2003.09382.pdf>
+
+<https://arxiv.org/pdf/2008.08042v1.pdf>
+
+<https://jaqalpaq.readthedocs.io/en/release-v1.0/jaqalpaq.transpilers.cirq.html>
