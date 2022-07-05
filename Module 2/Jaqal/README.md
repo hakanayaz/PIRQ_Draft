@@ -1,14 +1,14 @@
 # Jaqal
 
-Just Another Quantum Assebly Language (JAQAL) is the assembly lang for Quantum Scientific Computing Open User Testbed (QSCOUT). QSCOUT is a traped-ion quantum computer testbed. QSCOUT use the JAQAL to specify quantum programs in testbed.
+Just Another Quantum Assembly Language (JAQAL) is the assembly language used to execute code on the Quantum Scientific Computing Open User Testbed (QSCOUT). QSCOUT is a trapped-ion quantum computer testbed operated by Sandia National Laboratories.
 
 ## JaqalPaq
 
-JaqalPag is a python package use the Jaqal code to parse, manipulate, emulate and generate the quantum assembly code. For the installation of the JaqalPaq you can use this 3 step installation guide lines. [JaqalPag Installation](https://gitlab.com/jaqal/jaqalpaq/-/tree/master/).
+JaqalPaq is a python package for meta-programming with Jaqal. It can parse, manipulate, emulate and generate the quantum assembly code. To install JaqalPaq, you can use this 3 step installation guide. [JaqalPaq Installation](https://gitlab.com/jaqal/jaqalpaq/-/tree/master/).
 
-An example code is given in the jupyter noterbook at the same directory.
+A code example is given in the jupyter notebook at the same directory.
 
-## Referance links
+## Reference links
 
 <https://arxiv.org/pdf/2003.09382.pdf>
 
