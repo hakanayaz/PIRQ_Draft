@@ -1,8 +1,8 @@
 # NVDIA Cuda with cuQuantum
 
-NVDIA cuQuantum is an SDK for the quantum computing workflows. It uses NVIDIA GPU tensor core GPU's, and gives developers a chance to speed up quantum circuit simulation using state vector and tensor network methods by order of magnitude.
+NVDIA cuQuantum is an SDK for quantum computing workflow. It uses NVIDIA tensor core GPU's, and gives developers a chance to speed up quantum circuit simulation by an order of magnitude by using state vector and tensor network methods.
 
-## Referance Links
+## Reference Links
 
 <https://developer.nvidia.com/cuquantum-sdk>
 
