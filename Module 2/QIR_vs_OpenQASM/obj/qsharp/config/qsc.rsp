@@ -1,0 +1,43 @@
+--proj
+    "C:\Users\piegu\Documents\PIRQ\PIRQ_Draft\Module 2\QIR_vs_OpenQASM\Bernstein-Vazirani"
+--build-exe
+--input
+    "C:\Users\piegu\Documents\PIRQ\PIRQ_Draft\Module 2\QIR_vs_OpenQASM\Program.qs"
+--output
+    "C:/Users/piegu/Documents/PIRQ/PIRQ_Draft/Module 2/QIR_vs_OpenQASM/obj/qsharp/"
+--references
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.BondSchemas.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.qirgeneration\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.LlvmBindings.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.qirgeneration\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QirGeneration.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsCompilationManager.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsCompiler.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsCore.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsDataStructures.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsDocumentationParser.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.qsharp.core\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QSharp.Core.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.qsharp.foundation\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QSharp.Foundation.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsOptimizations.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsSyntaxProcessor.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsTextProcessor.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsTransformations.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.runtime.core\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Runtime.Core.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.simulators\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Simulation.Common.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.simulators\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Simulation.QCTraceSimulatorRuntime.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.simulators\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Simulators.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.standard\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Standard.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.targets.interfaces\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Targets.Interfaces.dll"
+    "C:\Users\piegu\.nuget\packages\numsharp\0.20.5\lib\netstandard2.0\NumSharp.Core.dll"
+--load
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.qirgeneration\0.25.218240\build\/../lib/netstandard2.1/Microsoft.Quantum.QirGeneration.dll"
+--runtime
+    FullComputation
+--package-load-fallback-folders
+    "C:/Users/piegu/Documents/PIRQ/PIRQ_Draft/Module 2/QIR_vs_OpenQASM/bin/Debug/net6.0/"
+--assembly-properties
+    QirOutputPath:"C:/Users/piegu/Documents/PIRQ/PIRQ_Draft/Module 2/QIR_vs_OpenQASM/qir/"
+    DocsPackageId:Bernstein-Vazirani
+    ExecutionTarget:Any
+    AssemblyName:Bernstein-Vazirani
+    ProcessorArchitecture:Unspecified
+    TargetCapability:FullComputation
+    QSharpOutputType:QSharpExe
