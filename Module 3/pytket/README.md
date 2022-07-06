@@ -15,16 +15,16 @@ As you have likely notficed, tket involves many different software tools and qua
 
 1. Qiskit Circuit
 
-![alt text](images/B-V_untranspiled.png)
+![alt text](Images/B-V_untranspiled.png)
 
 2. Qiskit Circuit **to** Pytket Circuit.
 
-![alt text](images/pytket_B-V_untranspiled.png) 
+![alt text](Images/pytket_B-V_untranspiled.png) 
 
 3. Execute circuit on Q# Simulator. **PICTURE HERE.**
 
 This is one of **MANY** sequences you can do. To understand the other possible sequences from **circuit creation to backend execution**, we must understand the software tools and quantum backends suppoerted by `pytket`. Here is a simple high level diagram showing you the interoperability of all these software tools and backends. 
-![alt text](images/tket_compilation_interoperability_cropped.png)
+![alt text](Images/tket_compilation_interoperability_cropped.png)
 
 For example, lets take a look at the top leftmost box. 
 1. **pytket-cirq** is the pytket extension
