@@ -11,7 +11,7 @@ For more information please click the following links:
 2. [pytket Examples](https://github.com/CQCL/pytket/tree/main/examples)
 
 ## Circuit Creation to Backend Execution
-As you have likely notficed, tket involves many different software tools and quantum backends. Its usefulness comes from being able to create a quantum circuit in one software development kit (SDK), and then execute it on a backend from a different provider. For example, you may have the following sequence:
+As you have likely noticed, tket involves many different software tools and quantum backends. Its usefulness comes from being able to create a quantum circuit in one software development kit (SDK), and then execute it on a backend from a different provider. For example, you may have the following sequence:
 
 1. Qiskit Circuit
 
@@ -34,6 +34,12 @@ For example, lets take a look at the top leftmost box.
 The bi-directional arrow indicates we can:
 1. Convert a **Cirq circuit** into a **pytket circuit**.
 2. Convert a **pytket circuit** into a **Cirq circuit**. 
+
+
+The box outline is in **blue**, meaning the backend is implemented using **superconducting** qubits.
+(**Orange** outline indicates the backend is an **ion-trap** device.)
+(**Red** outline indicates the backend is **more than one implementation.**)
+
 
 We could, the following sequence: 
 1. Create Cirq circuit --> Convert to pytket circuit --> Run on **ANY** backend(i.e. IBMQ Device, IonQ Device, AQT Device, etc.)
