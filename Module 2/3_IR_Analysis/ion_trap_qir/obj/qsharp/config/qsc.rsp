@@ -1,0 +1,67 @@
+--proj
+    "C:\Users\piegu\Documents\PIRQ\PIRQ_Draft\Module 2\ion_trap_qir\ion_trap_B-V"
+--build-exe
+--input
+    "C:\Users\piegu\Documents\PIRQ\PIRQ_Draft\Module 2\ion_trap_qir\Program.qs"
+--output
+    "C:/Users/piegu/Documents/PIRQ/PIRQ_Draft/Module 2/ion_trap_qir/obj/qsharp/"
+--references
+    "C:\Users\piegu\.nuget\packages\azure.core\1.22.0\lib\net5.0\Azure.Core.dll"
+    "C:\Users\piegu\.nuget\packages\azure.identity\1.5.0\lib\netstandard2.0\Azure.Identity.dll"
+    "C:\Users\piegu\.nuget\packages\azure.quantum.jobs\1.0.0-beta.3\lib\netstandard2.0\Azure.Quantum.Jobs.dll"
+    "C:\Users\piegu\.nuget\packages\azure.storage.blobs\12.10.0\lib\netstandard2.0\Azure.Storage.Blobs.dll"
+    "C:\Users\piegu\.nuget\packages\azure.storage.common\12.9.0\lib\netstandard2.0\Azure.Storage.Common.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.azure.quantum.client\0.25.218240\lib\netstandard2.1\Microsoft.Azure.Quantum.Client.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.bcl.asyncinterfaces\1.1.1\ref\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.extensions.configuration.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.extensions.configuration.commandline\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.CommandLine.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.extensions.configuration\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.extensions.configuration.environmentvariables\2.2.4\lib\netstandard2.0\Microsoft.Extensions.Configuration.EnvironmentVariables.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.extensions.configuration.fileextensions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.FileExtensions.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.extensions.configuration.json\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Json.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.extensions.fileproviders.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.extensions.fileproviders.physical\2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.extensions.primitives\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.identity.client\4.30.1\lib\netcoreapp2.1\Microsoft.Identity.Client.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.identity.client.extensions.msal\2.18.4\lib\netcoreapp2.1\Microsoft.Identity.Client.Extensions.Msal.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.BondSchemas.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.decompositions.honeywell\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Decompositions.Honeywell.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.decompositions.openqasm\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Decompositions.OpenQASM.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.qirgeneration\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.LlvmBindings.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.providers.core\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Providers.Core.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.providers.datastructures\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Providers.Datastructures.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.providers.honeywell\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Providers.Honeywell.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.qirgeneration\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QirGeneration.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsCompilationManager.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsCompiler.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsCore.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsDataStructures.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsDocumentationParser.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.qsharp.core\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QSharp.Core.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.qsharp.foundation\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QSharp.Foundation.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsOptimizations.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsSyntaxProcessor.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsTextProcessor.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.QsTransformations.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.runtime.core\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Runtime.Core.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.simulators\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Simulation.Common.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.simulators\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Simulation.QCTraceSimulatorRuntime.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.simulators\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Simulators.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.standard\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Standard.dll"
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.targets.interfaces\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.Targets.Interfaces.dll"
+    "C:\Users\piegu\.nuget\packages\windowsazure.storage\9.3.3\lib\netstandard1.3\Microsoft.WindowsAzure.Storage.dll"
+    "C:\Users\piegu\.nuget\packages\numsharp\0.20.5\lib\netstandard2.0\NumSharp.Core.dll"
+--load
+    "C:\Users\piegu\.nuget\packages\microsoft.quantum.qirgeneration\0.25.218240\build\/../lib/netstandard2.1/Microsoft.Quantum.QirGeneration.dll"
+--runtime
+    BasicMeasurementFeedback
+--package-load-fallback-folders
+    "C:/Users/piegu/Documents/PIRQ/PIRQ_Draft/Module 2/ion_trap_qir/bin/Debug/net6.0/"
+--assembly-properties
+    QirOutputPath:"C:/Users/piegu/Documents/PIRQ/PIRQ_Draft/Module 2/ion_trap_qir/qir/"
+    DocsPackageId:ion_trap_B-V
+    ExecutionTarget:honeywell.hqs-lt-1.0
+    AssemblyName:ion_trap_B-V
+    ProcessorArchitecture:QuantinuumProcessor
+    TargetCapability:BasicMeasurementFeedback
+    QSharpOutputType:QSharpExe

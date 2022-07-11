@@ -1,0 +1,80 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\ion_trap_qir\\ion_trap_B-V.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\ion_trap_qir\\ion_trap_B-V.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\ion_trap_qir\\ion_trap_B-V.csproj",
+        "projectName": "ion_trap_B-V",
+        "projectPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\ion_trap_qir\\ion_trap_B-V.csproj",
+        "packagesPath": "C:\\Users\\piegu\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\ion_trap_qir\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\piegu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Quantum.Providers.Honeywell": {
+              "target": "Package",
+              "version": "[0.25.218240, )"
+            },
+            "Microsoft.Quantum.QSharp.Core": {
+              "target": "Package",
+              "version": "[0.25.218240, )"
+            },
+            "Microsoft.Quantum.QirGeneration": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.25.218240, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Quantum.Standard": {
+              "target": "Package",
+              "version": "[0.25.218240, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
