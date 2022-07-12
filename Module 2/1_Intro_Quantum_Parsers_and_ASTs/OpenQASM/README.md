@@ -1,8 +1,6 @@
 # Quantum Lexical Analysis and Parse Trees: OpenQASM
 
-(Jupyter Notebook WIP)
-
-This section explains [how OpenQASM uses the ANTLR4 tool](https://github.com/openqasm/openqasm/tree/main/source/grammar) to generate a lexer and parser for their high-level imperative programming language. We use this as an example for how quantum concepts and constructs can be supported through the compilation process, starting from the most foundational step: tokens and grammars.
+This section explains [how OpenQASM uses the ANTLR4 tool](https://github.com/openqasm/openqasm/tree/main/source/grammar) to generate a lexer and parser. We use this as an example for how quantum concepts and constructs can be supported through the compilation process, starting from the most foundational step: tokens and grammars.
 
 ## Sample OpenQASM Code
 
@@ -22,8 +20,7 @@ measure q[1] -> c[1];       //measure the other qubit, and put outcome in the ot
 
 ## Deviations from Classical Program
 
-First we will look to the .g4 file because this file contains the programming parser.
-Right off the bat, some things are apparent. A quantum coding language will require some quantum-specific keywords.
+First we will look to the .g4 file because this file contains the programming parser. Right off the bat, some things are apparent. A quantum coding language will require some quantum-specific keywords.
 
 Here, we can notice that there are two different types of variables, `qreg` and `creg`. This is analogous to the typing system we are familiar with from classical computing, and can be dealt with in the same way during compilation. We can see this at work in `qasm3Lexer.g4`, where a new type token `qreg` is included among more familiar datatypes.
 
@@ -74,19 +71,19 @@ BooleanLiteral: 'true' | 'false';
 
 We will now perform lexical analysis and generate a parse tree for this code, using ANTLR4. If you want to follow along, these resources may be helpful: [[1](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md)] [[2](http://pragprog.com/titles/tpantlr2/source_code)].
 
-1.The first thing you will need to do is [download and install Java](https://www.java.com/en/download/help/download_options.html). Note that you may run into some compatibility issues: we recommend v11.0.2, which you can do through [OpenJDK](https://jdk.java.net/archive/) or [OracleJDK](https://www.oracle.com/java/technologies/downloads/archive/).
+1. The first thing you will need to do is [download and install Java](https://www.java.com/en/download/help/download_options.html). Note that you may run into some compatibility issues: we recommend v11.0.2, which you can do through [OpenJDK](https://jdk.java.net/archive/) or [OracleJDK](https://www.oracle.com/java/technologies/downloads/archive/).
     + Make sure you set your `JAVA_HOME` environmental variable to store the path where you saved your JDK.
     + Also, make sure you add this path + `\bin` to your `PATH`
 
 This is a good place to stop and test. Type the command `java` into your command line. If it is not a recognized command, make sure your environmental variables are configured correctly. If you get usage tips - good job! Move on to the next step.
 
-2.Once you have Java up and running, the next thing you will need is the actual ANTLR tool. You can download that [here](https://www.antlr.org/download.html). If you aim to follow along with the rest of this tutorial, download the complete binaries package for Java target, and save it into a convenient folder (if you already have one where you keep third party Java tools, that will work just fine).
+2. Once you have Java up and running, the next thing you will need is the actual ANTLR tool. You can download that [here](https://www.antlr.org/download.html). If you aim to follow along with the rest of this tutorial, download the complete binaries package for Java target, and save it into a convenient folder (if you already have one where you keep third party Java tools, that will work just fine).
 
-3.The ANTLR tool needs to be added to the `CLASSPATH` environmental variable. Importantly, you have to add two paths: `.` and `path\to\antlr-4.10.1-complete.jar`. Note that these two commands are only temporary, and if you want to do this permanently you should either change in your `.bash_file` or in your Control Panel.
+3. The ANTLR tool needs to be added to the `CLASSPATH` environmental variable. Importantly, you have to add two paths: `.` and `path\to\antlr-4.10.1-complete.jar`. Note that these two commands are only temporary, and if you want to do this permanently you should either change in your `.bash_file` or in your Control Panel.
     + For Linux: `$ export CLASSPATH=".:/usr/local/lib/antlr-4.10.1-complete.jar:$CLASSPATH"`
     + For Windows: `% SET CLASSPATH=.;C:\Javalib\antlr-4.10.1-complete.jar;%CLASSPATH%`
 
-4.Set some convenient commands, so you don't have to type long paths over and over.
+4. Set some convenient commands, so you don't have to type long paths over and over.
 
 Linux:
 

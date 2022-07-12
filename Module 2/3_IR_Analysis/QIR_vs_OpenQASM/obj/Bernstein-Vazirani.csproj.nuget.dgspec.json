@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\QIR_vs_OpenQASM\\Bernstein-Vazirani.csproj": {}
+    "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\QIR_vs_OpenQASM\\Bernstein-Vazirani.csproj": {}
   },
   "projects": {
-    "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\QIR_vs_OpenQASM\\Bernstein-Vazirani.csproj": {
+    "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\QIR_vs_OpenQASM\\Bernstein-Vazirani.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\QIR_vs_OpenQASM\\Bernstein-Vazirani.csproj",
+        "projectUniqueName": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\QIR_vs_OpenQASM\\Bernstein-Vazirani.csproj",
         "projectName": "Bernstein-Vazirani",
-        "projectPath": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\QIR_vs_OpenQASM\\Bernstein-Vazirani.csproj",
+        "projectPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\QIR_vs_OpenQASM\\Bernstein-Vazirani.csproj",
         "packagesPath": "C:\\Users\\piegu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\QIR_vs_OpenQASM\\obj\\",
+        "outputPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\QIR_vs_OpenQASM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\piegu\\AppData\\Roaming\\NuGet\\NuGet.Config"

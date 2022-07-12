@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ckksDFGtq2RAV14M9Lgf5MlMxLnxARmz4HwAcLrVU7ah5lOoG8VWETWYpYWJxHvXCAy12GFZomJl5tLn1ZzElA==",
+  "dgSpecHash": "ObzWMEaPjHbfAewQL75xZGRH8ZHicgltqLSr/L9QxQcutwVXPx8XRc2y7ZDKoNlx/ENN8vqKAyOUmfHQ/ZiXMg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\QIR_vs_OpenQASM\\Bernstein-Vazirani.csproj",
+  "projectFilePath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\QIR_vs_OpenQASM\\Bernstein-Vazirani.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\piegu\\.nuget\\packages\\bond.core.csharp\\9.0.3\\bond.core.csharp.9.0.3.nupkg.sha512",
     "C:\\Users\\piegu\\.nuget\\packages\\bond.csharp\\9.0.3\\bond.csharp.9.0.3.nupkg.sha512",
