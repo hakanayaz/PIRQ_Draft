@@ -14,9 +14,7 @@ In this [first set of walkthroughs](1_Intro_Quantum_Parsers_and_ASTs), we work t
 
 ### 2. Transpilation and Optimization
 
-Next, we discuss a key element of any compilation pipeline which is exacerbated by quantum's unique limitations - optimization. In [this set of tutorials](2_Transpilation_and_Optimization), we focus heavily on Qiskit's transpiler and its built in optimization passes, with an eye towards showing how the transpiler can be customized for any use case. 
-
-> (Switch to QHAL section) To that end, we configure our own simple backend with a specific geometry and basis gate set, and use the transpiler in order to succesfully execute code on it. We also delve into the optimizations offered by qcor's MLIR tool, and compare them in detail with those Qiskit is able to perform. 
+Next, we discuss a key element of any compilation pipeline which is exacerbated by quantum's unique limitations - optimization. In [this set of tutorials](2_Transpilation_and_Optimization), we focus heavily on Qiskit's transpiler and its built in optimization passes, with an eye towards showing how the transpiler can be customized for any use case. We also delve into the optimizations offered by qcor's MLIR tool, and compare them in detail with those Qiskit is able to perform.
 
 (In the future, we may add experimentation and tutorials on optimizations offered by pytket and the Q# compiler, and perhaps others)
 
@@ -29,6 +27,8 @@ Next, we discuss a key element of any compilation pipeline which is exacerbated 
 Because many of the most accessible tools and frameworks are built around superconducting backends, our work up until now has displayed a distinct bias in that direction. In [this section](4_Other_Architectures), we aim to balance the scale by generating QIR (as we did in the last tutorial) which is specifically targeted to an ion trap backend, as well as using a Qiskit backend configured like an ion trap architecture. Finally, we have a tutorial for Pennylane, which runs on photonic chips.
 
 ### 5. QHAL (Quantum Hardware Abstraction Layer)
+
+As a first foray into the backend of compilation, in [this tutorial](5_QHAL_Had_Backend) we configure our own simple hardware simulator with a specific geometry and basis gate set, and use the Qiskit transpiler in order to succesfully execute code on it.
 
 ### WIP Section
 
