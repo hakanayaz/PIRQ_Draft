@@ -6969,11 +6969,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\4_Other_Architectures\\ion_trap_qir\\ion_trap_B-V.csproj",
+      "projectUniqueName": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\4_QHAL_HAD_Backend\\Other_Architectures\\ion_trap_qir\\ion_trap_B-V.csproj",
       "projectName": "ion_trap_B-V",
-      "projectPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\4_Other_Architectures\\ion_trap_qir\\ion_trap_B-V.csproj",
+      "projectPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\4_QHAL_HAD_Backend\\Other_Architectures\\ion_trap_qir\\ion_trap_B-V.csproj",
       "packagesPath": "C:\\Users\\piegu\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\4_Other_Architectures\\ion_trap_qir\\obj\\",
+      "outputPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\4_QHAL_HAD_Backend\\Other_Architectures\\ion_trap_qir\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\piegu\\AppData\\Roaming\\NuGet\\NuGet.Config"

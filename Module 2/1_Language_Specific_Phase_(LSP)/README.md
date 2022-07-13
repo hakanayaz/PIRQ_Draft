@@ -1,6 +1,6 @@
-# 1. Intro: Quantum Parsers and ASTs
+# 1. Language Specific Phase (LSP)
 
-This section has considerable overlap with the tutorials in [Module 1](../../Module%201/). It focuses primarily on the standard steps of lexical and syntactical analysis which we explored in depth in the previous module, and serves to ease the reader in to the quantum space using these familiar phases.
+This section has considerable overlap with the tutorials in [Module 1](../../Module%201/). It focuses primarily on the standard steps of lexical and syntactical analysis which we explored in depth in the previous module, and explores them in the context of language specific steps of compilation.
 
 ## OpenQASM 3
 
@@ -12,4 +12,4 @@ Many users may be more familiar with Qiskit, the high level Python toolkit. To t
 
 ## Takeaways
 
-As might be expected, the surface level lexical and syntax steps (which by their very nature don't care  or even know anything about the content of a program) are pretty unchanged between classical and quantum compilation. Besides for some new quantum operations that need designated keywords to support them, this introductory section should feel pretty similar to Module 1. Next up, we will begin looking into a topic which is far more relevant to quantum than it is to classic computing: [optimization and error mitigation](../2_Transpilation_and_Optimization/).
+As might be expected, the surface level lexical and syntax steps (which by their very nature don't care  or even know anything about the content of a program) are pretty unchanged between classical and quantum compilation. Besides for some new quantum operations that need designated keywords to support them, this introductory section should feel pretty similar to Module 1. Next up, we examine the [Generic Phase](../2_Generic_Phase_(GP)/).

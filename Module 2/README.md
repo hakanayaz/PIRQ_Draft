@@ -6,27 +6,37 @@ While we used [Module 1](../Module%201/) as a beginner's introduction to some id
 
 ## Contents
 
-This directory contains tutorials, explanations, and analyses centered around the Intermediate Representation (IR) for quantum programs. As a step towards understanding what would enable a Practical IR for Quantum, we experiment with current approaches and tools to see what works well and what is lacking. It is broken into five sections, which should be explored roughly in order. First three part is the compilation high-level phases and last three part will be quantum hardware abstraction layer and WIT part.
+This directory contains tutorials, explanations, and analyses centered around the Intermediate Representation (IR) for quantum programs. As a step towards understanding what would enable a Practical IR for Quantum, we experiment with current approaches and tools to see what works well and what is lacking. It is broken into five sections, which should be explored roughly in order.
+
+## Structure
+
+Much of the complexity in Quantum Compilation comes from the different requirements and dependencies of each step in the compilation process. We attempt to roughly split the process into three high level phases - Language Specific, Generic, and Target Specific - and to provide examples and desired features of each.
+
+> Important Note: The structure described in this module is an idealized one, and many of the tools which would make it a reality do not exist. Because of this, a gap exists between the theoretical process we are working towards and the practical examples and tutorials we are able to offer within this module. For example, we would hope that each phase's output would directly be inputted to the following phase, but that is not the case of our tutorials. We encourage the reader to view each example as designed to convey an idea, rather than a tutorial to be followed in the hopes of actually constructing a working compiler. Once standardized, quality tools have been built to enable each phase, they can be more easily linked together.
+
 
 ### 1. Language Specific Phase (LSP)
 
-**UPDATE**
 
-In this [first set of walkthroughs](1_Intro_Quantum_Parsers_and_ASTs), we work through simple examples written using perhaps the most widely used quantum computing framework - [Qiskit](https://qiskit.org/). We use [OpenQASM 3](https://github.com/openqasm/openqasm), a popular and recently revamped Quantum Assembly Language, in tandem with a [qcor](https://qcor.ornl.gov/) tool in order to obtain LLVM and MLIR representations of a simple quantum circuit. We also give a brief tutorial on the use of [ANTLR4](https://www.antlr.org/), a helpful tool for general purpose parsing which can be easily adapted to build quantum parsers and ASTs.
+In this [first set of walkthroughs](1_Language_Specific_Phase_(LSP)), we review the earliest steps of compilation, where a program in a particular source language must be tokenized and parsed. We work through simple examples written using perhaps the most widely used quantum computing framework - [Qiskit](https://qiskit.org/). We use [OpenQASM 3](https://github.com/openqasm/openqasm), a popular and recently revamped Quantum Assembly Language, in tandem with a [qcor](https://qcor.ornl.gov/) tool in order to obtain LLVM and MLIR representations of a simple quantum circuit. We also give a brief tutorial on the use of [ANTLR4](https://www.antlr.org/), a helpful tool for general purpose parsing which can be easily adapted to build quantum parsers and ASTs.
+
+> In our theoretical structure, some language-specific optimizations could be performed here. For example, condensing a poorly implemented Qiskit circuit into a more efficient equivalent is very different from inlining Q# callables, but each of those is important before moving on. And, while we generate LLVM in order to provide some insight, in reality this phase would more likely output a tree-like structure more similar to what ANTLR4 produced, which would then be passed into the Generic Phase.
 
 ### 2. Generic Phase (GP)
 
-**UPDATE**
+The [next phase](2_Generic_Phase_(GP)) is *generic*, meaning the program should exist in an idealized, hardware and programming-language agnostic form. As of now, two options to fill such a role are [QIR](https://devblogs.microsoft.com/qsharp/introducing-quantum-intermediate-representation-qir/) and the recently released OpenQASM 3. We explore whether they can be considered to be equally viable candidates for quantum IR, with a detailed analysis of their respective roles and capabilities in a compilation ecosystem. We generate QIR from Q#, and hope in the future to enable a Q# --> OpenQASM 3 exporter in order to directly compare results.
 
-Next, we discuss a key element of compilation which is exacerbated by quantum's unique limitations - optimization. In [this set of tutorials](2_Transpilation_and_Optimization), we focus heavily on Qiskit's transpiler and its built in optimization passes, with an eye towards showing how the transpiler can be customized for any use case. We also delve into the optimizations offered by qcor's MLIR tool, and compare them in detail with those Qiskit is able to perform.
-
-> (In the future, we hope to investigate the optimizations qcor's quantum C++ compiler can perform, as well as add experimentation and tutorials on optimizations offered by pytket and the Q# compiler, and perhaps others)
+> (Idea: Qiskit --> OpenQASM 3 vs. Qiskit --> Q# --> QIR using pytket?)
+> This phase should accept tree-like structures from the LSP, and be able to funnel them into a standardized and agreed upon IR. In addition, optimizations can be performed on this IR, as long as they are a) desirable for ALL quantum programs, such that implementing them in the LSP would be inefficient and redundant across languages and b) independent of target data such as error rates, decoherence times, and qubit connectivity. For example, chains of single qubit gates can be combined into a single gate, or gates which cancel each other out can be removed.
 
 ### 3. Target Specific Phase (TSP)
 
-[Here](3_IR_Analysis), we investigate whether [QIR](https://devblogs.microsoft.com/qsharp/introducing-quantum-intermediate-representation-qir/) and the recently released OpenQASM 3 can be considered to be equally viable candidates for quantum IR, with a detailed analysis of their respective roles and capabilities in a compilation ecosystem. We generate QIR from Q#, and hope in the future to enable a Q# --> OpenQASM 3 exporter in order to directly compare results.
+Finally, it's inevitable that information about the quantum hardware must be taken into account during compilation. So, a final set of optimizations must be applied to the Generic IR of the phase before. In this phase, gates should be translated to a specific basis, more expensive or error prone gates may be optimized away, and physical qubit layout can be determined. As a demonstration, in [this section](3_Target_Specific_Phase_(TSP)) we focus heavily on Qiskit's transpiler and its built in optimization passes, with an eye towards showing how the transpiler can be customized for any use case. While we don't envision Qiskit being the IR of choice, its prebuilt library of transpilation passes is excellent and serves as a good testing ground.
 
-> (Idea: Qiskit --> OpenQASM 3 vs. Qiskit --> Q# --> QIR using pytket?)
+We also delve into the optimizations offered by qcor's MLIR tool, and compare them in detail with those Qiskit is able to perform. While the qcor optimizations more properly belong in LSP, as they seem to specifically optimize LLVM, we include them here for comparison against Qiskit.
+
+> (In the future, we hope to investigate the optimizations qcor's quantum C++ compiler can perform, as well as add experimentation and tutorials on optimizations offered by pytket and the Q# compiler, and perhaps others)
+
 
 ### 4. QHAL (Quantum Hardware Abstraction Layer)
 

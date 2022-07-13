@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7Xq+ESfPdPrMpRLSmeL+Ix/OSI+RBrwpvRuGiBXaHUcnrczGHOcANpRMc6eqyf5S0qMVjY6XFwJA1xT/ueYj/Q==",
+  "dgSpecHash": "eySBnqSfU6aDxznuuDmMbab/szwSL/raxiRXixkEazApCmEab474imgh6f+xfyM17n8Iz6BwYSxRCeaJCvPMbw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\ion_trap_qir\\ion_trap_B-V.csproj",
+  "projectFilePath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\ion_trap_qir\\ion_trap_B-V.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\piegu\\.nuget\\packages\\azure.core\\1.22.0\\azure.core.1.22.0.nupkg.sha512",
     "C:\\Users\\piegu\\.nuget\\packages\\azure.identity\\1.5.0\\azure.identity.1.5.0.nupkg.sha512",

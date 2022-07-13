@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\ion_trap_qir\\ion_trap_B-V.csproj": {}
+    "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj": {}
   },
   "projects": {
-    "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\ion_trap_qir\\ion_trap_B-V.csproj": {
+    "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\ion_trap_qir\\ion_trap_B-V.csproj",
-        "projectName": "ion_trap_B-V",
-        "projectPath": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\ion_trap_qir\\ion_trap_B-V.csproj",
+        "projectUniqueName": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj",
+        "projectName": "Bernstein-Vazirani",
+        "projectPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj",
         "packagesPath": "C:\\Users\\piegu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\ion_trap_qir\\obj\\",
+        "outputPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\piegu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,10 +38,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.Quantum.Providers.Honeywell": {
-              "target": "Package",
-              "version": "[0.25.218240, )"
-            },
             "Microsoft.Quantum.QSharp.Core": {
               "target": "Package",
               "version": "[0.25.218240, )"
