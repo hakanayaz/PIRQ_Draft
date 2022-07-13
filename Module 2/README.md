@@ -4,7 +4,7 @@
 While we used [Module 1](../Module%201/) as a beginner's introduction to some ideas which are fundamental to compilation (and if you feel shaky about topics like lexical analysis, syntax trees, or LLVM IR we highly recommend checking it out), the truth is that quantum computing poses many unique challenges which a discussion of classical computing is unable to shed much light on. Now that we're all acquainted with what a standard compilation pipeline looks like, which steps comprise it, and some of the challenges which motivate it, we will move on to explore how these can differ in the quantum space. 
 
 ## Contents
-This directory contains tutorials, explanations, and analyses centered around the Intermediate Representation (IR) for quantum programs. As a step towards understanding what would enable a Practical IR for Quantum, we experiment with current approaches and tools to see what works well and what is lacking. It is broken into five sections, which should be explored roughly in order:
+The Module 2 directory contains tutorials, explanations, and analyses centered around Intermediate Representation (IR) for fairly simple quantum programs. As a step towards understanding what would enable a Practical IR for Quantum, we experiment with current approaches and tools to see what works well and what is lacking. This module broken into five sections, which should be explored roughly in order:
 
 ### 1. Intro: Quantum Parsers and ASTs
 

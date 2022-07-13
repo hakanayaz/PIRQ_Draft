@@ -1,6 +1,6 @@
 # Quantum Lexical Analysis and Parse Trees: Qiskit
 
-Here, we will extend our investigation of quantum compilation frontends to an example written in Qiskit.
+Here, we will extend our investigation of quantum compilation frontends to an example written with Qiskit.
 
 ## Sample Code
 
@@ -23,7 +23,7 @@ def BellState():
 
 For the Lexical and Syntactical Analysis of this code, we will use ANTLR4. We recommend you check [this section](../OpenQASM/README.md/#antlr4) of the OpenQASM tutorial for instructions on how to get ANTLR4 installed and up and running. Below, we will assume you have done this correctly, so please take the time to read through the relevant resources!
 
-Included with this repo is a `.g4` file detailing the grammar for `Python3`. Assuming we've either used `doskey`/`alias` so that the relevant commands are easily accessible, we simply run `antlr4 Python3.g4` and then `javac Python3*.java`. Once we've done so, we're ready to use the automatically created ANTLR4 tools to analyze our Qiskit code. The only thing which remains is to figure out which parse rule we'd like to target: a quick glance into the `Python3.g4` file reveals that the highest level production is `file_input : ( NEWLINE | stmt )* EOF ;`, so that's what we will use.
+Included with this repo is a `.g4` file detailing the grammar for `Python3`. After using either `doskey`/`alias` so that the relevant commands are easily accessible, we simply run `antlr4 Python3.g4` and then `javac Python3*.java`. Once we've done so, we're ready to use the automatically created ANTLR4 tools to analyze our Qiskit code. The only thing which remains is to figure out which parse rule we'd like to target: a quick glance into the `Python3.g4` file reveals that the highest level production is `file_input : ( NEWLINE | stmt )* EOF ;`, so that's what we will use.
 
 ### Lexical Analysis
 
