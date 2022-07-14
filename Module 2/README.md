@@ -6,11 +6,11 @@ While we used [Module 1](../Module%201/) as a beginner's introduction to some id
 
 ## Contents
 
-This directory contains tutorials, explanations, and analyses centered around the Intermediate Representation (IR) for quantum programs. As a step towards understanding what would enable a Practical IR for Quantum, we experiment with current approaches and tools to see what works well and what is lacking. It is broken into five sections, which should be explored roughly in order.
+This directory contains tutorials, explanations, and analyses centered around the Intermediate Representation (IR) for quantum programs. As a step towards understanding what would enable a Practical IR for Quantum, we experiment with current approaches and tools to see what works well and what is lacking. It is broken into four sections, which should be explored roughly in order.
 
 ## Structure
 
-Quantum Compilation is complex in part due to the differing requirements and dependencies of each stage. Some steps are particular to certain design choices of the particular programming language and some can only be completed once information about a hardware backend is known. We impose a rough three layer structure - Language Specific, Generic, and Target Specific Compilation - and provide examples and desired features of each.
+Quantum Compilation is complex in part due to the differing requirements and dependencies of each stage. Some steps are particular to certain design choices of the particular programming language and some can only be completed once information about a hardware backend is known. We impose a rough three layer structure - [Language Specific](1_Language_Specific_Phase_(LSP)), [Generic](2_Generic_Phase_(GP)), and [Target Specific Compilation](3_Target_Specific_Phase_(TSP)) - and provide examples and desired features of each.
 
 > Important Note: The structure described in this module is an idealized one, and many of the tools which would make it a reality do not exist. Because of this, a gap exists between the high-level theoretical structure we are working towards and the practical examples and tutorials we are able to offer within this module. For example, we would hope that each phase's output would directly be inputted to the following phase, but that is not the case of our tutorials. We encourage the reader to view each example as designed to convey an idea, rather than a tutorial to be followed in the hopes of actually constructing a working compiler. Once standardized, quality tools have been built to enable each phase, they can be more easily linked together.
 
