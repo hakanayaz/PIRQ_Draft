@@ -23,7 +23,7 @@ In this [first set of walkthroughs](1_Language_Specific_Phase_(LSP)), we review 
 
 ### 2. Generic Phase (GP)
 
-The [next phase](2_Generic_Phase_(GP)) is *generic*, meaning the program should exist in an idealized, hardware and programming-language agnostic form. As of now, two options to fill such a role are [QIR](https://devblogs.microsoft.com/qsharp/introducing-quantum-intermediate-representation-qir/) and the recently released OpenQASM 3. We explore whether they can be considered to be equally viable candidates for quantum IR, with a detailed analysis of their respective roles and capabilities in a compilation ecosystem. We generate QIR from Q#, and hope in the future to enable a Q# --> OpenQASM 3 exporter in order to directly compare results.
+The [next phase](2_Generic_Phase_(GP)) is *generic*, meaning the program should exist in an idealized, hardware and programming-language agnostic form. As of now, [QIR](https://devblogs.microsoft.com/qsharp/introducing-quantum-intermediate-representation-qir/) and OpenQASM 3 both have this sort of functionality. We explore what their respective capabilities are, and different areas in which they excel. We generate QIR from Q#, and hope in the future to enable a Q# --> OpenQASM 3 exporter in order to directly compare results.
 
 > (Idea: Qiskit --> OpenQASM 3 vs. Qiskit --> Q# --> QIR using pytket?)
 
