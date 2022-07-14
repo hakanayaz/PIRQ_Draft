@@ -1,10 +1,10 @@
 --proj
-    "C:\Users\piegu\Documents\PIRQ\PIRQ_Draft\Module 2\QIR_vs_OpenQASM\Bernstein-Vazirani"
+    "C:\Users\piegu\Documents\PIRQ\PIRQ_Draft\Module 2\2_Generic_Phase_(GP)\Bernstein-Vazirani"
 --build-exe
 --input
-    "C:\Users\piegu\Documents\PIRQ\PIRQ_Draft\Module 2\QIR_vs_OpenQASM\Program.qs"
+    "C:\Users\piegu\Documents\PIRQ\PIRQ_Draft\Module 2\2_Generic_Phase_(GP)\Program.qs"
 --output
-    "C:/Users/piegu/Documents/PIRQ/PIRQ_Draft/Module 2/QIR_vs_OpenQASM/obj/qsharp/"
+    "C:/Users/piegu/Documents/PIRQ/PIRQ_Draft/Module 2/2_Generic_Phase_(GP)/obj/qsharp/"
 --references
     "C:\Users\piegu\.nuget\packages\microsoft.quantum.compiler\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.BondSchemas.dll"
     "C:\Users\piegu\.nuget\packages\microsoft.quantum.qirgeneration\0.25.218240\lib\netstandard2.1\Microsoft.Quantum.LlvmBindings.dll"
@@ -32,9 +32,9 @@
 --runtime
     FullComputation
 --package-load-fallback-folders
-    "C:/Users/piegu/Documents/PIRQ/PIRQ_Draft/Module 2/QIR_vs_OpenQASM/bin/Debug/net6.0/"
+    "C:/Users/piegu/Documents/PIRQ/PIRQ_Draft/Module 2/2_Generic_Phase_(GP)/bin/Debug/net6.0/"
 --assembly-properties
-    QirOutputPath:"C:/Users/piegu/Documents/PIRQ/PIRQ_Draft/Module 2/QIR_vs_OpenQASM/qir/"
+    QirOutputPath:"C:/Users/piegu/Documents/PIRQ/PIRQ_Draft/Module 2/2_Generic_Phase_(GP)/qir/"
     DocsPackageId:Bernstein-Vazirani
     ExecutionTarget:Any
     AssemblyName:Bernstein-Vazirani

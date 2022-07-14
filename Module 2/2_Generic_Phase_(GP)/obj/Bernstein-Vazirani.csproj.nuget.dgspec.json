@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj": {}
+    "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj": {}
   },
   "projects": {
-    "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj": {
+    "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj",
+        "projectUniqueName": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj",
         "projectName": "Bernstein-Vazirani",
-        "projectPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj",
+        "projectPath": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj",
         "packagesPath": "C:\\Users\\piegu\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\obj\\",
+        "outputPath": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\piegu\\AppData\\Roaming\\NuGet\\NuGet.Config"
