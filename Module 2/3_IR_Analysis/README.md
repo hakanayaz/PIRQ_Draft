@@ -1,4 +1,4 @@
-# 2. Generic Phase (GP)
+# 3. IR Analysis
 
 Here, we examine aspects of two widely used quantum computing IR's and how they can be used to design a Practical Intermediate Representation for Quantum, namely Microsoft's [Quantum Intermediate Representation (QIR)](https://devblogs.microsoft.com/qsharp/introducing-quantum-intermediate-representation-qir/) and IBM's [OpenQASM 3](https://github.com/openqasm/openqasm). For a detailed account of the functionality of each, feel free to read through their respective documentations ([here](https://github.com/qir-alliance/qir-spec/tree/main/specification) for QIR and [here](https://openqasm.com/intro.html) for OpenQASM), or read [this prepared report](https://docs.google.com/document/d/1Mm8Awpg9EmYd_EZ174gTj6gb3GCTL2kfzUekGIlJap8/edit?usp=sharing) for insight into their respective capabilities and scopes. We do this to clarify what can be expected of the representation in the Generic Phase, as well as what we is assumed to be shifted to the backend (or the TSP).
 
