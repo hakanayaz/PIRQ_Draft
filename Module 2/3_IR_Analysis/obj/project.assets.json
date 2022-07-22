@@ -2,6 +2,80 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Azure.Core/1.22.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
+          "System.Diagnostics.DiagnosticSource": "4.6.0",
+          "System.Memory.Data": "1.0.2",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Text.Encodings.Web": "4.7.2",
+          "System.Text.Json": "4.7.2",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "compile": {
+          "lib/net5.0/Azure.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Azure.Core.dll": {}
+        }
+      },
+      "Azure.Identity/1.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Core": "1.20.0",
+          "Microsoft.Identity.Client": "4.30.1",
+          "Microsoft.Identity.Client.Extensions.Msal": "2.18.4",
+          "System.Memory": "4.5.4",
+          "System.Security.Cryptography.ProtectedData": "4.5.0",
+          "System.Text.Json": "4.6.0",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.Identity.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Identity.dll": {}
+        }
+      },
+      "Azure.Quantum.Jobs/1.0.0-beta.3": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Core": "1.22.0",
+          "System.Text.Json": "4.7.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.Quantum.Jobs.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Quantum.Jobs.dll": {}
+        }
+      },
+      "Azure.Storage.Blobs/12.10.0": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Storage.Common": "12.9.0",
+          "System.Text.Json": "4.6.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.Storage.Blobs.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Storage.Blobs.dll": {}
+        }
+      },
+      "Azure.Storage.Common/12.9.0": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Core": "1.19.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
       "Bond.Core.CSharp/9.0.3": {
         "type": "package",
         "compile": {
@@ -106,6 +180,18 @@
           }
         }
       },
+      "Humanizer.Core/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Humanizer.dll": {}
+        }
+      },
       "Markdig.Signed/0.20.0": {
         "type": "package",
         "compile": {
@@ -113,6 +199,33 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/Markdig.Signed.dll": {}
+        }
+      },
+      "Microsoft.Azure.Quantum.Client/0.25.218240": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Core": "1.22.0",
+          "Azure.Identity": "1.5.0",
+          "Azure.Quantum.Jobs": "1.0.0-beta.3",
+          "Azure.Storage.Blobs": "12.10.0",
+          "Microsoft.Quantum.Runtime.Core": "0.25.218240",
+          "Newtonsoft.Json": "13.0.1",
+          "WindowsAzure.Storage": "9.3.3"
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Azure.Quantum.Client.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Azure.Quantum.Client.dll": {}
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
         }
       },
       "Microsoft.CodeAnalysis.Analyzers/3.0.0": {
@@ -233,6 +346,148 @@
           }
         }
       },
+      "Microsoft.CodeAnalysis.CSharp.Workspaces/3.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Humanizer.Core": "2.2.0",
+          "Microsoft.CodeAnalysis.CSharp": "[3.6.0]",
+          "Microsoft.CodeAnalysis.Common": "[3.6.0]",
+          "Microsoft.CodeAnalysis.Workspaces.Common": "[3.6.0]"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.Workspaces.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.Workspaces.dll": {}
+        },
+        "resource": {
+          "lib/netcoreapp3.1/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/netcoreapp3.1/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "de"
+          },
+          "lib/netcoreapp3.1/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netcoreapp3.1/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/netcoreapp3.1/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "it"
+          },
+          "lib/netcoreapp3.1/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/netcoreapp3.1/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/netcoreapp3.1/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netcoreapp3.1/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/netcoreapp3.1/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.CodeAnalysis.Workspaces.Common/3.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "1.1.0",
+          "Microsoft.CodeAnalysis.Common": "[3.6.0]",
+          "System.Composition": "1.0.31"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.CodeAnalysis.Workspaces.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.CodeAnalysis.Workspaces.dll": {}
+        },
+        "resource": {
+          "lib/netcoreapp3.1/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/netcoreapp3.1/de/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "de"
+          },
+          "lib/netcoreapp3.1/es/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netcoreapp3.1/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/netcoreapp3.1/it/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "it"
+          },
+          "lib/netcoreapp3.1/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/netcoreapp3.1/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/netcoreapp3.1/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netcoreapp3.1/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/netcoreapp3.1/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.4.1": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
+      "Microsoft.Identity.Client/4.30.1": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.1/Microsoft.Identity.Client.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/Microsoft.Identity.Client.dll": {}
+        }
+      },
+      "Microsoft.Identity.Client.Extensions.Msal/2.18.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Identity.Client": "4.30.0",
+          "System.Security.Cryptography.ProtectedData": "4.5.0"
+        },
+        "compile": {
+          "lib/netcoreapp2.1/Microsoft.Identity.Client.Extensions.Msal.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/Microsoft.Identity.Client.Extensions.Msal.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/2.1.2": {
         "type": "package",
         "compile": {
@@ -292,35 +547,48 @@
           "lib/netstandard2.1/Microsoft.Quantum.QsTransformations.dll": {}
         }
       },
-      "Microsoft.Quantum.QirGeneration/0.25.218240": {
+      "Microsoft.Quantum.CSharpGeneration/0.25.218240": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Quantum.Compiler": "0.25.218240"
+          "Bond.CSharp": "9.0.3",
+          "FParsec": "1.0.3",
+          "FSharp.Core": "4.7.0",
+          "Markdig.Signed": "0.20.0",
+          "Microsoft.CodeAnalysis.CSharp": "3.6.0",
+          "Microsoft.CodeAnalysis.CSharp.Workspaces": "3.6.0",
+          "Microsoft.Quantum.Compiler": "0.25.218240",
+          "Microsoft.VisualStudio.LanguageServer.Protocol": "17.2.8",
+          "Newtonsoft.Json": "13.0.1",
+          "Newtonsoft.Json.Bson": "1.0.2",
+          "System.CodeDom": "5.0.0",
+          "System.Collections.Immutable": "1.6.0",
+          "System.ValueTuple": "4.4.0",
+          "YamlDotNet": "7.0.0"
         },
         "compile": {
-          "lib/netstandard2.1/Microsoft.Quantum.LlvmBindings.dll": {},
-          "lib/netstandard2.1/Microsoft.Quantum.QirGeneration.dll": {}
+          "lib/netstandard2.1/Microsoft.Quantum.CSharpGeneration.dll": {},
+          "lib/netstandard2.1/Microsoft.Quantum.RoslynWrapper.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.1/Microsoft.Quantum.LlvmBindings.dll": {},
-          "lib/netstandard2.1/Microsoft.Quantum.QirGeneration.dll": {}
+          "lib/netstandard2.1/Microsoft.Quantum.CSharpGeneration.dll": {},
+          "lib/netstandard2.1/Microsoft.Quantum.RoslynWrapper.dll": {}
         },
         "build": {
-          "build/Microsoft.Quantum.QirGeneration.props": {}
+          "build/Microsoft.Quantum.CSharpGeneration.props": {}
+        }
+      },
+      "Microsoft.Quantum.EntryPointDriver/0.25.218240": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Quantum.Client": "0.25.218240",
+          "Microsoft.Quantum.Simulators": "0.25.218240",
+          "System.CommandLine": "2.0.0-beta1.20213.1"
         },
-        "runtimeTargets": {
-          "runtimes/linux-x64/native/libLLVM.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/osx-x64/native/libLLVM.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/win-x64/native/libLLVM.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          }
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Quantum.EntryPointDriver.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Quantum.EntryPointDriver.dll": {}
         }
       },
       "Microsoft.Quantum.QSharp.Core/0.25.218240": {
@@ -871,6 +1139,133 @@
           "lib/netstandard2.0/System.Collections.Immutable.dll": {}
         }
       },
+      "System.CommandLine/2.0.0-beta1.20213.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.4.1",
+          "system.memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.CommandLine.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.CommandLine.dll": {}
+        }
+      },
+      "System.Composition/1.0.31": {
+        "type": "package",
+        "dependencies": {
+          "System.Composition.AttributedModel": "1.0.31",
+          "System.Composition.Convention": "1.0.31",
+          "System.Composition.Hosting": "1.0.31",
+          "System.Composition.Runtime": "1.0.31",
+          "System.Composition.TypedParts": "1.0.31"
+        }
+      },
+      "System.Composition.AttributedModel/1.0.31": {
+        "type": "package",
+        "dependencies": {
+          "System.Reflection": "4.3.0",
+          "System.Runtime": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.AttributedModel.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.AttributedModel.dll": {}
+        }
+      },
+      "System.Composition.Convention/1.0.31": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Composition.AttributedModel": "1.0.31",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tools": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.Convention.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.Convention.dll": {}
+        }
+      },
+      "System.Composition.Hosting/1.0.31": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Composition.Runtime": "1.0.31",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tools": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.ObjectModel": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.Hosting.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.Hosting.dll": {}
+        }
+      },
+      "System.Composition.Runtime/1.0.31": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tools": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.Runtime.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.Runtime.dll": {}
+        }
+      },
+      "System.Composition.TypedParts/1.0.31": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Composition.AttributedModel": "1.0.31",
+          "System.Composition.Hosting": "1.0.31",
+          "System.Composition.Runtime": "1.0.31",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tools": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.TypedParts.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.TypedParts.dll": {}
+        }
+      },
       "System.Console/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -895,17 +1290,10 @@
           "ref/netstandard1.3/System.Diagnostics.Debug.dll": {}
         }
       },
-      "System.Diagnostics.DiagnosticSource/4.3.0": {
+      "System.Diagnostics.DiagnosticSource/4.6.0": {
         "type": "package",
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Diagnostics.Tracing": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Threading": "4.3.0"
-        },
         "compile": {
-          "lib/netstandard1.3/_._": {}
+          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
@@ -1118,13 +1506,26 @@
           "lib/netstandard1.6/System.Linq.Expressions.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.1/_._": {}
         },
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "System.Memory.Data/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Encodings.Web": "4.7.2",
+          "System.Text.Json": "4.6.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.Data.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.Data.dll": {}
         }
       },
       "System.Net.Http/4.3.0": {
@@ -1195,6 +1596,15 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Net.Sockets.dll": {}
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
         }
       },
       "System.ObjectModel/4.3.0": {
@@ -1604,6 +2014,21 @@
           "lib/netstandard1.3/System.Security.Cryptography.Primitives.dll": {}
         }
       },
+      "System.Security.Cryptography.ProtectedData/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "System.Security.Cryptography.X509Certificates/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1762,7 +2187,7 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
-      "System.Threading.Tasks.Extensions/4.5.3": {
+      "System.Threading.Tasks.Extensions/4.5.4": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.1/_._": {}
@@ -1840,6 +2265,19 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "WindowsAzure.Storage/9.3.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
+        }
+      },
       "YamlDotNet/7.0.0": {
         "type": "package",
         "compile": {
@@ -1852,6 +2290,92 @@
     }
   },
   "libraries": {
+    "Azure.Core/1.22.0": {
+      "sha512": "ze/xRCHSSDe5TIk5vBDbVrauW1EN7UIbnBvIBfMH8KSt/I9+/7yPAjTBDgNBk0IwG6WBV+BBHp4IUtS/PGAQwQ==",
+      "type": "package",
+      "path": "azure.core/1.22.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "README.md",
+        "azure.core.1.22.0.nupkg.sha512",
+        "azure.core.nuspec",
+        "azureicon.png",
+        "lib/net461/Azure.Core.dll",
+        "lib/net461/Azure.Core.xml",
+        "lib/net5.0/Azure.Core.dll",
+        "lib/net5.0/Azure.Core.xml",
+        "lib/netcoreapp2.1/Azure.Core.dll",
+        "lib/netcoreapp2.1/Azure.Core.xml",
+        "lib/netstandard2.0/Azure.Core.dll",
+        "lib/netstandard2.0/Azure.Core.xml"
+      ]
+    },
+    "Azure.Identity/1.5.0": {
+      "sha512": "VfF88dqrgKXZNOS/y4XrX/jmIfP3pkY+hBUzBNpoKml1nR+QshX6XlXWyToLtWV80TDQ1CmUVCJksktDg5+j1w==",
+      "type": "package",
+      "path": "azure.identity/1.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "README.md",
+        "azure.identity.1.5.0.nupkg.sha512",
+        "azure.identity.nuspec",
+        "lib/netstandard2.0/Azure.Identity.dll",
+        "lib/netstandard2.0/Azure.Identity.xml",
+        "pkgicon.png"
+      ]
+    },
+    "Azure.Quantum.Jobs/1.0.0-beta.3": {
+      "sha512": "rRvTlK4VqfKA0wRywGv32AQ/GYscmHKFfJ9bK90xMg/S8ReeYDzlEU0wD6sCg2x02aZ2Fj8fftuB+l/GwoQuCQ==",
+      "type": "package",
+      "path": "azure.quantum.jobs/1.0.0-beta.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "README.md",
+        "azure.quantum.jobs.1.0.0-beta.3.nupkg.sha512",
+        "azure.quantum.jobs.nuspec",
+        "azureicon.png",
+        "lib/netstandard2.0/Azure.Quantum.Jobs.dll",
+        "lib/netstandard2.0/Azure.Quantum.Jobs.xml"
+      ]
+    },
+    "Azure.Storage.Blobs/12.10.0": {
+      "sha512": "yaijs9DPfn34C/X4TX+0TAxANEhuKSrFE650gkF9g1pz/nQljv86zOOtDwNwD5UsAY5LyrOiCASGo2dhuIxvdg==",
+      "type": "package",
+      "path": "azure.storage.blobs/12.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "README.md",
+        "azure.storage.blobs.12.10.0.nupkg.sha512",
+        "azure.storage.blobs.nuspec",
+        "lib/netstandard2.0/Azure.Storage.Blobs.dll",
+        "lib/netstandard2.0/Azure.Storage.Blobs.xml",
+        "pkgicon.png"
+      ]
+    },
+    "Azure.Storage.Common/12.9.0": {
+      "sha512": "GuoigTmzz9HrCGdcdu7LyjD4pDr2XPt72LlWWTDyno+nYrjyuNwpwRFBvK/brxJvQFRHofQcBskf8vOxVxnI8g==",
+      "type": "package",
+      "path": "azure.storage.common/12.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "README.md",
+        "azure.storage.common.12.9.0.nupkg.sha512",
+        "azure.storage.common.nuspec",
+        "lib/netstandard2.0/Azure.Storage.Common.dll",
+        "lib/netstandard2.0/Azure.Storage.Common.xml",
+        "pkgicon.png"
+      ]
+    },
     "Bond.Core.CSharp/9.0.3": {
       "sha512": "VYqmxJjCPZ0Lx3bqWNOxlGojduEay7PRGH4QuLbNjFKR+G2cxR84BLSXbJAWwHVGiwyaf622z9dEH34e1/lOXA==",
       "type": "package",
@@ -2037,6 +2561,18 @@
         "lib/netstandard2.0/zh-Hant/FSharp.Core.resources.dll"
       ]
     },
+    "Humanizer.Core/2.2.0": {
+      "sha512": "rsYXB7+iUPP8AHgQ8JP2UZI2xK2KhjcdGr9E6zX3CsZaTLCaw8M35vaAJRo1rfxeaZEVMuXeaquLVCkZ7JcZ5Q==",
+      "type": "package",
+      "path": "humanizer.core/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "humanizer.core.2.2.0.nupkg.sha512",
+        "humanizer.core.nuspec",
+        "lib/netstandard1.0/Humanizer.dll"
+      ]
+    },
     "Markdig.Signed/0.20.0": {
       "sha512": "zBcIuGYXmtxW3PWgF8/+VUcYBXP3uwNwFjiu3o2ao5w5TRwgdq2353yBOuST2OprZ7bCXnMUGyqXoMHWDJNDIQ==",
       "type": "package",
@@ -2054,6 +2590,44 @@
         "lib/netstandard2.1/Markdig.Signed.xml",
         "markdig.signed.0.20.0.nupkg.sha512",
         "markdig.signed.nuspec"
+      ]
+    },
+    "Microsoft.Azure.Quantum.Client/0.25.218240": {
+      "sha512": "ls6EFhB05IKf+nxfU0z+7hm3yp7bBMdyk1pORLTM6J2lXNet0I1+KNrgr4LOKhVX27wA70WLmR3C5c8bler48A==",
+      "type": "package",
+      "path": "microsoft.azure.quantum.client/0.25.218240",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/Microsoft.Azure.Quantum.Client.dll",
+        "microsoft.azure.quantum.client.0.25.218240.nupkg.sha512",
+        "microsoft.azure.quantum.client.nuspec",
+        "qdk-nuget-icon.png"
+      ]
+    },
+    "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
+      "sha512": "yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
+      "type": "package",
+      "path": "microsoft.bcl.asyncinterfaces/1.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml",
+        "microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+        "microsoft.bcl.asyncinterfaces.nuspec",
+        "ref/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "ref/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
+        "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "Microsoft.CodeAnalysis.Analyzers/3.0.0": {
@@ -2247,6 +2821,211 @@
         "microsoft.codeanalysis.csharp.nuspec"
       ]
     },
+    "Microsoft.CodeAnalysis.CSharp.Workspaces/3.6.0": {
+      "sha512": "HpMIxUIaHOJ5Vmy5RFnq/itS563FXZdXlsSf8bHU3urrKnOdVkQZ5fktCIxGD5RG6kG/WbPEi0eW18jE2J5/zw==",
+      "type": "package",
+      "path": "microsoft.codeanalysis.csharp.workspaces/3.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "ThirdPartyNotices.rtf",
+        "lib/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.Workspaces.dll",
+        "lib/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.Workspaces.pdb",
+        "lib/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.Workspaces.xml",
+        "lib/netcoreapp3.1/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll",
+        "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.Workspaces.pdb",
+        "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.Workspaces.xml",
+        "lib/netstandard2.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "lib/netstandard2.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll",
+        "microsoft.codeanalysis.csharp.workspaces.3.6.0.nupkg.sha512",
+        "microsoft.codeanalysis.csharp.workspaces.nuspec"
+      ]
+    },
+    "Microsoft.CodeAnalysis.Workspaces.Common/3.6.0": {
+      "sha512": "DmaIzcx9cpZMY97SH0IDfEsq/QujuvnC0nNDAskOO8zFKxKTaZJw8/jKV/nPUk3OgpOAP1ypaz9VborDfnSf+g==",
+      "type": "package",
+      "path": "microsoft.codeanalysis.workspaces.common/3.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "ThirdPartyNotices.rtf",
+        "lib/netcoreapp3.1/Microsoft.CodeAnalysis.Workspaces.dll",
+        "lib/netcoreapp3.1/Microsoft.CodeAnalysis.Workspaces.pdb",
+        "lib/netcoreapp3.1/Microsoft.CodeAnalysis.Workspaces.xml",
+        "lib/netcoreapp3.1/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/de/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/es/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/it/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/Microsoft.CodeAnalysis.Workspaces.dll",
+        "lib/netstandard2.0/Microsoft.CodeAnalysis.Workspaces.pdb",
+        "lib/netstandard2.0/Microsoft.CodeAnalysis.Workspaces.xml",
+        "lib/netstandard2.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "lib/netstandard2.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll",
+        "microsoft.codeanalysis.workspaces.common.3.6.0.nupkg.sha512",
+        "microsoft.codeanalysis.workspaces.common.nuspec"
+      ]
+    },
+    "Microsoft.CSharp/4.4.1": {
+      "sha512": "A5hI3gk6WpcBI0QGZY6/d5CCaYUxJgi7iENn1uYEng+Olo8RfI5ReGVkjXjeu3VR3srLvVYREATXa2M0X7FYJA==",
+      "type": "package",
+      "path": "microsoft.csharp/4.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/Microsoft.CSharp.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.3/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "microsoft.csharp.4.4.1.nupkg.sha512",
+        "microsoft.csharp.nuspec",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/Microsoft.CSharp.dll",
+        "ref/netcore50/Microsoft.CSharp.xml",
+        "ref/netcore50/de/Microsoft.CSharp.xml",
+        "ref/netcore50/es/Microsoft.CSharp.xml",
+        "ref/netcore50/fr/Microsoft.CSharp.xml",
+        "ref/netcore50/it/Microsoft.CSharp.xml",
+        "ref/netcore50/ja/Microsoft.CSharp.xml",
+        "ref/netcore50/ko/Microsoft.CSharp.xml",
+        "ref/netcore50/ru/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/Microsoft.CSharp.dll",
+        "ref/netstandard1.0/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
+        "ref/netstandard2.0/Microsoft.CSharp.dll",
+        "ref/netstandard2.0/Microsoft.CSharp.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Identity.Client/4.30.1": {
+      "sha512": "xk8tJeGfB2yD3+d7a0DXyV7/HYyEG10IofUHYHoPYKmDbroi/j9t1BqSHgbq1nARDjg7m8Ki6e21AyNU7e/R4Q==",
+      "type": "package",
+      "path": "microsoft.identity.client/4.30.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid10.0/Microsoft.Identity.Client.dll",
+        "lib/monoandroid10.0/Microsoft.Identity.Client.xml",
+        "lib/monoandroid90/Microsoft.Identity.Client.dll",
+        "lib/monoandroid90/Microsoft.Identity.Client.xml",
+        "lib/net45/Microsoft.Identity.Client.dll",
+        "lib/net45/Microsoft.Identity.Client.xml",
+        "lib/net461/Microsoft.Identity.Client.dll",
+        "lib/net461/Microsoft.Identity.Client.xml",
+        "lib/net5.0-windows10.0.17763/Microsoft.Identity.Client.dll",
+        "lib/net5.0-windows10.0.17763/Microsoft.Identity.Client.xml",
+        "lib/netcoreapp2.1/Microsoft.Identity.Client.dll",
+        "lib/netcoreapp2.1/Microsoft.Identity.Client.xml",
+        "lib/netstandard1.3/Microsoft.Identity.Client.dll",
+        "lib/netstandard1.3/Microsoft.Identity.Client.xml",
+        "lib/uap10.0/Microsoft.Identity.Client.dll",
+        "lib/uap10.0/Microsoft.Identity.Client.pri",
+        "lib/uap10.0/Microsoft.Identity.Client.xml",
+        "lib/xamarinios10/Microsoft.Identity.Client.dll",
+        "lib/xamarinios10/Microsoft.Identity.Client.xml",
+        "lib/xamarinmac20/Microsoft.Identity.Client.dll",
+        "lib/xamarinmac20/Microsoft.Identity.Client.xml",
+        "microsoft.identity.client.4.30.1.nupkg.sha512",
+        "microsoft.identity.client.nuspec"
+      ]
+    },
+    "Microsoft.Identity.Client.Extensions.Msal/2.18.4": {
+      "sha512": "HpG4oLwhQsy0ce7OWq9iDdLtJKOvKRStIKoSEOeBMKuohfuOWNDyhg8fMAJkpG/kFeoe4J329fiMHcJmmB+FPw==",
+      "type": "package",
+      "path": "microsoft.identity.client.extensions.msal/2.18.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.Identity.Client.Extensions.Msal.dll",
+        "lib/net45/Microsoft.Identity.Client.Extensions.Msal.xml",
+        "lib/netcoreapp2.1/Microsoft.Identity.Client.Extensions.Msal.dll",
+        "lib/netcoreapp2.1/Microsoft.Identity.Client.Extensions.Msal.xml",
+        "lib/netstandard2.0/Microsoft.Identity.Client.Extensions.Msal.dll",
+        "lib/netstandard2.0/Microsoft.Identity.Client.Extensions.Msal.xml",
+        "microsoft.identity.client.extensions.msal.2.18.4.nupkg.sha512",
+        "microsoft.identity.client.extensions.msal.nuspec"
+      ]
+    },
     "Microsoft.NETCore.Platforms/2.1.2": {
       "sha512": "mOJy3M0UN+LUG21dLGMxaWZEP6xYpQEpLuvuEQBaownaX4YuhH6NmNUlN9si+vNkAS6dwJ//N1O4DmLf2CikVg==",
       "type": "package",
@@ -2307,23 +3086,35 @@
         "microsoft.quantum.compiler.nuspec"
       ]
     },
-    "Microsoft.Quantum.QirGeneration/0.25.218240": {
-      "sha512": "Gz8vVjAKaZvtAU7GRvBC8SBb4Eo5wduJw0IHYWw61sboWlD+jARcKoc/sTp4iV1JCSfdAfXZhk64oD7W29vA9Q==",
+    "Microsoft.Quantum.CSharpGeneration/0.25.218240": {
+      "sha512": "vp6eVilz0Gm4e+U2agXUUb6HtCb4OR7lJkitThKt5a7ztfryyVAV0Kmc2GhlWf84GF2S1WXFvAFFePzPql9rRg==",
       "type": "package",
-      "path": "microsoft.quantum.qirgeneration/0.25.218240",
+      "path": "microsoft.quantum.csharpgeneration/0.25.218240",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "build/Microsoft.Quantum.QirGeneration.props",
+        "build/Microsoft.Quantum.CSharpGeneration.props",
+        "content/App.config",
         "images/qdk-nuget-icon.png",
-        "lib/netstandard2.1/Microsoft.Quantum.LlvmBindings.dll",
-        "lib/netstandard2.1/Microsoft.Quantum.QirGeneration.dll",
-        "lib/netstandard2.1/Microsoft.Quantum.QirGeneration.xml",
-        "microsoft.quantum.qirgeneration.0.25.218240.nupkg.sha512",
-        "microsoft.quantum.qirgeneration.nuspec",
-        "runtimes/linux-x64/native/libLLVM.so",
-        "runtimes/osx-x64/native/libLLVM.dylib",
-        "runtimes/win-x64/native/libLLVM.dll"
+        "lib/netstandard2.1/Microsoft.Quantum.CSharpGeneration.dll",
+        "lib/netstandard2.1/Microsoft.Quantum.RoslynWrapper.dll",
+        "microsoft.quantum.csharpgeneration.0.25.218240.nupkg.sha512",
+        "microsoft.quantum.csharpgeneration.nuspec"
+      ]
+    },
+    "Microsoft.Quantum.EntryPointDriver/0.25.218240": {
+      "sha512": "xlVwiPl70A5RLokjouBMMpJpl9GnzmZwKSDBwBbpiJnU6jfKXz0RGTsXDU5ILa9HbJUd5gf+xoVanGxiIq/l6Q==",
+      "type": "package",
+      "path": "microsoft.quantum.entrypointdriver/0.25.218240",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/Microsoft.Quantum.EntryPointDriver.dll",
+        "lib/netstandard2.1/Microsoft.Quantum.EntryPointDriver.pdb",
+        "lib/netstandard2.1/Microsoft.Quantum.EntryPointDriver.xml",
+        "microsoft.quantum.entrypointdriver.0.25.218240.nupkg.sha512",
+        "microsoft.quantum.entrypointdriver.nuspec",
+        "qdk-nuget-icon.png"
       ]
     },
     "Microsoft.Quantum.QSharp.Core/0.25.218240": {
@@ -3053,6 +3844,108 @@
         "version.txt"
       ]
     },
+    "System.CommandLine/2.0.0-beta1.20213.1": {
+      "sha512": "MYioQM+KXKjwWb32EqzNRqhHMoAVXBux9xu+3wifzSB6MjElfBc/E0kwVqKR95HVXhlnG8AwAG0IctmcpISVEA==",
+      "type": "package",
+      "path": "system.commandline/2.0.0-beta1.20213.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/System.CommandLine.dll",
+        "lib/netstandard2.0/System.CommandLine.pdb",
+        "system.commandline.2.0.0-beta1.20213.1.nupkg.sha512",
+        "system.commandline.nuspec"
+      ]
+    },
+    "System.Composition/1.0.31": {
+      "sha512": "I+D26qpYdoklyAVUdqwUBrEIckMNjAYnuPJy/h9dsQItpQwVREkDFs4b4tkBza0kT2Yk48Lcfsv2QQ9hWsh9Iw==",
+      "type": "package",
+      "path": "system.composition/1.0.31",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "system.composition.1.0.31.nupkg.sha512",
+        "system.composition.nuspec"
+      ]
+    },
+    "System.Composition.AttributedModel/1.0.31": {
+      "sha512": "NHWhkM3ZkspmA0XJEsKdtTt1ViDYuojgSND3yHhTzwxepiwqZf+BCWuvCbjUt4fe0NxxQhUDGJ5km6sLjo9qnQ==",
+      "type": "package",
+      "path": "system.composition.attributedmodel/1.0.31",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/netstandard1.0/System.Composition.AttributedModel.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Composition.AttributedModel.dll",
+        "system.composition.attributedmodel.1.0.31.nupkg.sha512",
+        "system.composition.attributedmodel.nuspec"
+      ]
+    },
+    "System.Composition.Convention/1.0.31": {
+      "sha512": "GLjh2Ju71k6C0qxMMtl4efHa68NmWeIUYh4fkUI8xbjQrEBvFmRwMDFcylT8/PR9SQbeeL48IkFxU/+gd0nYEQ==",
+      "type": "package",
+      "path": "system.composition.convention/1.0.31",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/netstandard1.0/System.Composition.Convention.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Composition.Convention.dll",
+        "system.composition.convention.1.0.31.nupkg.sha512",
+        "system.composition.convention.nuspec"
+      ]
+    },
+    "System.Composition.Hosting/1.0.31": {
+      "sha512": "fN1bT4RX4vUqjbgoyuJFVUizAl2mYF5VAb+bVIxIYZSSc0BdnX+yGAxcavxJuDDCQ1K+/mdpgyEFc8e9ikjvrg==",
+      "type": "package",
+      "path": "system.composition.hosting/1.0.31",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/netstandard1.0/System.Composition.Hosting.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Composition.Hosting.dll",
+        "system.composition.hosting.1.0.31.nupkg.sha512",
+        "system.composition.hosting.nuspec"
+      ]
+    },
+    "System.Composition.Runtime/1.0.31": {
+      "sha512": "0LEJN+2NVM89CE4SekDrrk5tHV5LeATltkp+9WNYrR+Huiyt0vaCqHbbHtVAjPyeLWIc8dOz/3kthRBj32wGQg==",
+      "type": "package",
+      "path": "system.composition.runtime/1.0.31",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/netstandard1.0/System.Composition.Runtime.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Composition.Runtime.dll",
+        "system.composition.runtime.1.0.31.nupkg.sha512",
+        "system.composition.runtime.nuspec"
+      ]
+    },
+    "System.Composition.TypedParts/1.0.31": {
+      "sha512": "0Zae/FtzeFgDBBuILeIbC/T9HMYbW4olAmi8XqqAGosSOWvXfiQLfARZEhiGd0LVXaYgXr0NhxiU1LldRP1fpQ==",
+      "type": "package",
+      "path": "system.composition.typedparts/1.0.31",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/netstandard1.0/System.Composition.TypedParts.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Composition.TypedParts.dll",
+        "system.composition.typedparts.1.0.31.nupkg.sha512",
+        "system.composition.typedparts.nuspec"
+      ]
+    },
     "System.Console/4.3.0": {
       "sha512": "DHDrIxiqk1h03m6khKWV2X8p/uvN79rgSqpilL6uzpmSfxfU5ng8VcPtW4qsDsQDHiTv6IPV9TmD5M/vElPNLg==",
       "type": "package",
@@ -3159,15 +4052,17 @@
         "system.diagnostics.debug.nuspec"
       ]
     },
-    "System.Diagnostics.DiagnosticSource/4.3.0": {
-      "sha512": "tD6kosZnTAGdrEa0tZSuFyunMbt/5KYDnHdndJYGqZoNy00XVXyACd5d6KnE1YgYv3ne2CjtAfNXo/fwEhnKUA==",
+    "System.Diagnostics.DiagnosticSource/4.6.0": {
+      "sha512": "mbBgoR0rRfl2uimsZ2avZY8g7Xnh1Mza0rJZLPcxqiMWlkGukjmRkuMJ/er+AhQuiRIh80CR/Hpeztr80seV5g==",
       "type": "package",
-      "path": "system.diagnostics.diagnosticsource/4.3.0",
+      "path": "system.diagnostics.diagnosticsource/4.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net45/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net45/System.Diagnostics.DiagnosticSource.xml",
         "lib/net46/System.Diagnostics.DiagnosticSource.dll",
         "lib/net46/System.Diagnostics.DiagnosticSource.xml",
         "lib/netstandard1.1/System.Diagnostics.DiagnosticSource.dll",
@@ -3176,8 +4071,10 @@
         "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.xml",
         "lib/portable-net45+win8+wpa81/System.Diagnostics.DiagnosticSource.dll",
         "lib/portable-net45+win8+wpa81/System.Diagnostics.DiagnosticSource.xml",
-        "system.diagnostics.diagnosticsource.4.3.0.nupkg.sha512",
-        "system.diagnostics.diagnosticsource.nuspec"
+        "system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512",
+        "system.diagnostics.diagnosticsource.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Diagnostics.Tools/4.3.0": {
@@ -3898,25 +4795,45 @@
         "system.linq.expressions.nuspec"
       ]
     },
-    "System.Memory/4.5.3": {
-      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+    "System.Memory/4.5.4": {
+      "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
       "type": "package",
-      "path": "system.memory/4.5.3",
+      "path": "system.memory/4.5.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
         "lib/netcoreapp2.1/_._",
         "lib/netstandard1.1/System.Memory.dll",
         "lib/netstandard1.1/System.Memory.xml",
         "lib/netstandard2.0/System.Memory.dll",
         "lib/netstandard2.0/System.Memory.xml",
         "ref/netcoreapp2.1/_._",
-        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.4.5.4.nupkg.sha512",
         "system.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "System.Memory.Data/1.0.2": {
+      "sha512": "JGkzeqgBsiZwKJZ1IxPNsDFZDhUvuEdX8L8BDC8N3KOj+6zMcNU28CNN59TpZE/VJYy9cP+5M+sbxtWJx3/xtw==",
+      "type": "package",
+      "path": "system.memory.data/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "DotNetPackageIcon.png",
+        "README.md",
+        "lib/net461/System.Memory.Data.dll",
+        "lib/net461/System.Memory.Data.xml",
+        "lib/netstandard2.0/System.Memory.Data.dll",
+        "lib/netstandard2.0/System.Memory.Data.xml",
+        "system.memory.data.1.0.2.nupkg.sha512",
+        "system.memory.data.nuspec"
       ]
     },
     "System.Net.Http/4.3.0": {
@@ -4116,6 +5033,53 @@
         "ref/xamarinwatchos10/_._",
         "system.net.sockets.4.3.0.nupkg.sha512",
         "system.net.sockets.nuspec"
+      ]
+    },
+    "System.Numerics.Vectors/4.5.0": {
+      "sha512": "QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
+      "type": "package",
+      "path": "system.numerics.vectors/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Numerics.Vectors.dll",
+        "lib/net46/System.Numerics.Vectors.xml",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.0/System.Numerics.Vectors.dll",
+        "lib/netstandard1.0/System.Numerics.Vectors.xml",
+        "lib/netstandard2.0/System.Numerics.Vectors.dll",
+        "lib/netstandard2.0/System.Numerics.Vectors.xml",
+        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.xml",
+        "lib/uap10.0.16299/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/System.Numerics.Vectors.dll",
+        "ref/net45/System.Numerics.Vectors.xml",
+        "ref/net46/System.Numerics.Vectors.dll",
+        "ref/net46/System.Numerics.Vectors.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/System.Numerics.Vectors.dll",
+        "ref/netstandard1.0/System.Numerics.Vectors.xml",
+        "ref/netstandard2.0/System.Numerics.Vectors.dll",
+        "ref/netstandard2.0/System.Numerics.Vectors.xml",
+        "ref/uap10.0.16299/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.numerics.vectors.4.5.0.nupkg.sha512",
+        "system.numerics.vectors.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.ObjectModel/4.3.0": {
@@ -5249,6 +6213,47 @@
         "system.security.cryptography.primitives.nuspec"
       ]
     },
+    "System.Security.Cryptography.ProtectedData/4.5.0": {
+      "sha512": "wLBKzFnDCxP12VL9ANydSYhk59fC4cvOr9ypYQLPnAj48NQIhqnjdD2yhP8yEKyBJEjERWS9DisKL7rX5eU25Q==",
+      "type": "package",
+      "path": "system.security.cryptography.protecteddata/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Security.Cryptography.ProtectedData.dll",
+        "lib/net461/System.Security.Cryptography.ProtectedData.dll",
+        "lib/netstandard1.3/System.Security.Cryptography.ProtectedData.dll",
+        "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Security.Cryptography.ProtectedData.dll",
+        "ref/net461/System.Security.Cryptography.ProtectedData.dll",
+        "ref/net461/System.Security.Cryptography.ProtectedData.xml",
+        "ref/netstandard1.3/System.Security.Cryptography.ProtectedData.dll",
+        "ref/netstandard2.0/System.Security.Cryptography.ProtectedData.dll",
+        "ref/netstandard2.0/System.Security.Cryptography.ProtectedData.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/win/lib/net46/System.Security.Cryptography.ProtectedData.dll",
+        "runtimes/win/lib/net461/System.Security.Cryptography.ProtectedData.dll",
+        "runtimes/win/lib/netstandard1.3/System.Security.Cryptography.ProtectedData.dll",
+        "runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll",
+        "system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
+        "system.security.cryptography.protecteddata.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Security.Cryptography.X509Certificates/4.3.0": {
       "sha512": "t2Tmu6Y2NtJ2um0RtcuhP7ZdNNxXEgUm2JeoA/0NvlMjAhKCnM1NX07TDl3244mVp3QU6LPEhT3HTtH1uF7IYw==",
       "type": "package",
@@ -5780,10 +6785,10 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "System.Threading.Tasks.Extensions/4.5.3": {
-      "sha512": "+MvhNtcvIbqmhANyKu91jQnvIRVSTiaOiFNfKWwXGHG48YAb4I/TyH8spsySiPYla7gKal5ZnF3teJqZAximyQ==",
+    "System.Threading.Tasks.Extensions/4.5.4": {
+      "sha512": "zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
       "type": "package",
-      "path": "system.threading.tasks.extensions/4.5.3",
+      "path": "system.threading.tasks.extensions/4.5.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5791,6 +6796,8 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
+        "lib/net461/System.Threading.Tasks.Extensions.dll",
+        "lib/net461/System.Threading.Tasks.Extensions.xml",
         "lib/netcoreapp2.1/_._",
         "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
         "lib/netstandard1.0/System.Threading.Tasks.Extensions.xml",
@@ -5809,7 +6816,7 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.threading.tasks.extensions.4.5.3.nupkg.sha512",
+        "system.threading.tasks.extensions.4.5.4.nupkg.sha512",
         "system.threading.tasks.extensions.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -6057,6 +7064,30 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "WindowsAzure.Storage/9.3.3": {
+      "sha512": "VUV8j6dzkU/7vDgk5k+ob5g7nnch2fNByr0p9aOxMGFGk+tAnTehrZ4qnClF04CVozP1GNN2zrnbsxCmr+iZBg==",
+      "type": "package",
+      "path": "windowsazure.storage/9.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.WindowsAzure.Storage.dll",
+        "lib/net45/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/net45/Microsoft.WindowsAzure.Storage.xml",
+        "lib/netstandard1.0/Microsoft.WindowsAzure.Storage.dll",
+        "lib/netstandard1.0/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll",
+        "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/win8/Microsoft.WindowsAzure.Storage.dll",
+        "lib/win8/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/wp8/Microsoft.WindowsAzure.Storage.dll",
+        "lib/wp8/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/wpa/Microsoft.WindowsAzure.Storage.dll",
+        "lib/wpa/Microsoft.WindowsAzure.Storage.pdb",
+        "windowsazure.storage.9.3.3.nupkg.sha512",
+        "windowsazure.storage.nuspec"
+      ]
+    },
     "YamlDotNet/7.0.0": {
       "sha512": "Bzq/v5qRqMCwsg9mtYBwsO0cfBXaRm/d5FOtN+8IR2avIm6Uq2eIW1thooY1Mv3lPgNP37NFaZYr31Kubfx2WA==",
       "type": "package",
@@ -6084,9 +7115,12 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Microsoft.Quantum.CSharpGeneration >= 0.25.218240",
+      "Microsoft.Quantum.EntryPointDriver >= 0.25.218240",
       "Microsoft.Quantum.QSharp.Core >= 0.25.218240",
-      "Microsoft.Quantum.QirGeneration >= 0.25.218240",
-      "Microsoft.Quantum.Standard >= 0.25.218240"
+      "Microsoft.Quantum.Runtime.Core >= 0.25.218240",
+      "Microsoft.Quantum.Standard >= 0.25.218240",
+      "Microsoft.Quantum.Targets.Interfaces >= 0.25.218240"
     ]
   },
   "packageFolders": {
@@ -6095,11 +7129,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj",
+      "projectUniqueName": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\Bernstein-Vazirani.csproj",
       "projectName": "Bernstein-Vazirani",
-      "projectPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\Bernstein-Vazirani.csproj",
+      "projectPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\Bernstein-Vazirani.csproj",
       "packagesPath": "C:\\Users\\piegu\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\2_Generic_Phase_(GP)\\obj\\",
+      "outputPath": "c:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 2\\3_IR_Analysis\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\piegu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6126,12 +7160,22 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Microsoft.Quantum.CSharpGeneration": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[0.25.218240, )",
+            "autoReferenced": true
+          },
+          "Microsoft.Quantum.EntryPointDriver": {
+            "target": "Package",
+            "version": "[0.25.218240, )",
+            "autoReferenced": true
+          },
           "Microsoft.Quantum.QSharp.Core": {
             "target": "Package",
             "version": "[0.25.218240, )"
           },
-          "Microsoft.Quantum.QirGeneration": {
-            "suppressParent": "All",
+          "Microsoft.Quantum.Runtime.Core": {
             "target": "Package",
             "version": "[0.25.218240, )",
             "autoReferenced": true
@@ -6139,6 +7183,11 @@
           "Microsoft.Quantum.Standard": {
             "target": "Package",
             "version": "[0.25.218240, )"
+          },
+          "Microsoft.Quantum.Targets.Interfaces": {
+            "target": "Package",
+            "version": "[0.25.218240, )",
+            "autoReferenced": true
           }
         },
         "imports": [
