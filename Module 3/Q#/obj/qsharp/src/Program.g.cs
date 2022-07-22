@@ -73,7 +73,7 @@ namespace Maxcut
         {
             var (beta,target) = __in__;
 #line 21 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            Microsoft__Quantum__Canon__ApplyToEachCA.Apply((Microsoft__Quantum__Intrinsic__Rx.Partial(new Func<Qubit, (Double,Qubit)>((__arg1__) => ((-(2D) * beta), __arg1__))), target));
+            Microsoft__Quantum__Canon__ApplyToEachCA.Apply((Microsoft__Quantum__Intrinsic__Rx.Partial(new Func<Qubit, (Double,Qubit)>((__arg1__) => ((2D * beta), __arg1__))), target));
 #line hidden
             return QVoid.Instance;
         }
@@ -83,7 +83,7 @@ namespace Maxcut
         {
             var (beta,target) = __in__;
 #line 20 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            Microsoft__Quantum__Canon__ApplyToEachCA.Adjoint.Apply((Microsoft__Quantum__Intrinsic__Rx.Partial(new Func<Qubit, (Double,Qubit)>((__arg1__) => ((-(2D) * beta), __arg1__))), target));
+            Microsoft__Quantum__Canon__ApplyToEachCA.Adjoint.Apply((Microsoft__Quantum__Intrinsic__Rx.Partial(new Func<Qubit, (Double,Qubit)>((__arg1__) => ((2D * beta), __arg1__))), target));
 #line hidden
             return QVoid.Instance;
         }
@@ -93,7 +93,7 @@ namespace Maxcut
         {
             var (__controlQubits__,(beta,target)) = __in__;
 #line 20 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            Microsoft__Quantum__Canon__ApplyToEachCA.Controlled.Apply((__controlQubits__, (Microsoft__Quantum__Intrinsic__Rx.Partial(new Func<Qubit, (Double,Qubit)>((__arg1__) => ((-(2D) * beta), __arg1__))), target)));
+            Microsoft__Quantum__Canon__ApplyToEachCA.Controlled.Apply((__controlQubits__, (Microsoft__Quantum__Intrinsic__Rx.Partial(new Func<Qubit, (Double,Qubit)>((__arg1__) => ((2D * beta), __arg1__))), target)));
 #line hidden
             return QVoid.Instance;
         }
@@ -103,7 +103,7 @@ namespace Maxcut
         {
             var (__controlQubits__,(beta,target)) = __in__;
 #line 20 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            Microsoft__Quantum__Canon__ApplyToEachCA.Adjoint.Controlled.Apply((__controlQubits__, (Microsoft__Quantum__Intrinsic__Rx.Partial(new Func<Qubit, (Double,Qubit)>((__arg1__) => ((-(2D) * beta), __arg1__))), target)));
+            Microsoft__Quantum__Canon__ApplyToEachCA.Adjoint.Controlled.Apply((__controlQubits__, (Microsoft__Quantum__Intrinsic__Rx.Partial(new Func<Qubit, (Double,Qubit)>((__arg1__) => ((2D * beta), __arg1__))), target)));
 #line hidden
             return QVoid.Instance;
         }
@@ -447,61 +447,61 @@ namespace Maxcut
         public override Func<(Int64,Boolean), QVoid> __Body__ => (__in__) =>
         {
             var (numTrials,verbose) = __in__;
-#line 109 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            var gammas = (IQArray<Double>)new QArray<Double>(0.83577332D);
-#line 110 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            var betas = (IQArray<Double>)new QArray<Double>(1.13572111D);
 #line 112 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            var limit = 1E-06D;
+            var betas = (IQArray<Double>)new QArray<Double>(1.9793337D);
 #line 113 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            var numVertices = 4L;
-#line 114 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            var edges = (IQArray<IQArray<Int64>>)new QArray<IQArray<Int64>>(new QArray<Int64>(0L, 1L), new QArray<Int64>(0L, 3L), new QArray<Int64>(1L, 2L), new QArray<Int64>(2L, 3L));
+            var gammas = (IQArray<Double>)new QArray<Double>(1.16663483D);
+#line 115 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+            var limit = 1E-06D;
 #line 116 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            var bestValue = 0D;
+            var numVertices = 4L;
 #line 117 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            var maxCut = new QArray<Boolean>(false, false, false, false, false);
-#line 118 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            var successNumber = 0L;
+            var edges = (IQArray<IQArray<Int64>>)new QArray<IQArray<Int64>>(new QArray<Int64>(0L, 1L), new QArray<Int64>(0L, 3L), new QArray<Int64>(1L, 2L), new QArray<Int64>(2L, 3L));
+#line 119 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+            var bestValue = 0D;
 #line 120 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+            var maxCut = new QArray<Boolean>(false, false, false, false);
+#line 121 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+            var successNumber = 0L;
+#line 123 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
             foreach (var trial in new QRange(0L, numTrials))
 #line hidden
             {
-#line 121 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+#line 124 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
                 var result = (IQArray<Boolean>)PerformQAOA__.Apply((numVertices, edges, betas, gammas));
-#line 122 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+#line 125 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
                 var value = (-(1D) * CalculatedVal__.Apply((edges, result)));
-#line 123 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+#line 126 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
                 if (verbose)
                 {
-#line 124 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+#line 127 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
                     Message__.Apply(String.Format("result = {0}, value = {1}", result, value));
                 }
 
-#line 126 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+#line 129 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
                 if ((value > (bestValue + limit)))
                 {
-#line 128 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+#line 131 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
                     bestValue = value;
-#line 129 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+#line 132 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
                     maxCut = new QArray<Boolean>(result);
-#line 130 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+#line 133 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
                     successNumber = 1L;
                 }
                 else if ((Microsoft__Quantum__Math__AbsD.Apply((value - bestValue)) < limit))
                 {
-#line 132 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+#line 135 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
                     successNumber = (successNumber + 1L);
                 }
             }
 
-#line 136 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            var runPercentage = ((Microsoft__Quantum__Convert__IntAsDouble.Apply(successNumber) * 100D) / Microsoft__Quantum__Convert__IntAsDouble.Apply(numTrials));
-#line 137 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            Message__.Apply("Simulation is complete\n");
-#line 138 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
-            Message__.Apply(String.Format("Best bitstring found: {0}, cost = {1}", maxCut, bestValue));
 #line 139 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+            var runPercentage = ((Microsoft__Quantum__Convert__IntAsDouble.Apply(successNumber) * 100D) / Microsoft__Quantum__Convert__IntAsDouble.Apply(numTrials));
+#line 140 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+            Message__.Apply("Simulation is complete\n");
+#line 141 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
+            Message__.Apply(String.Format("Best bitstring found: {0}, cost = {1}", maxCut, bestValue));
+#line 142 "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Program.qs"
             Message__.Apply(String.Format("{0}% of runs found the max cut\n", runPercentage));
 #line hidden
             return QVoid.Instance;

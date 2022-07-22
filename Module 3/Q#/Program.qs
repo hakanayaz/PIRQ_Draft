@@ -18,7 +18,7 @@ namespace Maxcut {
     /// ## target
     /// Target qubit register
     operation MixerHamiltonian(beta: Double, target: Qubit[]) : Unit is Adj + Ctl {
-        ApplyToEachCA(Rx(-2.0 * beta, _), target);
+        ApplyToEachCA(Rx(2.0 * beta, _), target);
     }
 
     /// # Summary
@@ -98,23 +98,15 @@ namespace Maxcut {
     /// Number of trials to run the QAOA algorithm for.
     @EntryPoint()
     operation RunQAOATrials(numTrials : Int, verbose : Bool) : Unit {
-        /// Pennylane optimizer capped at 30 steps. Found max cut (4) ~5-10% of runs, 
-        /// sometimes doesn't even find right answer
-        
-        /// let gammas = [0.80957042];
-        /// let betas = [1.13837614];
-
-        /// Pennylane optimizer capped at 100
-        /// Same results
-        let gammas = [0.83577332];
-        let betas = [1.13572111];
+        let gammas = [0.75666764];
+        let betas = [1.0414764];
 
         let limit = 1E-6;
         let numVertices = 4;
         let edges = [[0, 1], [0, 3], [1, 2], [2, 3]];
 
         mutable bestValue = 0.0;
-        mutable maxCut = [false, false, false, false, false];
+        mutable maxCut = [false, false, false, false];
         mutable successNumber = 0;
 
         for trial in 0..numTrials {
