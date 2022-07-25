@@ -7124,19 +7124,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\piegu\\.nuget\\packages\\": {}
+    "/Users/hakanayaz/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Maxcut.csproj",
+      "projectUniqueName": "/Users/hakanayaz/Documents/GitHub/PIRQ_Draft/Module 3/Q#/Maxcut.csproj",
       "projectName": "Maxcut",
-      "projectPath": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\Maxcut.csproj",
-      "packagesPath": "C:\\Users\\piegu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\piegu\\Documents\\PIRQ\\PIRQ_Draft\\Module 3\\Q#\\obj\\",
+      "projectPath": "/Users/hakanayaz/Documents/GitHub/PIRQ_Draft/Module 3/Q#/Maxcut.csproj",
+      "packagesPath": "/Users/hakanayaz/.nuget/packages/",
+      "outputPath": "/Users/hakanayaz/Documents/GitHub/PIRQ_Draft/Module 3/Q#/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\piegu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/hakanayaz/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -7205,7 +7205,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
       }
     }
   }
