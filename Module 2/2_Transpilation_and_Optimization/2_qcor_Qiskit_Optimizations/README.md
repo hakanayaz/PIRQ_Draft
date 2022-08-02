@@ -4,14 +4,15 @@ This document will examine the differences between the optimization processes by
 
 qcor's MLIR tool offers two different sorts of optimizations. The first similarly has 4 levels:
 
-```
+```terminal
 --O0                                                 - Optimization level 0. Similar to clang -O0.--O1                                                 - Optimization level 1. Similar to clang -O1.
 --O2                                                 - Optimization level 2. Similar to clang -O2.
 --O3                                                 - Optimization level 3. Similar to clang -O3.
 ```
 
 It also offers a quantum specific flag,
-```
+
+```terminal
 --q-optimize                                         - Turn on MLIR-level quantum instruction optimizations.
 ```
 
@@ -92,11 +93,11 @@ From here, we take four different paths to generate MLIR and LLVM files:
 + `qcor-mlir-tool -O3 -q-optimize -emit=<value> bernstein_vazirani_both_opt3.qasm`
 
 
-Below, we will go over some of the main differences, looking at the MLIR and LLVM files. If you are interested in more fine details, or want to extend this analysis to the MLIR-LLVM files (marked as -ll.mlir), the files are attached for your personal investigation.
+Below, we will go over some of the main differences, looking at the MLIR and LLVM files. If you are interested in more fine details, or want to extend this analysis to the MLIR-LLVM files (marked as -ll.mlir), the files are attached for your personal investigation. Please try to build .ll files yourself and compare the results that we have.
 
 ## MLIR
 
-Here are some basic stats:
+Here are some basic stats about qcor and qiskit transpilers:
 
 |   Stat     | qcor opt | Qiskit opt |
 |----------------|----------|------------|
@@ -139,6 +140,5 @@ The LLVM analysis agrees with the conclusions from the MLIR analysis. Visually, 
 The qcor version is on the left and Qiskit is on the right. Further, inefficiencies in the SSA of Qiskit cause it to be much, much longer, with the bulk of the extraneous instructions being alignments, bitcasts, and other low level corrections due to not being initially set up as efficiently as the qcor version.
 
 ![Qiskit is long](llvm2.png)
-
 
 Throughout this document, we've seen the two main types of optimization which must be taken into account. Qiskit's transpiler performs target specific optimizations, while the qcor-MLIR-tool restricts itself to completely general passes. We see that the latter is very important, but is unable to effectively deal with the unique limitations that make quantum code execution so difficult. We conclude that any compilation pipeline and PIRQ must lend itself well to multiple stages of optimization.
