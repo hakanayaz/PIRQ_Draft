@@ -50,3 +50,11 @@ Before translating into the final target language, compilers will generate a low
 - Machine-Dependent Code Optimization (target-machine code)
 
 Our goal in Module 1 is to write programs in several different high-level languages and create equivalent LLVM IR representations, while providing insight into how these representations are reached.
+
+### Contributors
+
+The HAD team:
+
+- Hakan Ayaz
+- Adin Gitig
+- Daniel Mendez
