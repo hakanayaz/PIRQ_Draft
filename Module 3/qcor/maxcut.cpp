@@ -1,6 +1,6 @@
 #include <random>
 
-// Graph:
+// Graph Instance:
 // 0 -- 1
 // |    |
 // |    |
@@ -32,9 +32,7 @@ __qpu__ void qaoa_ansatz(qreg q, int n_steps, std::vector<double> gamma,
     // Loop over cost hamiltonian terms
     for (int i = 0; i < cost_terms.size(); i++) {
 
-      // for xasm we have to allocate the variables
-      // cant just run exp_i_theta(q, gamma[gamma_counter], cost_terms[i]) yet
-      // :(
+      // Allocate variables
       auto cost_term = cost_terms[i];
       auto m_gamma = gamma[step];
 
@@ -76,7 +74,7 @@ int main(int argc, char **argv) {
   // Construct the cost hamiltonian
   auto cost_ham = 0.5 * (4 - Z(0) * Z(1) - Z(0) * Z(3) - Z(1) * Z(2) - Z(2) * Z(3));
 
-  // FIXME, currently with args translator and make_tuple we aren't able
+  // Currently with args translator and make_tuple we aren't able
   // to directly pass Observable&, so here we just map to a string and
   // read the string to an Observable in the kernel
   auto args_translator =

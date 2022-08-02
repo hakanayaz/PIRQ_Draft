@@ -6,25 +6,26 @@ __qpu__ double RUS_circuit(qreg q) {
     #include "RUS.qasm"
 
     using qcor::xasm;
-    return Measure(q[0]);
+    Measure(q[0]);
 }
 
 
 
 int main(int argc, char** argv) {
     // This RUS algorithm uses an "auxiliary" and "target" qubit
-    //auto q = qalloc(2);
+    auto q = qalloc(2);
     RUS_circuit::print_kernel(std::cout, q);
     // The eventual aim is to apply a I + i*sqrt(2)*X/sqrt(3) on the target
     // When the auxiliary measures 0, the goal is accomplished
 
-    // double success = 0.0;
+    double success = 1;
 
-    // do {
-    //     success = RUS_circuit(q);
-    // } while (!success)
+    do {
+        RUS_circuit(q);
+        success -= 1;
+    } while (success);
 
 
-    // q.print();
+    q.print();
 
 }

@@ -17,10 +17,11 @@ __qpu__ void qaoa_ansatz(qreg q, int n_steps, std::vector<double> gamma,
   // Local Declarations
   auto nQubits = q.size();
 
-  for (int i = 0; i < nQubits; i++) {
   using qcor::openqasm;
-    h q[i];
-  }
+  h q[i];
+  h q[1];
+  h q[2];
+  h q[3];
 
   // Loop over qaoa steps
   for (int step = 0; step < n_steps; step++) {
