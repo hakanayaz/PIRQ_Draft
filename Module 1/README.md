@@ -5,16 +5,19 @@ Module 1 walks through the compilation process for classical computers, and demo
 We give a series of tutorials, intended to explore various high level constructs and the steps involved in lowering them to IR.
 
 1. Our first [tutorial set](1_Simple_Function), `1_Simple_Function` gives an introduction to the frontend of the compilation process, starting from a very simple function and ending with the LLVM IR corresponding to it.
+
 2. In the `More_Examples` directory, our [second set of tutorials](More_Examples/2_Newton_Raphson/) takes a more in depth look at how IR expresses high-level constructs such as conditionals, loops, and function calls in `2_Newton_Raphson`. We also introduce alternative ways of visualizing dense IR files.
-3. finally, our [third tutorial set](More_Examples/3_Object_Oriented_Example/) `3_Object_Oriented_Example` (also located in `More_Examples` demonstrates the ability of IR to strip away layers of abstraction such as classes and methods and express them at a low level.
+
+3. Finally, our [third tutorial set](More_Examples/3_Object_Oriented_Example/) `3_Object_Oriented_Example` (also located in `More_Examples` demonstrates the ability of IR to strip away layers of abstraction such as classes and methods and express them at a low level.
 
 ## Intermediate Representation - What is it?
 
-Any compilers goal, at the most basic level, is to take a program written in a _source_ language A (often a high-level language, such as C/C++ or Javascript) and translate it into a _target_ language B (often code which is executable by a computer, and completely non-readable for humans).
+Any compilers goal, at the most basic level, is to take a program written in a _source_ language A (often a high-level language, such as C/C++ or Javascript) and translate it into a _target_ language B (often code which is executable by a computer, and completely non-readable for humans). Thanks to the LLVM we can convert these non-readable part (.o file) into human readable .ll file.
 
-_Intermediate Representation_ (IR) is a representation compilers often use between the source and target languages. IR can be thought of as the internal data structure used by compilers or virtual machines to represent source code. There are many forms of IR - in fact, compilation can be thought of as a series of steps which translate from one form of IR to another. However, when we refer to "IR", in most contexts we refer to the ubiquitous LLVM IR, a standard form which nearly all compilers and languages have support for. It is part of the widely used [LLVM compiler toolchain](https://llvm.org/). 
+_Intermediate Representation_ (IR) is a representation compilers often use between the source and target languages. IR can be thought of as the internal data structure used by compilers or virtual machines to represent source code. There are many forms of IR - in fact, compilation can be thought of as a series of steps which translate from one form of IR to another. However, when we refer to "IR", in most contexts we refer to the ubiquitous LLVM IR, a standard form which nearly all compilers and languages have support for. It is part of the widely used [LLVM compiler toolchain](https://llvm.org/).
 
 The benefits of IR are that it:
+
 - Provides a standardized platform to bridge diverse targets and sources, and allows re-use in compiler machinery (by allowing mix-and-matching of front and back ends).
 - Allows for efficient code transformation, analysis, and optimization, regardless of the original language it was written in.
 - Captures high level programming constructs in low level expressions. These are human-readable while also giving a clear idea of how a machine would actually go about executing a code snippet.
@@ -42,8 +45,8 @@ This part of the analysis uses the previous step's syntax tree information to ga
 
 Before translating into the final target language, compilers will generate a low-level machine-like IR, such as LLVM IR. This IR is then used in several steps of synthesis, such as:
 
-+ Machine-Independent Code Optimization (IR representation)
-+ Code Generation (target-machine code)
-+ Machine-Dependent Code Optimization (target-machine code)
+- Machine-Independent Code Optimization (IR representation)
+- Code Generation (target-machine code)
+- Machine-Dependent Code Optimization (target-machine code)
 
 Our goal in Module 1 is to write programs in several different high-level languages and create equivalent LLVM IR representations, while providing insight into how these representations are reached.

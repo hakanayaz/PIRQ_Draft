@@ -22,7 +22,7 @@ If you want to build and Install Cargo from Source you can use [this link](https
 
 ## Compilation Phases of Rust
 
-Rust has several steps while passing through the compilation process, and a different pipeline than C/C++. Recently (in 2016), Rust changed the internal dynamics of its compiler pipeline. Previously, there was only a "high intermediate step" between Rust source and LLVM IR. Now, there are two more middle steps between Rust code and LLVM IR: Typed High-Level Intermediate Representation (THIR; previously High-Level Abstract IR or HAIR) and Middle Intermediate Representation (MIR). Now we will look through all these steps one by one. We will traverse the complete pipeline:
+Rust has several steps while passing through the compilation process, and a different pipeline than C/C++. Recently (in 2016), Rust changed the internal dynamics of its compiler pipeline. Previously, there was only a "high intermediate step" between Rust source and LLVM IR. Now, there are two more middle steps between Rust code and LLVM IR: Typed High-Level Intermediate Representation (THIR; previously High-Level Abstract IR or HIR) and Middle Intermediate Representation (MIR). Now we will look through all these steps one by one. We will traverse the complete pipeline:
 
 ``` terminal
                     (High Level)        (Middle)
