@@ -8,7 +8,7 @@ While the documentations and analysis may be informative, it can be tough to get
 
 ## Q# Setup
 
-Q# can be written and run in many ways. Choose the way which is most convenient for you, and follow the steps given [here](https://docs.microsoft.com/en-us/azure/quantum/install-command-line-qdk) to setup an environment. 
+Q# can be written and run in many ways. Choose the way which is most convenient for you, and follow the steps given [here](https://docs.microsoft.com/en-us/azure/quantum/install-command-line-qdk) to setup an environment.
 
 For our part, we will be using VS Code; if you'd like to follow along, all you have to do is download and install [.NET SDK 6.0](https://dotnet.microsoft.com/download) and install the Microsoft Quantum Development Kit from VS Code's Extensions tab.
 
@@ -37,7 +37,6 @@ As per [the Q# Compiler documentation](https://github.com/microsoft/qsharp-compi
 `<QirGeneration>true</QirGeneration>`
 
 Add it in between the opening and closing `PropertyGroup` tags. This setting, when we once again run a `dotnet run` command, generates the QIR of our program for us, [here](Bernstein-Vazirani_QIR.ll).
-
 
 ## OpenQASM 3 (W.I.P)
 

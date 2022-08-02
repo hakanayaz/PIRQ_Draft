@@ -69,29 +69,28 @@ From here, we take four different paths to generate MLIR and LLVM files:
 
 1. No optimization whatsoever. These files can be found in the [B_V_no_opt](B_V_no_opt) directory. For this path, we used the following commands, where the first two are in Qiskit and the third is in the qcor-mlir-tool CLI:
 
-+ `transpiled_qc0 = transpile(qc, backend, optimization_level = 0)`
-+ `qasm3.dump(transpiled_qc0, "bernstein_vazirani_no_opt.qasm)`
-+ `qcor-mlir-tool -emit=<value> bernstein_vazirani_no_opt.qasm`
-    + `value` can be either `llvm`, `mlir`, or `mlir-llvm`
+- `transpiled_qc0 = transpile(qc, backend, optimization_level = 0)`
+- `qasm3.dump(transpiled_qc0, "bernstein_vazirani_no_opt.qasm)`
+- `qcor-mlir-tool -emit=<value> bernstein_vazirani_no_opt.qasm`
+  - `value` can be either `llvm`, `mlir`, or `mlir-llvm`
 
-2. Maximum Qiskit optimization, found in [B_V_qiskit_opt3](B_V_qiskit_opt3). All optimization happened in the first step (transpilation):
+2.Maximum Qiskit optimization, found in [B_V_qiskit_opt3](B_V_qiskit_opt3). All optimization happened in the first step (transpilation):
 
-+ `transpiled_qc3 = transpile(qc, backend, optimization_level = 3)`
-+ `qasm3.dump(transpiled_qc3, "bernstein_vazirani_qiskit_opt.qasm)`
-+ `qcor-mlir-tool -emit=<value> bernstein_vazirani_qiskit_opt.qasm`
+- `transpiled_qc3 = transpile(qc, backend, optimization_level = 3)`
+- `qasm3.dump(transpiled_qc3, "bernstein_vazirani_qiskit_opt.qasm)`
+- `qcor-mlir-tool -emit=<value> bernstein_vazirani_qiskit_opt.qasm`
 
-3. Maximim qcor optimization, found in [B_V_qcor_opt3](B_V_qcor_opt3). All optimization happened in the last step (MLIR/LLVM Generation):
+3.Maximim qcor optimization, found in [B_V_qcor_opt3](B_V_qcor_opt3). All optimization happened in the last step (MLIR/LLVM Generation):
 
-+ `transpiled_qc0 = transpile(qc, backend, optimization_level = 0)`
-+ `qasm3.dump(transpiled_qc0, "bernstein_vazirani_qcor_opt.qasm)`
-+ `qcor-mlir-tool -O3 -q-optimize -emit=<value> bernstein_vazirani_qcor_opt.qasm`
+- `transpiled_qc0 = transpile(qc, backend, optimization_level = 0)`
+- `qasm3.dump(transpiled_qc0, "bernstein_vazirani_qcor_opt.qasm)`
+- `qcor-mlir-tool -O3 -q-optimize -emit=<value> bernstein_vazirani_qcor_opt.qasm`
 
-4. Maximum optimization from both tools, found in [B_V_both_opt3](B_V_both_opt3).
+4.Maximum optimization from both tools, found in [B_V_both_opt3](B_V_both_opt3).
 
-+ `transpiled_qc3 = transpile(qc, backend, optimization_level = 3)`
-+ `qasm3.dump(transpiled_qc3, "bernstein_vazirani_both_opt3.qasm)`
-+ `qcor-mlir-tool -O3 -q-optimize -emit=<value> bernstein_vazirani_both_opt3.qasm`
-
+- `transpiled_qc3 = transpile(qc, backend, optimization_level = 3)`
+- `qasm3.dump(transpiled_qc3, "bernstein_vazirani_both_opt3.qasm)`
+- `qcor-mlir-tool -O3 -q-optimize -emit=<value> bernstein_vazirani_both_opt3.qasm`
 
 Below, we will go over some of the main differences, looking at the MLIR and LLVM files. If you are interested in more fine details, or want to extend this analysis to the MLIR-LLVM files (marked as -ll.mlir), the files are attached for your personal investigation. Please try to build .ll files yourself and compare the results that we have.
 
@@ -110,7 +109,7 @@ Here are some basic stats about qcor and qiskit transpilers:
 
 (* The Local Vars are counted from only the `__internal_mlir` function and do not include constants)
 
-As can be seen from this baseline analysis, the qcor optimization process seems to cut down on raw size. However, even though the flag `-q-optimize` "Turns on MLIR-level quantum instruction optimizations", qcor does not seem to reduce CX gates or circuit depth at all. There 11 CX gates in the OpenQASM source, and there are still 11 in the MLIR. 
+As can be seen from this baseline analysis, the qcor optimization process seems to cut down on raw size. However, even though the flag `-q-optimize` "Turns on MLIR-level quantum instruction optimizations", qcor does not seem to reduce CX gates or circuit depth at all. There 11 CX gates in the OpenQASM source, and there are still 11 in the MLIR.
 
 Next, we'll look at some informative chunks of the raw MLIR file. First, the `main` and `Bernstein_Vazirani` global functions are basically identical, so we can omit them and focus purely on the generated `__internal_mlir` function.
 

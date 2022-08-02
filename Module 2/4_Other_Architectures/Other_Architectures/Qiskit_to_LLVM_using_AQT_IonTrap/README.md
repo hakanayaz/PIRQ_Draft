@@ -1,10 +1,12 @@
 # AQT IonTrap LLVM vs IBM Superconducting LLVM
-Here is our untranspiled Bernstein Vazirani circuit for a 3 bit hidden string s. 
-![alt text](Images/B-V_qiskit_untranspiled_qc.jpg) 
+
+Here is our untranspiled Bernstein Vazirani circuit for a 3 bit hidden string s.
+![alt text](Images/B-V_qiskit_untranspiled_qc.jpg)
 
 ## Qiskit to LLVM using IBM Superconducting Qubits
+
 1. **Transpilation Optimization_Level=3 with 20 Qubit, Simulated Boebligen Superconducting Backend.**
-![alt text](Images/B-V_transpiled_Superconducting_qc3.jpg) 
+![alt text](Images/B-V_transpiled_Superconducting_qc3.jpg)
 
 2. **Transpiled circuit to OpenQASM3.**
 
@@ -28,15 +30,14 @@ c[1] = measure $15;
 c[2] = measure $0;
 ```
 
-3. **OpenQASM3 to LLVM.**
+3.**OpenQASM3 to LLVM.**
 
-In QCOR execute, `qcor-mlir-tool  -emit=llvm  B-V_transpiled_Superconducting_qc3.qasm `
+In QCOR execute, `qcor-mlir-tool  -emit=llvm  B-V_transpiled_Superconducting_qc3.qasm`
 
-Note: You will need to modify your OpenQASM3 file first so that it is QCOR compatible. 
+Note: You will need to modify your OpenQASM3 file first so that it is QCOR compatible.
 
 1. The original OpenQASM file is located **[HERE](B-V_transpiled_Superconducting_qc3.qasm).**
 2. The QCOR compatible OpenQASM file is located **[HERE](IonTrap_and_Superconducting_llvm/QCOR_Compatible_B-V_transpiled_Superconducting_qc3.qasm).**
-
 
 ``` Python
 ; ModuleID = 'LLVMDialectModule'
@@ -153,22 +154,20 @@ define i32 @B-V_transpiled_Superconducting_qc3(%qreg* %0) {
 
 **(Optional) OpenQasm to MLIR**
 
-In QCOR execute, `qcor-mlir-tool  -emit=mlir  B-V_transpiled_Superconducting_qc3.qasm `
+In QCOR execute, `qcor-mlir-tool  -emit=mlir  B-V_transpiled_Superconducting_qc3.qasm`
 
 MLIR file is **[HERE](IonTrap_and_Superconducting_llvm/B-V_transpiled_Superconducting_qc3.mlir).**
 
 **(Optional) OpenQasm to LLVM-MLIR**
 
-In QCOR execute, `qcor-mlir-tool  -emit=llvm-mlir  B-V_transpiled_Superconducting_qc3.qasm `
+In QCOR execute, `qcor-mlir-tool  -emit=llvm-mlir  B-V_transpiled_Superconducting_qc3.qasm`
 
 LLVM-MLIR file is **[HERE](IonTrap_and_Superconducting_llvm/B-V_transpiled_Superconducting_qc3-ll.mlir).**
-
-
 
 ## Qiskit to LLVM using AQT IonTrap Qubits  
 
 1. **Transpilation Optimization_Level=3 with 11 Qubit, Noisy Ion Trap Simulated Backend.**
-![alt text](Images/B-V_transpiled_IonTrap_qc3.jpg) 
+![alt text](Images/B-V_transpiled_IonTrap_qc3.jpg)
 
 2. **Transpiled circuit to OpenQASM3.**
 
@@ -225,15 +224,14 @@ c[1] = measure q[1];
 c[2] = measure q[2];
 ```
 
-3. **OpenQASM3 to LLVM.**
+3.**OpenQASM3 to LLVM.**
 
-In QCOR execute, `qcor-mlir-tool  -emit=llvm  B-V_transpiled_IonTrap_qc3.qasm `
+In QCOR execute, `qcor-mlir-tool  -emit=llvm  B-V_transpiled_IonTrap_qc3.qasm`
 
-Note: You will need to modify your OpenQASM3 file first so that it is QCOR compatible. 
+Note: You will need to modify your OpenQASM3 file first so that it is QCOR compatible.
 
 1. The original OpenQASM file is located **[HERE](B-V_transpiled_IonTrap_qc3.qasm).**
 2. The QCOR compatible OpenQASM file is located **[HERE](IonTrap_and_Superconducting_llvm/QCOR_Compatible_B-V_transpiled_IonTrap_qc3.qasm).**
-
 
 ``` Python
 ; ModuleID = 'LLVMDialectModule'
@@ -443,16 +441,14 @@ define { double, %Qubit*, %Qubit* } @rxx_1693535959120(double %0, %Qubit* %1, %Q
 !24 = !DILocation(line: 19, column: 2, scope: !17)
 ```
 
-
 **(Optional) OpenQasm to MLIR**
 
-In QCOR execute, `qcor-mlir-tool  -emit=mlir  B-V_transpiled_IonTrap_qc3.qasm `
+In QCOR execute, `qcor-mlir-tool  -emit=mlir  B-V_transpiled_IonTrap_qc3.qasm`
 
 MLIR file is **[HERE](IonTrap_and_Superconducting_llvm/B-V_transpiled_IonTrap_qc3.mlir).**
 
 **(Optional) OpenQasm to LLVM-MLIR**
 
-In QCOR execute, `qcor-mlir-tool  -emit=llvm-mlir  B-V_transpiled_IonTrap_qc3.qasm `
+In QCOR execute, `qcor-mlir-tool  -emit=llvm-mlir  B-V_transpiled_IonTrap_qc3.qasm`
 
 LLVM-MLIR file is **[HERE](IonTrap_and_Superconducting_llvm/B-V_transpiled_IonTrap_qc3-ll.mlir).**
-
