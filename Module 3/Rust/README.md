@@ -8,8 +8,11 @@ Rust: Extend Rust with a library based extension which allows for split compilat
 2. Get the tokens for the quantum kernel you’ve written in rust. If it is openqasm3 then can pass to QCOR MLIR tool. This would give object code or QIR code.
 3. Compile phase redirects the function to not call what it was going to call, but instead call this quantum kernel function.
 
-These are two potential options to allow for split compilation of a hybrid Quantum-Classical algorithm written in Rust.
+![alt text](Images/Rust_Quantum_Classical_Compilation.png)
 
-1. **Option1_ANTLR**
-2. **Option2_RustPlugins**
+These are three potential options to allow for split compilation of a hybrid Quantum-Classical algorithm written in Rust.
+
+1. **Option1_RustPlugins** ( i.e. Rust Procedural Macros )
+2. **Option2_RustMacros**  ( i.e. Rust Declarative Macro )
+2. **Option3_ANTLR**
 

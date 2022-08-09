@@ -1,0 +1,27 @@
+[package]
+name = "quantum_kernel_macro"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+#openqasm = "0.1.2"
+
+
+# https://docs.rs/q1tsim/latest/q1tsim/
+#q1tsim = "0.3"   # Was going to use to create a quantum circuit in Rust, and then convert that Rust Quantum Circuit into OpenQASM using one of the functions. But Got this errors
+#error: unexpected string literal
+#   --> C:\Users\Danie\.cargo\registry\src\github.com-1ecc6299db9ec823\q1tsim-0.3.0\src\qustate.rs:121:13
+#    |
+#120 |         assert!(control.len() == self.nr_shots
+#    |                                               - help: try adding a comma
+#121 |             "The number of control bits does not match the number of runs");
+#    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#
+#error: could not compile `q1tsim` due to previous error
+
+
+
+# https://docs.rs/qip/latest/qip/
+#qip = "0.15.3"   # Did not use because the examples use a ? keyword which gives me errors.
