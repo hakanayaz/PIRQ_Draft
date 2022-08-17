@@ -3,7 +3,7 @@
 ## Prerequisites
 1) Must have docker installed on your local machine. May download [HERE](https://docs.docker.com/engine/install/)
 
-2) Must have a docker file containing both QCOR and Rust(i.e. so that the Rust build script can call QCOR). The Dockerfile is included in the build directory accomplishes this.  
+2) Must have a docker file containing both QCOR and Rust(i.e. so that the Rust build script can call QCOR). The Dockerfile included in the [Docker_build](../Docker_Build/) directory accomplishes this.  
 
 ## Quick Background
 All this code is stored on your local machine. However, this code needs to be mounted into the docker container so that it can see it. This way, the docker container (which has QCOR and Rust and any other build tools) can compile your code (the code calls into the tools). Whenever the container is stopped, all the code changes are still stored on your local machine.
@@ -41,6 +41,10 @@ All this code is stored on your local machine. However, this code needs to be mo
 
 4. Open a terminal in the web based visual studio code interface. Compile then run program with, `cargo run`
 
+5. At this point, your Rust build script has called the QCOR MLIR tool command to convert [OpenQASM3](src/QCOR_Compatible_B-V_transpiled_Superconducting_qc3.qasm)
+ code into [LLVM](src/B-V_transpiled_Superconducting_qc3.ll). Congrats!
+
+    **Note:** QCOR directs output LLVM to the stderr stream, not the stdout stream.
 
 
 ## Acknowledgements
