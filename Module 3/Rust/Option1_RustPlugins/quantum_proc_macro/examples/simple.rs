@@ -7,7 +7,8 @@ use quantum_proc_macro::{
 
 
 #[quantum_kernel]
-fn kernel2(param: i8) -> Result<i8, String> {
+fn kernel2(param: i8, theta: i32) -> Result<i8, String> {
+    
     "
     OPENQASM 3.0;
     include \"stdgates.inc\";
@@ -72,7 +73,7 @@ fn kernel2(param: i8) -> Result<i8, String> {
     // measure b[2] -> ans[2];
     // measure b[3] -> ans[3];
     // measure cout[0] -> ans[4];
-    // ;
+    
 }
 
 fn main() {

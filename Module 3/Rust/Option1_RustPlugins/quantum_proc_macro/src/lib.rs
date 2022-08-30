@@ -1,4 +1,3 @@
-#![allow(unused_doc_comments)]
 // use syn::{parse_macro_input, DeriveInput};
 // use std::process::{Command, Stdio};
 // use syn::token::Group;
@@ -12,15 +11,17 @@ use proc_macro::{
 };
 
 
-// pub struct QuantumError(String);
-// pub struct QuantumResult(Result<T, QuantumError>);
+// TODO: For STEP 4. Can do this after step 3 is done. 
+// pub struct QuantumError(String);                   // String is Runtime error. 
+// pub struct QuantumResult(Result<T, QuantumError>); // T is whatever datatype we expect to get back from quantum device.
+// trait ValidQuantumResult                           // Implement this trait for quantum devices that are allowed.
 
 
 struct ParsedQuantumKernel {
     function_name: syn::Ident,
-    params: proc_macro::TokenTree,
+    params: proc_macro::TokenTree,  // Depends on how syn parses the function. Syn will hae a function paameter list for  params.
 //     return_t: QuantumResult<i8> // When doing parsing, always enforce that this is a QuantumResult.
-    body: proc_macro::TokenTree    // OpenQASM3 code. 
+    body: proc_macro::TokenTree    // OpenQASM3 code.  // Should be whatever dataype the create reaturns back. https://crates.io/crates/openqasm
 }
 
 
@@ -63,7 +64,7 @@ pub fn quantum_kernel(_attr: TokenStream, item: TokenStream) -> TokenStream {
     println!("########################### TokenStream ############################\n{:?}", item);   
     
     ////////////////////////////////////////////////////////
-    /// EXTRACT the function name and parameters here
+    // EXTRACT the function name and parameters here
     ////////////////////////////////////////////////////////
     let   ident: proc_macro::TokenTree = item.clone().into_iter().skip(1).next().unwrap();
     let fn_name: syn::Ident            = syn::Ident::new(&ident.to_string(), ident.span().into());
@@ -72,13 +73,13 @@ pub fn quantum_kernel(_attr: TokenStream, item: TokenStream) -> TokenStream {
     // TODO: Need to extract parameters, and put them into a list. This should give a list of syn::Ident
     let parameters: proc_macro::TokenTree = ident2.clone(); 
 
-    //println!("_________________{}", ident2);
-    // println!("_________________{}", paramaters);
+    // println!("_________________{}", ident2);
+    println!("_________________{}", parameters);
 
     
     
     ////////////////////////////////////////////////////////
-    /// EXTRACT OPENQASM CODE HERE
+    // EXTRACT OPENQASM CODE HERE
     ////////////////////////////////////////////////////////
     let groups: Vec<TokenTree> = item.clone().into_iter()
     .filter(|part| if let TokenTree::Group(_x) = part { true } else { false })
@@ -102,7 +103,7 @@ pub fn quantum_kernel(_attr: TokenStream, item: TokenStream) -> TokenStream {
 
 
     ////////////////////////////////////////////////////////
-    /// INSERT QCOR CALL HERE
+    // INSERT QCOR CALL HERE
     ////////////////////////////////////////////////////////        
     let qcor_llvm:String = parsed_quantum_kernel.compile().unwrap();
     // //println!("{}", qcor_llvm);
@@ -110,7 +111,7 @@ pub fn quantum_kernel(_attr: TokenStream, item: TokenStream) -> TokenStream {
 
 
     ////////////////////////////////////////////////////////
-    /// RETURN NEW FUNCTION HERE
+    // RETURN NEW FUNCTION HERE
     ////////////////////////////////////////////////////////
     return quote!(
         fn #fn_name(param: i8) -> Result<i8, String> {
