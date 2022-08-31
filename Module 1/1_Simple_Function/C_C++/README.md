@@ -125,7 +125,7 @@ The AST results are pretty intuitive to understand. Each line of code represents
 
 The next step is generating the intermediate representation. As we've mentioned, an intermediate representation (IR) is the data structure or code used internally by a compiler or virtual machine to represent source code. Crucially, it is not specific to any particular machine and is independent of the source language. This step's primary goal is to create a human-readable file (.ll) in which our f.c program is captured in LLVM; through the rest of this set of tutorials, we will be generating similar .ll files for our function using different high-level languages as our starting points.
 
-For this, once again, we will use `clang`. Clang is the only option in front-end applications in C/C++.
+For this, once again, we will use `clang`.
 
 ``` C
  % clang -S -emit-llvm f.c -o f.ll
