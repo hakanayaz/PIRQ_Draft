@@ -7,7 +7,7 @@ use quantum_proc_macro::{
 
 
 #[quantum_kernel]
-fn kernel2(param: i8, theta: i32) -> Result<i8, String> {
+fn kernel2(theta1: i8, theta2: i32) -> Result<i8, String> {
     
     "
     OPENQASM 3.0;
@@ -30,7 +30,7 @@ fn kernel2(param: i8, theta: i32) -> Result<i8, String> {
     measure q[11] -> meas[0];
     measure q[15] -> meas[1];
     measure q[0] -> meas[2];
-    ";
+    "
     
 
     // OpenQasm Parser is limited to OpenQasm 2.0 so must use OpenQasm 2.0 Code. 
@@ -77,8 +77,13 @@ fn kernel2(param: i8, theta: i32) -> Result<i8, String> {
 }
 
 fn main() {
-    println!("Running kernel...");
-    println!("Got result: {:?}", kernel2(12));
+    // Quantum-Classical Hybrid Algorithm Implementation - QAOA
 
-    // println!("LLVM IR Raw code: {}", __kernel_llvm_ir);
+    // STEP: Quantum Kernel called in a for loop until Rust classical optimizer determines the optimal beta and gamma parameters for QAOA graph.
+    //      - TODO: Use Rust classical optimizer.
+    println!("Running kernel...");
+    let beta: i8 = 12;
+    let gamma: i32 = 1000;
+    println!("Got result: {:?}", kernel2(beta, gamma));
+
 }
