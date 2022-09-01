@@ -18,12 +18,10 @@ There are three components of the pyQIR whic are:
 
 ## pyqir-generator
 
-
-
 To install the package;
 
 ```terminal
 pip install pyqir-generator
 ```
 
-PyQIR-generator is a code automating translation process and can convert python code into QIR with using 
+PyQIR-generator is a code automating translation process and can convert python code into QIR with using
