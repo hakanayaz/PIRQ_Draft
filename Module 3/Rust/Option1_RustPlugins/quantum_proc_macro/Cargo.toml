@@ -12,3 +12,5 @@ proc-macro = true
 quote = "1.0.21"
 syn = "1.0.99"
 openqasm = "0.1.2"
+proc-macro-error = "1.0"
+tempfile = "3"
