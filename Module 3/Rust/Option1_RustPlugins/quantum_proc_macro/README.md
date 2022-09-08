@@ -3,7 +3,7 @@
 ## Prerequisites
 1) Must have docker installed on your local machine. May download [HERE](https://docs.docker.com/engine/install/)
 
-2) Must have a docker file containing both QCOR and Rust(i.e. so that the Rust build script can call QCOR). The Dockerfile included in the [Docker_build](../Docker_Build/) directory accomplishes this.  
+2) Must have a docker file containing both QCOR and Rust(i.e. so that the Rust build script can call QCOR). The Dockerfile included in the [Docker_Build](../Docker_Build/) directory accomplishes this.  
 
 ## Quick Background
 All this code is stored on your local machine. However, this code needs to be mounted into the docker container so that it can see it. This way, the docker container (which has QCOR and Rust and any other build tools) can compile your code (the code calls into the tools). Whenever the container is stopped, all the code changes are still stored on your local machine.
@@ -11,11 +11,12 @@ All this code is stored on your local machine. However, this code needs to be mo
 ## Running
 1. Open a terminal on your local machine. Does not matter which directory you are in. Run the following command to open a web based Visual Studio Code on your web browser:
 
-    `docker run -it --rm -p 8080:8080 -v  LOCAL_PATH_HERE:/code    pirq/buildenv    /bin/bash`
+    `docker run -it --rm -p 8080:8080 -v  LOCAL_PATH_HERE:/code    pirq/buildenv`
+    
 
     Replace LOCAL_PATH_HERE with the absoulte path to where the `warmup_rust_build_script` folder is on your local machine. For example, it may look like:
 
-    `docker run -it --rm -p 8080:8080 -v  "C:\Users\Danie\Documents\New\PIRQ_Draft\Module 3\Rust\Option1_RustPlugins\warmup_rust_build_script":/code    pirq/buildenv    /bin/bash`
+    `docker run -it --rm -p 8080:8080  -v    "C:\Users\Danie\Documents\New\PIRQ_Draft\Module 3\Rust\Option1_RustPlugins\quantum_proc_macro":/code    pirq/buildenv`
 
     Notice the `""` around my absolute path. This is necessary because there is a space, at `Module 3`
 
@@ -37,14 +38,9 @@ All this code is stored on your local machine. However, this code needs to be mo
     Open up the folder `/code` by clicking OK.
     ![alt text](Images/VSCode_Web_Interface2.png)
 
-    You should now be able to see the files in `warmup_rust_build_script`
+    You should now be able to see the files in `quantum_proc_macro`
 
-4. Open a terminal in the web based visual studio code interface. **Our rust version is not up to date so do the following only once:** 
-    1. `sudo apk del rust cargo`
-    2. `sudo apk add rustup`
-    3. `rustup-init`
-    4. `cargo build`
-5. On the same terminal compile then run program with `cargo run --example simple`
+4. On the same terminal compile then run program with `cargo run --example simple`
 
 5. **Expected Output In Progress . . .**
 
@@ -57,6 +53,11 @@ All this code is stored on your local machine. However, this code needs to be mo
 
     b. [Article of Rust Plugins](https://nullderef.com/blog/plugin-start/) 
 
+4. Rust Crates Used:
+
+    a. [syn crate ( Used to parse through rust procedural macro ( i.e. quantum kernel ) and extract the macro name, macro parameters, and macro body ( i.e. openqasm code )  )](https://crates.io/crates/syn)
+
+    b. [openqasm-rs ( Used to verify the openqasm code is syntactically valid before feeding openqasm to qcor )](https://crates.io/crates/openqasm)
 
 ## Acknowledgements
 Nicholas Cioli of Zapata Computing

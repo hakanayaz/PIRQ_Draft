@@ -1,8 +1,7 @@
 FROM qcor/qcor:latest
 
 # Add rust dependencies
-USER root
-RUN apk --no-cache add rust cargo
-USER 1000
+RUN sudo apk --no-cache add rustup && (yes 1 | rustup-init)
+RUN echo "source $HOME/.cargo/env" >> "$HOME/.bashrc"
 
-CMD /bin/ash
+CMD ["/bin/bash"]
