@@ -127,63 +127,23 @@ impl ParsedQuantumKernel {
             shaved_openqasm.pop();
             shaved_openqasm.pop();
             shaved_openqasm = shaved_openqasm.replace("\n", "");
-            shaved_openqasm = shaved_openqasm.replace("\"", "\\\"");
+            // shaved_openqasm = shaved_openqasm.replace("\"", "\\\"");
             println!("########################## Shaved OpenQasm Body ############################\n{}", shaved_openqasm);  
         }
         
 
 
+        // Write openqasm code to file.
+        let openqasm_file_name = format!("{}", "QCOR_Compatible_B-V_transpiled_Superconducting_qc3.qasm");
+        let mut write_file = std::fs::File::create(openqasm_file_name).expect("ERROR: Could not create qasm file.");
+        write_file.write_all(shaved_openqasm.as_bytes().clone());       
 
 
-
-
-
-
-
-
-
-        println!("/********************************************************************/");
-        println!("Writing to temp file . . .");
-        let mut temp_file: NamedTempFile = NamedTempFile::new().unwrap();
-        let mut write_buffer = "Hello World!";
-        let bytes_written:usize = temp_file.write(&mut write_buffer.as_bytes()).unwrap();
-        println!("Bytes Written: {:?}", bytes_written);
-
-        
-
-        println!("\nReading from temp file:");        
-        let mut read_buffer = String::new();
-        let bytes_read:usize = temp_file.read_to_string(&mut read_buffer).unwrap();
-        println!("Bytes Read: {:?}", bytes_read);
-        // println!("--->{}<---", read_buffer);
-        
-
-
-        println!("\nClosing temp file . . .");
-        temp_file.close();
-
-        // // let temp_file_path = temp_file.path();
-        // // println!("----->{:?}<-----", temp_file_path);
-        println!("/********************************************************************/");
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-        
+        // Call QCOR Command using the qasm file as input.
         let output = std::process::Command::new("qcor-mlir-tool")
-        .args(&["-emit=llvm", shaved_openqasm.as_str()])
+        // .args(&["-emit=llvm", shaved_openqasm.as_str()])
         // .args(&["-emit=llvm", self.body.deref().stmts.get(0).unwrap().to_token_stream().to_string().as_str()])
-        // .args(&["-emit=llvm", "QCOR_Compatible_B-V_transpiled_Superconducting_qc3.qasm"])
+        .args(&["-emit=llvm", "QCOR_Compatible_B-V_transpiled_Superconducting_qc3.qasm"])
         .stderr(std::process::Stdio::piped())     // Configuration for the child process’s standard output (stdout) handle.
         .output()                                 // Executes the command as a child process, waiting for it to finish and collecting all of its output.
         .expect("ERROR: Cannot run command.");    // Almost the same as unwrap(). However, can set a customized message for the panics.
