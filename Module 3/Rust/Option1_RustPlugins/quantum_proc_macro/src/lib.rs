@@ -145,28 +145,25 @@ impl ParsedQuantumKernel {
         println!("/********************************************************************/");
         println!("Writing to temp file . . .");
         let mut temp_file: NamedTempFile = NamedTempFile::new().unwrap();
-        let mut buffer0 = "Hello World!";
-        let bytes_written:usize = temp_file.write(&mut buffer0.as_bytes()).unwrap();
-        println!("{}", bytes_written);
-        // temp_file.write_all("Hello World!".as_bytes());
-        // writeln!(temp_file, "Hello World!");
-        // temp_file.write(b"some bytes");
-        // temp_file.seek(SeekFrom::Start(0)).unwrap();
+        let mut write_buffer = "Hello World!";
+        let bytes_written:usize = temp_file.write(&mut write_buffer.as_bytes()).unwrap();
+        println!("Bytes Written: {:?}", bytes_written);
+
+        
+
+        println!("\nReading from temp file:");        
+        let mut read_buffer = String::new();
+        let bytes_read:usize = temp_file.read_to_string(&mut read_buffer).unwrap();
+        println!("Bytes Read: {:?}", bytes_read);
+        // println!("--->{}<---", read_buffer);
+        
 
 
-        println!("Reading from temp file:\n");
-        // let mut buffer = String::new();
-        // let mut buffer = [0; 11];
-        // temp_file.read_exact(&mut buffer).unwrap();
-        // assert_eq!("Hello World!", String::from_utf8(buffer.to_vec()).unwrap());
-        // println!("{:?}", buffer);
-
-
-        println!("Closing temp file . . .");
+        println!("\nClosing temp file . . .");
         temp_file.close();
 
-        // let temp_file_path = temp_file.path();
-        // println!("----->{:?}<-----", temp_file_path);
+        // // let temp_file_path = temp_file.path();
+        // // println!("----->{:?}<-----", temp_file_path);
         println!("/********************************************************************/");
 
         
