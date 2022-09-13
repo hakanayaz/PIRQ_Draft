@@ -14,3 +14,6 @@ syn = "1.0.99"
 openqasm = "0.1.2"
 proc-macro-error = "1.0"
 tempfile = "3"
+
+#Requires nightly rust compiler
+#compiler_builtins = { git = "https://github.com/rust-lang/compiler-builtins" }

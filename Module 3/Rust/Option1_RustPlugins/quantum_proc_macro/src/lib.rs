@@ -3,6 +3,9 @@
 //      1) Custom Parsing of OpenQasm code. 
 //      2) Have rust compiler ignore the openqasm error.
 //      3) Figure out how to have theta variable values change in openqasm code at simple.rs
+
+
+//      1) Have QCOR not define main or rename main function in llvm file.
 ////////////////////////////////////////
 
 
@@ -16,7 +19,7 @@ use proc_macro::{
 };
 
 // Needed for custom parsing of procedueal macro.
-use syn::{parse_macro_input, FnArg};
+use syn::{parse_macro_input, FnArg, Ident};
 use syn::parse::{Parse, ParseStream};
 use syn::token::Comma;
 // use syn::punctuated::Punctuated;
@@ -31,6 +34,8 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::io::{Write};
 use tempfile::NamedTempFile;
+
+
 
 
 // TODO: For STEP 4. Can do this after step 3 is done. 
@@ -132,30 +137,41 @@ impl ParsedQuantumKernel {
         }
         
 
-
         // Write openqasm code to file.
         let openqasm_file_name = format!("{}", "QCOR_Compatible_B-V_transpiled_Superconducting_qc3.qasm");
         let mut write_file = std::fs::File::create(openqasm_file_name).expect("ERROR: Could not create qasm file.");
         write_file.write_all(shaved_openqasm.as_bytes().clone());       
 
+        
+        // TODO: Goal QCOR spit out byte code ll.
+        let byte_code = "Result.ll";
+        let result_ll: std::fs::File = std::fs::File::create(byte_code).unwrap();
+        
 
         // Call QCOR Command using the qasm file as input.
         let output = std::process::Command::new("qcor-mlir-tool")
         // .args(&["-emit=llvm", shaved_openqasm.as_str()])
         // .args(&["-emit=llvm", self.body.deref().stmts.get(0).unwrap().to_token_stream().to_string().as_str()])
         .args(&["-emit=llvm", "QCOR_Compatible_B-V_transpiled_Superconducting_qc3.qasm"])
-        .stderr(std::process::Stdio::piped())     // Configuration for the child process’s standard output (stdout) handle.
+        // .stderr(std::process::Stdio::piped())     // Configuration for the child process’s standard output (stdout) handle.
+        .stderr(result_ll)     // Configuration for the child process’s standard output (stdout) handle.
         .output()                                 // Executes the command as a child process, waiting for it to finish and collecting all of its output.
         .expect("ERROR: Cannot run command.");    // Almost the same as unwrap(). However, can set a customized message for the panics.
         
-        // TODO: Delete temp file.
 
-         let output_successful = output.status.success();
+        let output_successful = output.status.success();
+                
         
         let _qcor_llvm: Result<String, String> = match output_successful {
                                                     true => {
                                                         // Convert stderr output stream into string.
-                                                        return Ok(String::from_utf8(output.stderr).unwrap());
+                                                        let return_llvm = String::from_utf8(output.stderr).unwrap();
+
+                                                        // Manually assemble
+                                                        
+
+
+                                                        return Ok(return_llvm);
                                                     },
                                                     false => {
                                                         // TODO: Exit program;
@@ -206,14 +222,16 @@ pub fn quantum_kernel(_attr: TokenStream, item: TokenStream) -> TokenStream {
     let  params: syn::punctuated::Punctuated<FnArg, Comma> = parsed_quantum_kernel.params.clone();
     
     // let first_param: syn::Ident = Ident::new("theta1_not_from_token_stream_of_quantum_kernel", Span::call_site());
-    // let typed_struct = params.iter().next().unwrap();
-    // if let syn::FnArg::Typed(pat_type) = typed_struct {
-    //     let ident_struct = pat_type.pat.deref();
-    //     if let syn::Pat::Ident(pat_ident) = ident_struct {
-    //         first_param = pat_ident.ident.clone();
-    //         // println!("&&&&&&&&&&&&&{}&&&&&&&&&&&&7", pat_ident.ident.to_token_stream());
-    //     }
-    // }
+    let typed_struct = params.iter().next().unwrap();
+    if let syn::FnArg::Typed(pat_type) = typed_struct {
+        let ident_struct = pat_type.pat.deref();
+        if let syn::Pat::Ident(pat_ident) = ident_struct {
+            // first_param = pat_ident.ident.clone();
+            println!("Printing value of first parameter: --->{}<---", pat_ident.ident.to_string());
+            // quote!(println!("HHHHHHHHHHHHH{}HHHHHHHHHHHHHHHH", #pat_ident.ident));
+        }
+    }
+    // Does not work unless first_param is initialized to a syn::Ident object. For scope reasons.
     // println!("!!!!!!!!!!!!!!!!!!!!!!!{}", first_param);
 
     // let _second_param: syn::Ident;
@@ -235,6 +253,7 @@ pub fn quantum_kernel(_attr: TokenStream, item: TokenStream) -> TokenStream {
     return quote!(
         fn #fn_name(theta1: i8, theta2: i32) -> Result<i8, String> {
             const __kernel_llvm_ir: &'static str = #qcor_llvm;
+
             // Not sure what goes here, but something like...
             // let result = OPENQASM_CALL_IR(_kernel_llvm_ir);
 
