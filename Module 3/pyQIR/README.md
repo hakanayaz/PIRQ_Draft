@@ -24,4 +24,5 @@ To install the package;
 pip install pyqir-generator
 ```
 
-PyQIR-generator is a code automating translation process and can convert python code into QIR with using
+PyQIR-generator is a code automating translation process and can convert python code into QIR with using.
+
