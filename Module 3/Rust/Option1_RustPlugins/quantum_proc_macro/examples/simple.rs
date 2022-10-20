@@ -1,13 +1,14 @@
 use quantum_proc_macro::{
     quantum_kernel,
-
-    // QuantumResult,
+    // QuantumResult, will enter here using procedural macros
 };
 
 
 
 #[quantum_kernel]
 #[proc_macro_error::proc_macro_error]
+// We define two parameter becuase we want to crete QAOA
+// type algorithm (Maybe we can increase the parameter becuase of the classical algritm optimization)
 fn kernel2(theta1: i8, theta2: i32) -> Result<i8, String> {
     emit_error!(
     OPENQASM 3.0;
@@ -101,7 +102,6 @@ fn kernel2(theta1: i8, theta2: i32) -> Result<i8, String> {
 
 fn main() {
     // Quantum-Classical Hybrid Algorithm Implementation - QAOA
-
     // STEP: Quantum Kernel called in a for loop until Rust classical optimizer determines the optimal beta and gamma parameters for QAOA graph.
     //      - TODO: Use Rust classical optimizer.
     println!("Running kernel...");

@@ -57,10 +57,11 @@ impl Parse for ParsedQuantumKernel {
     /**************************************************************************
      *       Purpose: Parses through entire quantum kernel function. 
      *                Returns an instantiated ParsedQuantumKernel object containing
-     *                the quantum kernel function name, quantum kernel parameters,
+     *                the cquantum kernel function name, quantum kernel parameters,
      *                and openqasm code in the body of the quantum kernel rust procedural macro. 
      *  Precondition: Pending . . . 
-     * Postcondition: If input Parsestream is not empty, return Ok(ParsedQuantumKernel). If Parsestream is empty return Err(syn::Error). 
+     * Postcondition: If input Parsestream is not empty, return Ok(ParsedQuantumKernel). 
+                      If Parsestream is empty return Err(syn::Error). 
      *          TODO: More error checking when unwrapping. 
     ***************************************************************************/
     {
@@ -155,7 +156,8 @@ impl ParsedQuantumKernel {
         .args(&["-emit=llvm", "QCOR_Compatible_B-V_transpiled_Superconducting_qc3.qasm"])
         // .stderr(std::process::Stdio::piped())     // Configuration for the child process’s standard output (stdout) handle.
         .stderr(result_ll)     // Configuration for the child process’s standard output (stdout) handle.
-        .output()                                 // Executes the command as a child process, waiting for it to finish and collecting all of its output.
+        .output()                                 // Executes the command as a child process, waiting for it to finish and collecting 
+                                                  // all of its output.
         .expect("ERROR: Cannot run command.");    // Almost the same as unwrap(). However, can set a customized message for the panics.
         
 
@@ -248,13 +250,13 @@ pub fn quantum_kernel(_attr: TokenStream, item: TokenStream) -> TokenStream {
 
 
     ////////////////////////////////////////////////////////
-    // RETURN NEW FUNCTION HERE
+    // RETURN NEW FUNCTION HERE (According to the problem  that we have...)
     ////////////////////////////////////////////////////////
     return quote!(
         fn #fn_name(theta1: i8, theta2: i32) -> Result<i8, String> {
             const __kernel_llvm_ir: &'static str = #qcor_llvm;
 
-            // Not sure what goes here, but something like...
+            // Classical optimization algorithm kernel will implement
             // let result = OPENQASM_CALL_IR(_kernel_llvm_ir);
 
             Err(String::from(__kernel_llvm_ir))
